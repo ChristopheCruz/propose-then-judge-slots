@@ -23,7 +23,7 @@ PREP="$HOME/site-staging/mypage.github.io"
 if grep -rlq 'XXXX.XXXXX' site/src docs/hf docs/github; then
   echo "ATTENTION : identifiant arXiv encore en attente (XXXX.XXXXX) dans :"; grep -rl 'XXXX.XXXXX' site/src docs/hf docs/github
 fi
-curl -s -o /dev/null -f --max-time 20 https://hal.science/hal-05850913 || echo "ATTENTION : la notice HAL hal-05850913 n'est pas encore en ligne
+curl -s -o /dev/null -f --max-time 20 https://hal.science/hal-05850913 || echo "ATTENTION : la notice HAL hal-05850913 n'est pas encore en ligne"
 for d in propose-then-judge-slots; do
   v=$(gh repo view "ChristopheCruz/$d" --json visibility -q .visibility)
   [[ $v == PUBLIC ]] || echo "ATTENTION : le dépôt $d est encore $v (les liens du site seront cassés)"
