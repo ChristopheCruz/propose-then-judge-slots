@@ -1,0 +1,24 @@
+# Modèle publié sur Hugging Face (docs/modele_hf.md) : recette C3 v2 sur un mélange multi-jeux et multilingue.
+#
+#   make entrainer-hf SEED=13 GPUS=0   ->  checkpoints/hf/multi-s13
+#
+# MultiATIS++ est exclu (licence LDC). Plafonds par (jeu, langue) pour que l'anglais, MASSIVE et les
+# dialogues longs ne dominent pas. Locales MASSIVE tenues à l'écart pour la généralisation : sw, cy, is, km, am.
+# Le checkpoint est choisi sur un dev multilingue qui contient les listes oracle ET les listes réelles.
+inherit: [c3v2.yaml]
+name: train-HF-multi
+condition: C3v2
+
+data:
+  dataset: mtop                       # sans effet en mode mélange (chaque entrée fixe son jeu)
+  lang: en
+
+train:
+  dev_candidates: both
+  reels_config: configs/candidats/reels.yaml
+  mix:
+    - {dataset: mtop, lang: "*", max_train: 8000, dev_limit: 150}
+    - {dataset: multi3woz, lang: "*", max_train: 8000, dev_limit: 150,
+       requests: {intent: domain, filled: state_before}}
+    - {dataset: massive, lang: "*", exclude: [sw, cy, is, km, am], max_train: 1500, dev_limit: 40}
+    - {dataset: sgd, lang: en, max_train: 15000, dev_limit: 300, requests: {filled: state_before}}

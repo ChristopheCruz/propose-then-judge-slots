@@ -155,3 +155,23 @@ def test_laya_judge_model_path_validation():
     assert LayaJudge(model_path="/x").name == "laya-single-multilingual-ft"
     with pytest.raises(ValueError, match="model_path"):
         LayaJudge(model_path="/x", checkpoint="lang")
+
+
+def test_prepare_mix_caps_expands_and_builds_both_dev_kinds(data_root, tmp_path):
+    import shutil
+    shutil.copytree(data_root / "multiatis" / "en", data_root / "multiatis" / "fr")
+    reels = tmp_path / "reels.yaml"
+    reels.write_text("candidates:\n  generators:\n    - class: laya_slots.candidates.lexicon.LexiconGenerator\n"
+                     "      params: {}\n  fit: true\n  max_candidates: 20\n", encoding="utf-8")
+    cfg = _cfg(data_root, dev_candidates="both", reels_config=str(reels), unexpressed_ratio=1.0, mix=[
+        {"dataset": "multiatis", "lang": "*", "exclude": ["fr"], "max_train": 10, "dev_limit": 6},
+        {"dataset": "multiatis", "lang": "fr", "max_train": 5, "dev": False},
+    ])
+    assert [(e["dataset"], e["lang"]) for e in T.mix_entries(cfg)] == [("multiatis", "en"), ("multiatis", "fr")]
+    tr, dv, stats = T.prepare(cfg)
+    by = stats["train"]["by_entry"]
+    assert by["multiatis-en"]["train"]["examples"] == 10 and by["multiatis-fr"]["train"]["examples"] == 5
+    assert set(by["multiatis-en"]) == {"train", "dev_oracle", "dev_reels"} and set(by["multiatis-fr"]) == {"train"}
+    assert by["multiatis-en"]["dev_oracle"]["examples"] == 6 and len(tr) == stats["train"]["items"] and dv
+    a, _, _ = T.prepare(cfg)                                  # tirage déterministe (graine)
+    assert [it.meta["example_id"] for it in a] == [it.meta["example_id"] for it in tr]

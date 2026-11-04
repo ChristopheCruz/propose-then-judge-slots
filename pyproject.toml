@@ -21,6 +21,9 @@ data = ["datasets>=2.20"]
 
 [dependency-groups]
 dev = ["pytest>=8.0", "ruff>=0.6"]
+rapport = [
+    "matplotlib>=3.8",
+]
 
 [build-system]
 requires = ["hatchling"]

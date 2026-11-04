@@ -31,6 +31,9 @@ preferred-citation:
       given-names: Hocine
       orcid: "https://orcid.org/0000-0001-9124-4921"
   journal: "HAL preprint"
-  url: "https://hal.science/hal-05850913"
   year: 2026
-  notes: "HAL identifier hal-05850913"
+  url: "https://hal.science/hal-05850913"
+  identifiers:
+    - type: other
+      value: "hal-05850913"
+      description: "HAL identifier"

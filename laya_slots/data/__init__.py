@@ -1,4 +1,4 @@
-"""Chargeurs des jeux (MultiATIS++, MTOP, Multi3WOZ) vers le format unifié de `laya_slots.schema`.
+"""Chargeurs des jeux (MultiATIS++, MTOP, Multi3WOZ, MASSIVE, SGD) vers le format unifié de `laya_slots.schema`.
 
 Usage :
     loader = get_loader("mtop")                 # données brutes sous data/raw/mtop/
@@ -13,14 +13,18 @@ from __future__ import annotations
 from pathlib import Path
 
 from ..interfaces import DatasetLoader
+from .massive import MassiveLoader
 from .mtop import MtopLoader
 from .multi3woz import Multi3WozLoader
 from .multiatis import MultiAtisLoader
+from .sgd import SgdLoader
 
 LOADERS: dict[str, type[DatasetLoader]] = {
     "multiatis": MultiAtisLoader,
     "mtop": MtopLoader,
     "multi3woz": Multi3WozLoader,
+    "massive": MassiveLoader,
+    "sgd": SgdLoader,
 }
 
 
@@ -32,4 +36,4 @@ def get_loader(name: str, raw_dir: str | Path | None = None) -> DatasetLoader:
     return cls(raw_dir=raw_dir)
 
 
-__all__ = ["LOADERS", "MtopLoader", "Multi3WozLoader", "MultiAtisLoader", "get_loader"]
+__all__ = ["LOADERS", "MassiveLoader", "MtopLoader", "Multi3WozLoader", "MultiAtisLoader", "SgdLoader", "get_loader"]

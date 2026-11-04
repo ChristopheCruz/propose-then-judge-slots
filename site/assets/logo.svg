@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="240" viewBox="0 0 900 240" role="img" aria-labelledby="t d">
+  <title id="t">Propose, then judge</title>
+  <desc id="d">An utterance yields candidate values; a small judge picks one or abstains, then acts, ignores or asks.</desc>
+  <style>
+    .bg   { fill: #ffffff; }
+    .ink  { fill: #1f2328; }
+    .mute { fill: #59636e; }
+    .line { stroke: #8c959f; }
+    .card { fill: #f6f8fa; stroke: #d1d9e0; }
+    .chip { fill: #ddf4ff; stroke: #54aeff; }
+    .chipt{ fill: #0969da; }
+    .none { fill: #ffffff; stroke: #8c959f; }
+    .pick { fill: #dafbe1; stroke: #2da44e; }
+    .pickt{ fill: #1a7f37; }
+    .judge{ fill: #8250df; }
+    .act  { fill: #1a7f37; } .ign { fill: #59636e; } .ask { fill: #9a6700; }
+    @media (prefers-color-scheme: dark) {
+      .bg   { fill: #0d1117; }
+      .ink  { fill: #f0f6fc; }
+      .mute { fill: #9198a1; }
+      .line { stroke: #656c76; }
+      .card { fill: #151b23; stroke: #3d444d; }
+      .chip { fill: #0c2d6b; stroke: #1f6feb; }
+      .chipt{ fill: #79c0ff; }
+      .none { fill: #0d1117; stroke: #656c76; }
+      .pick { fill: #0f3d1f; stroke: #2ea043; }
+      .pickt{ fill: #56d364; }
+      .judge{ fill: #a371f7; }
+      .act  { fill: #56d364; } .ign { fill: #9198a1; } .ask { fill: #d29922; }
+    }
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="mute"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="900" height="240" rx="16"/>
+
+  <!-- title -->
+  <text x="40" y="58" class="ink" font-size="34" font-weight="700">Propose, <tspan class="judge">then judge</tspan></text>
+  <text x="40" y="86" class="mute" font-size="15">a small calibrated decision model versus LLM judges for multilingual slot filling</text>
+
+  <!-- 1. utterance -->
+  <rect class="card" x="40" y="118" width="230" height="78" rx="12" stroke-width="1.5"/>
+  <text x="56" y="142" class="mute" font-size="12" font-weight="600" letter-spacing="1">USER</text>
+  <text x="56" y="168" class="ink" font-size="15">“a flight from <tspan font-weight="700">Lyon</tspan></text>
+  <text x="56" y="187" class="ink" font-size="15">to <tspan font-weight="700">Paris</tspan> on Thursday”</text>
+
+  <!-- arrow: propose -->
+  <line class="line" x1="278" y1="157" x2="336" y2="157" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="307" y="146" class="mute" font-size="12" text-anchor="middle">propose</text>
+
+  <!-- 2. candidates for slot "from city" -->
+  <text x="346" y="116" class="mute" font-size="12" font-weight="600" letter-spacing="1">FROM CITY?</text>
+  <rect class="pick" x="346" y="124" width="150" height="26" rx="13" stroke-width="1.5"/>
+  <text x="362" y="142" class="pickt mono" font-size="14" font-weight="700">A  Lyon</text>
+  <rect class="chip" x="346" y="156" width="150" height="26" rx="13" stroke-width="1.5"/>
+  <text x="362" y="174" class="chipt mono" font-size="14">B  Paris</text>
+  <rect class="none" x="346" y="188" width="150" height="26" rx="13" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="362" y="206" class="mute mono" font-size="14">∅  not specified</text>
+
+  <!-- arrow: judge -->
+  <line class="line" x1="504" y1="157" x2="562" y2="157" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="533" y="146" class="mute" font-size="12" text-anchor="middle">judge</text>
+
+  <!-- 3. judge: one forward pass, calibrated probability -->
+  <circle class="judge" cx="604" cy="157" r="34"/>
+  <path d="M588,158 l11,11 l21,-24" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="604" y="214" class="ink mono" font-size="13" text-anchor="middle">p = 0.97</text>
+
+  <!-- 4. three-zone decision -->
+  <line class="line" x1="646" y1="157" x2="690" y2="157" stroke-width="2" marker-end="url(#arrow)"/>
+  <circle class="act" cx="708" cy="128" r="6"/><text x="722" y="133" class="ink" font-size="15"><tspan font-weight="700">act</tspan>  <tspan class="mute" font-size="13">fill the slot</tspan></text>
+  <circle class="ign" cx="708" cy="157" r="6"/><text x="722" y="162" class="ink" font-size="15"><tspan font-weight="700">ignore</tspan>  <tspan class="mute" font-size="13">leave it empty</tspan></text>
+  <circle class="ask" cx="708" cy="186" r="6"/><text x="722" y="191" class="ink" font-size="15"><tspan font-weight="700">ask</tspan>  <tspan class="mute" font-size="13">defer to the user</tspan></text>
+</svg>

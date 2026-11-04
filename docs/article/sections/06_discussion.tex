@@ -16,8 +16,6 @@ The decomposition of \cref{sec:formulation} separates three failure modes that a
 
 \paragraph{Judge or tagger?} The sequence tagger (\cref{sec:rq2-tagger}) sets the limit of our claims. When values are literal spans of the utterance, as on MultiATIS++ and MTOP, a tagger trained on the same data is more accurate than the pipeline with generic proposers, and cheaper per utterance. The proposer--judge architecture pays off when values are \emph{not} literal spans: references to the dialogue history, values of the context, and canonical values that differ from the words of the user, which are frequent in French Multi3WOZ. The two are complementary rather than competing: the tagger is a strong proposer, and the judge adds what the tagger lacks, namely the choice among sources, abstention and a calibrated confidence for deciding whether to act.
 
-\todo{Manual error analysis of 200 test cases per dataset and language, classified by the authors: boundary errors, inter-slot confusions, implicit values, annotation errors, history references; include a few short examples (MultiATIS++ excerpts within the limits of the LDC licence).}
-
 \subsection{Cost}
 \label{sec:cost}
 
@@ -62,4 +60,4 @@ The experiments cover three kinds of applications: air-travel information (Multi
 
 \paragraph{Contamination} The benchmarks are public and may be part of the LLMs' training data. Contamination would favour the LLMs, so it cannot explain their lower scores; it could however mask an even larger gap. We have no unseen-domain control.
 
-\paragraph{Statistical validity} Training seeds are few (three to five) and LLM judges currently use one seed; intervals reflect test-sample variability, and seed variability is reported separately. The Holm correction is applied within families of comparisons, not across the whole paper.
+\paragraph{Statistical validity} Training seeds are few (three to five); the LLM judges decode greedily, so their three runs per cell differ only through the seed of the candidate lists. Paired tests compare seed-13 runs: intervals and $p$-values reflect test-sample variability, and seed variability is reported separately. The Holm correction is applied within families of comparisons, not across the whole paper.

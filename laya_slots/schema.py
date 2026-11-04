@@ -10,7 +10,7 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Iterable, Iterator, Literal
 
-Dataset = Literal["multiatis", "mtop", "multi3woz"]
+Dataset = Literal["multiatis", "mtop", "multi3woz", "massive", "sgd"]
 Split = Literal["train", "dev", "test"]
 Speaker = Literal["user", "system"]
 

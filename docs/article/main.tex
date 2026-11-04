@@ -60,6 +60,13 @@
       \todo{figure \texttt{#1.tex} not generated yet: run
       \texttt{python -m experiments.figures --split test --out docs/article/figures}; #2}}}}}
 
+%% Total of pages in the footer ("Page x of N"): cas-common.sty writes \thepage at \end{document} BEFORE the
+%% pending floats are flushed, so N was too small (28 for 30 pages). We flush them first and write the real last
+%% page; this later \csxdef overrides the class's one when the .aux is read. Compile twice.
+\makeatletter
+\AtEndDocument{\clearpage\immediate\write\@auxout{\string\csxdef{lastpage}{\the\numexpr\value{page}-1\relax}}}
+\makeatother
+
 \begin{document}
 \let\WriteBookmarks\relax
 \def\floatpagepagefraction{1}
@@ -98,7 +105,7 @@
 
 \begin{abstract}
 % Word count (macros stripped, checked by script): see NOTES.md. Limit: 350.
-Large language models are increasingly used as judges that pick one answer among options, but they are costly and their confidence rarely tells when a system may act on its own. We study this question in a hybrid architecture for task-oriented dialogue: inexpensive extractors propose candidate values for each slot, and a judge either selects one candidate or abstains. We compare Laya, a compact non-autoregressive decision model with fewer than half a billion parameters, used zero-shot and fine-tuned with a strictly proper scoring rule, against three open-weight large language model judges of 27 to 180 billion parameters on the same options, and against a fine-tuned sequence tagger. We cover three public benchmarks (MultiATIS++, MTOP and Multi3WOZ), English and French, single- and multi-turn inputs, and oracle and real candidate lists, with several seeds and Holm-corrected paired tests. With oracle candidates, the fine-tuned judge reaches a test slot F1 of 0.92--0.95, against 0.38--0.84 for the best large model, and all 72 paired comparisons of F1 and false positives favour it. Most of the gap comes from abstention: large models fill 15--21\% of the slots that the user did not express on MultiATIS++, against 0.4--0.6\% for the fine-tuned judge. Per request, it is 3 to 6 times faster, on a fraction of one GPU. After temperature scaling, its confidences rank its errors far better, with an area under the risk--coverage curve 3 to 40 times lower; at a 5\% risk it decides 39--100\% of the requests without asking, whereas no large model exceeds 1\% on MTOP. The judge is, however, only as good as its candidates: when slot values are literal spans of the utterance, the tagger alone outperforms the whole pipeline with our proposers (F1 0.83--0.95 against 0.63--0.83), whereas the pipeline wins on multi-turn dialogue, where values come from the history or must be mapped to canonical forms. Augmenting the option lists during training makes the judge robust to longer lists and missing values only when it mimics realistic confusions between slots. A small calibrated judge is thus a practical decision component for hybrid systems, provided that its proposers are strong.
+Large language models are increasingly used as judges that pick one answer among options, but they are costly and their confidence rarely tells when a system may act on its own. We study this question in a hybrid architecture for task-oriented dialogue: inexpensive extractors propose candidate values for each slot, and a judge either selects one candidate or abstains. We compare Laya, a compact non-autoregressive decision model with fewer than half a billion parameters, used zero-shot and fine-tuned with a strictly proper scoring rule, against three open-weight large language model judges of 27 to 180 billion parameters on the same options, and against a fine-tuned sequence tagger. We cover three public benchmarks (MultiATIS++, MTOP and Multi3WOZ), English and French, single- and multi-turn inputs, and oracle and real candidate lists, with several seeds and Holm-corrected paired tests. With oracle candidates, the fine-tuned judge reaches a test slot F1 of 0.92--0.95, against 0.38--0.84 for the best large model, and all 72 paired comparisons of F1 and false positives favour it. Most of the gap comes from abstention: large models fill 15--21\% of the slots that the user did not express on MultiATIS++, against 0.4--0.5\% for the fine-tuned judge. Per request, it is 3 to 6 times faster, on a fraction of one GPU. After temperature scaling, its confidences rank its errors far better, with an area under the risk--coverage curve 3 to 40 times lower; at a 5\% risk it decides 39--100\% of the requests without asking, whereas no large model exceeds 1\% on MTOP. The judge is, however, only as good as its candidates: when slot values are literal spans of the utterance, the tagger alone outperforms the whole pipeline with our proposers (F1 0.83--0.95 against 0.63--0.83), whereas the pipeline wins on multi-turn dialogue, where values come from the history or must be mapped to canonical forms. Augmenting the option lists during training makes the judge robust to longer lists and missing values only when it mimics realistic confusions between slots. A small calibrated judge is thus a practical decision component for hybrid systems, provided that its proposers are strong.
 \end{abstract}
 
 %% Graphical abstract (encouraged): candidate = figures/architecture.pdf (or a simplified version of it).
@@ -126,10 +133,6 @@ Abstention
 \end{keywords}
 
 \maketitle
-
-%% Draft banner (remove for submission)
-\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{\footnotesize
-\textbf{Draft status.} All results are final test-set results of the frozen protocol (single pass). Items in \todo{red} are missing references or author decisions (see \texttt{NOTES.md}).}}
 
 \input{sections/01_introduction}
 \input{sections/02_related_work}

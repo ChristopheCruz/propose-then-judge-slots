@@ -37,6 +37,10 @@ TRAIN_DEFAULTS = {
     "dev_limit": 300,           # exemples dev pour suivre la perte (null = tout le split)
     "augment": None,            # C3 : {k: [...], p_absent: [...], distractors: [...]}
     "langs": None,              # langues d'entraînement, ex. "en+fr" (null = data.lang) ; le dev reste data.lang
+    "mix": None,                # mélange multi-jeux : liste de {dataset, lang ("*" = toutes), exclude, max_train,
+                                # dev_limit, requests} ; remplace data.dataset / train.langs (modèle publié)
+    "dev_candidates": "oracle", # candidats du dev de sélection en mode mélange : oracle | reels | both
+    "reels_config": "configs/candidats/reels.yaml",
 }
 
 
@@ -116,12 +120,65 @@ def _examples_and_ontology(cfg: DictConfig, lang: str, limit: int | None):
     return c, examples, ontology
 
 
+def mix_entries(cfg: DictConfig, root: str | Path | None = None) -> list[dict]:
+    """Entrées de `train.mix` développées : `lang: "*"` = toutes les langues préparées du jeu, moins `exclude`."""
+    root = Path(root or cfg.data.root)
+    out = []
+    for e in _train_section(cfg)["mix"]:
+        e = dict(e)
+        if e.get("lang") == "*":
+            langs = sorted(p.name for p in (root / e["dataset"]).iterdir() if (p / "train.jsonl").exists())
+            out += [{**e, "lang": lang} for lang in langs if lang not in set(e.get("exclude") or [])]
+        else:
+            out.append(e)
+    return out
+
+
+def prepare_mix(cfg: DictConfig) -> tuple[list[TrainItem], list[TrainItem], dict]:
+    """Mélange multi-jeux et multilingue (modèle publié).
+
+    Pour chaque (jeu, langue) : au plus `max_train` exemples d'entraînement tirés avec la graine (les
+    générateurs restent ajustés sur tout le train), items augmentés comme en C3 ; dev de sélection
+    sur `dev_limit` exemples, avec les listes oracle, réelles ou les deux (`train.dev_candidates`)."""
+    t = _train_section(cfg)
+    judge = instantiate(OmegaConf.to_container(cfg.judge, resolve=True), cfg.seed)
+    reels = OmegaConf.load(t["reels_config"]).candidates
+    kinds = {"oracle": ["oracle"], "reels": ["reels"], "both": ["oracle", "reels"]}[t["dev_candidates"]]
+    train_items, dev_items, by_entry = [], [], {}
+    for e in mix_entries(cfg):
+        key = f"{e['dataset']}-{e['lang']}"
+        c = OmegaConf.merge(cfg, {"data": {"dataset": e["dataset"], "lang": e["lang"], "limit": None}},
+                            {"requests": e.get("requests") or {}})
+        full = load_train(c)
+        examples = full
+        if e.get("max_train") and len(full) > int(e["max_train"]):
+            examples = random.Random(f"{cfg.seed}:{key}").sample(full, int(e["max_train"]))
+        _, ontology, _ = load_data(OmegaConf.merge(c, {"data": {"split": t["dev_split"], "limit": 1}}))
+        items, st = build_items(c, examples, ontology, full, judge, t["augment"], t["unexpressed_ratio"], f"train:{key}")
+        train_items += items
+        by_entry[key] = {"train": st}
+        if e.get("dev", True):
+            dc = OmegaConf.merge(c, {"data": {"split": t["dev_split"], "limit": e.get("dev_limit", t["dev_limit"])}})
+            dev_examples, onto_dev, _ = load_data(dc)
+            for kind in kinds:
+                cc = c if kind == "oracle" else OmegaConf.merge(c, {"candidates": reels})
+                items, dst = build_items(cc, dev_examples, onto_dev, full, judge, None, None, f"dev:{key}:{kind}")
+                dev_items += items
+                by_entry[key][f"dev_{kind}"] = dst
+        log.info("mélange %s : %d items d'entraînement, %d items de dev au total", key, len(train_items), len(dev_items))
+    return train_items, dev_items, {"train": {"items": len(train_items), "by_entry": by_entry},
+                                    "dev": {"items": len(dev_items)}, "mix": [f"{e['dataset']}-{e['lang']}"
+                                                                           for e in mix_entries(cfg)]}
+
+
 def prepare(cfg: DictConfig) -> tuple[list[TrainItem], list[TrainItem], dict]:
     """Items d'entraînement (une ou plusieurs langues) et de dev (data.lang) ; ni torch ni Laya.
 
     Plusieurs langues (`train.langs: en+fr`) : chaque langue garde son ontologie (descriptions des
     slots) et ses propres candidats (oracle ajusté sur son train) ; les items sont concaténés."""
     t = _train_section(cfg)
+    if t["mix"]:
+        return prepare_mix(cfg)
     judge = instantiate(OmegaConf.to_container(cfg.judge, resolve=True), cfg.seed)
     train_items, by_lang = [], {}
     for lang in train_langs(cfg):

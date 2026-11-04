@@ -114,7 +114,7 @@ def format_summary(manifest: dict) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--dataset", required=True, choices=["multiatis", "mtop", "multi3woz"])
+    ap.add_argument("--dataset", required=True, choices=["multiatis", "mtop", "multi3woz", "massive", "sgd"])
     ap.add_argument("--lang", required=True)
     ap.add_argument("--raw-dir", default=None, help="répertoire brut (défaut : data/raw/<dataset>)")
     ap.add_argument("--out-dir", default="data/processed")

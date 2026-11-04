@@ -1,0 +1,16 @@
+# Modèle publié, variante v2 (3/11/2026) : la v1 (hf_multi.yaml) égale les modèles monolingues du papier avec
+# listes oracle mais recule de 0,05 à 0,09 F1 avec listes réelles (abstentions à tort quand la bonne valeur est
+# proposée). Hypothèse : trop peu d'exemples par domaine. Même recette, plafonds relevés :
+# MTOP sans plafond, Multi3WOZ 30 000 tours par langue ; MASSIVE et SGD inchangés.
+#
+#   make entrainer-hf VARIANTE=_v2 SEED=14 GPUS=1   ->  checkpoints/hf/multi_v2-s14
+inherit: [hf_multi.yaml]
+name: train-HF-multi-v2
+
+train:
+  mix:
+    - {dataset: mtop, lang: "*", dev_limit: 150}
+    - {dataset: multi3woz, lang: "*", max_train: 30000, dev_limit: 150,
+       requests: {intent: domain, filled: state_before}}
+    - {dataset: massive, lang: "*", exclude: [sw, cy, is, km, am], max_train: 1500, dev_limit: 40}
+    - {dataset: sgd, lang: en, max_train: 15000, dev_limit: 300, requests: {filled: state_before}}

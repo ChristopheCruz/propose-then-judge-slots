@@ -7,6 +7,7 @@
   <img src="https://img.shields.io/badge/licence-MIT-blue" alt="licence: MIT">
   <img src="https://img.shields.io/badge/python-3.11%20%7C%203.12-blue" alt="python 3.11 | 3.12">
   <a href="https://hal.science/hal-05850913"><img src="https://img.shields.io/badge/HAL-hal--05850913-b31b1b" alt="HAL preprint hal-05850913"></a>
+  <a href="https://christophecruz.github.io/mypage.github.io/projets/lamae/"><img src="docs/assets/logo-lamae.png" alt="LabCom LAMAE" height="20"></a>
 </p>
 
 # Propose, then judge
@@ -263,7 +264,7 @@ Slot F1 on the test sets (Laya: best of C2 and C3; LLM: best of the three judges
 Bold: best among the judges with oracle lists, and best system with real lists (C0 has no oracle setting).
 
 - **The small judge is far more accurate than the LLM judges** — on every dataset and language, with oracle and real lists. All 72 paired comparisons of slot F1 and false-positive rate between fine-tuned Laya and the three LLMs are significant in its favour (Holm-corrected permutation tests).
-- **LLM judges choose well but do not abstain.** When the right value is in the list, all judges pick it about equally often on MultiATIS++; the LLMs, however, fill 15–21 % of the slots the user never mentioned (fine-tuned Laya: 0.4–0.6 %).
+- **LLM judges choose well but do not abstain.** When the right value is in the list, all judges pick it about equally often on MultiATIS++; the LLMs, however, fill 15–21 % of the slots the user never mentioned with oracle lists (fine-tuned Laya: 0.4–0.5 %; 0.4–0.7 % with real lists, against about 7 % for the LLMs).
 - **Its confidence is usable.** After temperature scaling, the area under the risk–coverage curve is 3 to 40 times lower than the LLMs'; at a 5 % target risk the small judge decides 39–100 % of the requests without asking, no LLM more than 1 % on MultiATIS++ and MTOP.
 - **It is cheaper**: 3–6 times faster per request (about 8 ms against 25–50 ms) and 5–38 times higher batch throughput, on a fraction of one GPU (< 2 GiB).
 - **The judge is only as good as its candidates.** The tagger beats the pipeline when values are literal spans of the utterance (MultiATIS++, MTOP); the pipeline wins on dialogue (Multi3WOZ), where 27 % (EN) and 63 % (FR) of the gold values are not literal spans of the turn.
@@ -334,6 +335,11 @@ cat results/c2-dev-mtop-en-s13-*/metrics.json | head -40
 ```
 
 ## Reproducing the paper
+
+> **Use the tag [`paper-v1`](https://github.com/ChristopheCruz/propose-then-judge-slots/tree/paper-v1)** to
+> reproduce the paper: its code has exactly the fingerprint of the frozen protocol
+> (`code_sha256 d80bc7ce…`, checked by `scripts/test_final.sh`). Later commits add the multilingual model
+> `laya-slotjudge-m46` (MASSIVE and SGD loaders, mixed training), which changes that fingerprint.
 
 | Step | Command |
 |---|---|
@@ -419,12 +425,16 @@ their own licence (LPPL). Data, models and predictions keep the licences of thei
 
 ## Funding
 
+<a href="https://christophecruz.github.io/mypage.github.io/projets/lamae/"><img src="docs/assets/logo-lamae.png" alt="LabCom LAMAE" width="72" align="left"></a>
+
 This work was supported by the French National Research Agency (ANR) through the LabCom LAMAE project
-[grant number ANR-24-LCV1-0008].
+[grant number ANR-24-LCV1-0008] and the CAIRE project [grant number ANR-23-CMAS-0031], which funded the
+computing infrastructure (a server with two NVIDIA H200 NVL GPUs).
+<br clear="left">
 
 ## Citation
 
-If you use this code, please cite the paper (reference to be completed upon publication; see also
+If you use this code, please cite the paper (HAL preprint; the reference will be updated if the paper is published; see also
 [`CITATION.cff`](CITATION.cff)):
 
 ```bibtex

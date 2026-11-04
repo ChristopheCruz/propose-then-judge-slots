@@ -37,6 +37,8 @@ ARGS      ?=
 DONNEES   := data.dataset=$(DATASET) data.lang=$(LANGUE) seed=$(SEED)
 # Multi3WOZ (décision du 26/10) : slots du domaine gold du tour, historique et état déjà rempli.
 DONNEES   += $(if $(filter multi3woz,$(DATASET)),requests.intent=domain requests.filled=state_before)
+# SGD (modèle publié) : état déjà rempli avant le tour, comme à l'entraînement (configs/train/hf_multi.yaml).
+DONNEES   += $(if $(filter sgd,$(DATASET)),requests.filled=state_before)
 # DISTR=hard : ablation des distracteurs (grille : hard_no_overlap, voir configs/candidats/oracle.yaml).
 # Change les candidats de tous les runs, et le dossier des checkpoints C2/C3 (suffixe -hard).
 DISTR     ?=
@@ -67,7 +69,7 @@ RUN_ID    := $(DATASET)-$(LANGUE)$(if $(filter-out $(LANGUE),$(ENTR)),-entr-$(EN
 EXEC_RUN  = CUDA_VISIBLE_DEVICES=$(GPUS) HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 $(UV) python -m experiments.run
 
 .DEFAULT_GOAL := aide
-.PHONY: c0 entrainer-c0 entrainer-c3v2 c3v2 intervalles comparer graines balayage version aide preparer prerequis config installer modeles donnees verifier verifier-gpu \
+.PHONY: entrainer-hf c0 entrainer-c0 entrainer-c3v2 c3v2 intervalles comparer graines balayage version aide preparer prerequis config installer modeles donnees verifier verifier-gpu \
         tests tests-integration lint run pilote c1 c1-reels c4 c4-dev c4-alt c4-alt2 tester-llm tableaux \
         entrainer-c2 entrainer-c3 c2 c3
 
@@ -169,6 +171,15 @@ EXEC_TRAIN = CUDA_VISIBLE_DEVICES=$(GPUS) HF_HUB_OFFLINE=1 $(UV) python -m exper
 entrainer-c0: ## fine-tuning du tagger BIO de C0 (mDeBERTa-v3) -> checkpoints/tagger/...
 	CUDA_VISIBLE_DEVICES=$(GPUS) HF_HUB_OFFLINE=1 $(UV) python -m experiments.train_tagger --config configs/train/c0.yaml \
 	  --output checkpoints/tagger/$(CKPT) $(DONNEES) train.langs=$(ENTR) $(ARGS)
+
+# VARIANTE : suffixe de configs/train/hf_multi<VARIANTE>.yaml et du checkpoint (vide = v1, _v2 = plafonds relevés).
+VARIANTE  ?=
+entrainer-hf: ## modèle publié : C3 v2 sur MTOP, Multi3WOZ, MASSIVE et SGD multilingues -> checkpoints/hf/multi<VARIANTE>-s<SEED>
+	$(EXEC_TRAIN) --config configs/train/hf_multi$(VARIANTE).yaml --output checkpoints/hf/multi$(VARIANTE)-s$(SEED) seed=$(SEED) $(ARGS)
+
+hf: ## modèle publié (checkpoints/hf/multi-s<SEED>), candidats oracle (CAND=reels : réels), DATASET mtop|multi3woz|massive|sgd
+	$(EXEC_RUN) --config configs/conditions/c3v2_laya_ft_aug$(SUF_CAND).yaml \
+	  --output $(or $(SORTIE),results/hf$(VARIANTE)$(NOM_CAND)-$(RUN_ID)-$(HORODATE)) $(DONNEES) judge.finetuned=checkpoints/hf/multi$(VARIANTE)-s$(SEED) $(ARGS)
 
 entrainer-c2: ## fine-tuning C2 (sans augmentation) -> checkpoints/c2/...
 	$(EXEC_TRAIN) --config configs/train/c2.yaml \

@@ -20,4 +20,5 @@ Models (downloaded at run time, revisions in MODELES.lock.json)
 - Qwen3.8-27B, Apache-2.0; Qwen3.8-Flash-Next-FP8, Qwen Community License 1.0; Gemma-4-31B-it,
   licence stated on its model card (google/gemma-4-31B-it).
 
-Funding: French National Research Agency (ANR), LabCom LAMAE, grant ANR-24-LCV1-0008.
+Funding: French National Research Agency (ANR), LabCom LAMAE, grant ANR-24-LCV1-0008; CAIRE project,
+grant ANR-23-CMAS-0031 (computing infrastructure).
