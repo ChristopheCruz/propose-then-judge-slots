@@ -116,3 +116,7 @@ pre,.q,.ltr{direction:ltr;text-align:left}
 .funder img{border-radius:12px;flex:none}
 .funder:hover{text-decoration:none;color:var(--ink)}
 p.muted{margin:0;color:var(--mute);font-size:15px}
+/* Grilles : une cellule peut rétrécir sous la largeur de son contenu (sinon un tableau élargit la page sur mobile) */
+.grid>*{min-width:0}
+/* Écriture de droite à gauche : une plage de nombres isolée reste sur une seule ligne */
+bdi[dir=ltr]{white-space:nowrap}
