@@ -1,0 +1,38 @@
+%% ===========================================================================
+\section{Dataset conversion details}
+\label{app:conversion}
+%% ===========================================================================
+
+All loaders (\texttt{laya\_slots/data/}) produce one record per turn with identifiers (dataset, dialogue, turn, language, split), the utterance, the history (Multi3WOZ), the schema available at request time (intents and slots with a description), and the gold intent, slot values (normalised value, surface form and character offsets) and cumulative state. Each prepared split is accompanied by a manifest with the source version and the SHA-256 of the raw and produced files, without timestamp, so that two identical preparations produce identical files.
+
+\paragraph{Value normalisation} The same deterministic function is applied to gold values and candidates before comparison: Unicode NFKC, typographic apostrophes, lower case, compacted spaces, edge punctuation removed; numbers written in words converted to digits from 0 to 99 in English and French (French ``un''/``une'' only when they are the whole value; ordinals only for date slots); times converted to \texttt{HH:MM} (``5 pm'', ``five thirty pm'', ``17h30'', ``midi''\ldots; three- or four-digit values read as military time only for time slots). Relative dates are resolved only when a reference date is given (not used here).
+
+\paragraph{MultiATIS++} TSV files of the LDC release (\texttt{train\_XX.tsv}, \texttt{test\_XX.tsv}) with BIO labels; BIO is converted to spans with the tolerant rule of \texttt{conlleval} (an orphan \texttt{I-x} opens a span), then to character offsets. The release has no development split: the 500 training identifiers with the smallest SHA-256 form the development set (4,478 / 500 / 893), identical in English and French. Multi-intent labels (``\texttt{atis\_flight\#atis\_airfare}'') keep the first intent as main intent; the full list is stored for an official intent accuracy. Slot descriptions are composed from prefix and attribute (``fromloc'' + ``city\_name'' $\rightarrow$ ``departure city''); closed values for categorical attributes (day, month, period, class\ldots) are collected on the training split only. Thirteen French training lines with inconsistent label counts are skipped.
+
+\paragraph{MTOP} Version 2 of 25 January 2021 (CC BY-SA 4.0). Top-level slots from the flat slot column (byte offsets converted to character offsets); a nested slot becomes one top-level slot whose value is the covered text, its sub-tree being kept in the metadata for a separate analysis. Official intent and slot names are kept (\texttt{IN:}/\texttt{SL:} prefixes). Slot descriptions written by hand in English, intent descriptions derived from the names; closed values for a few categorical slots, from training data only.
+
+\paragraph{Multi3WOZ} Corrected release of 15 December 2023 (MIT). One example per user turn; history = all previous turns; state before the turn = cumulative state after the previous user turn; slots of the turn = state difference. Five domains (hotel, train, restaurant, attraction, taxi), 30 slots named ``domain-slot'' as in \texttt{slot\_descriptions.json}; ``not mentioned'', ``none'' and empty values mean absent, ``dontcare'' is an explicit value. Spans are recovered from the turn's span annotations, otherwise by string search; values without span are labelled as coming from the utterance, the history (accepted system offer) or the context. The domain of a turn is the majority domain of its slots, otherwise that of its dialogue acts. Validation and test lists are those of MultiWOZ (860 dialogues of each present in the data).
+
+\paragraph{Licences and versions}
+\begin{table}[pos=h]
+\centering
+\small
+\caption{Licences of the data and models used.}
+\label{tab:licences}
+\begin{tabular}{@{}p{5.0cm}p{5.1cm}p{5.1cm}@{}}
+\toprule
+Resource & Licence & Redistribution of converted data \\
+\midrule
+MultiATIS++ (LDC2021T04) & LDC user agreement (non-commercial research) & no (scripts and hashes only) \\
+MTOP (v2) & CC BY-SA 4.0 & yes, same licence \\
+Multi3WOZ (15/12/2023) & MIT & yes \\
+Laya (\texttt{7b928d8}) & Apache-2.0 & -- \\
+GLiNER multi v2.1 (\texttt{443d26d}) & Apache-2.0 & -- \\
+Qwen3.8-27B (\texttt{1d4bf0f}) & Apache-2.0 & -- \\
+Qwen3.8-Flash-Next-FP8 (\texttt{236dfdf}) & Qwen Community License 1.0 & -- \\
+Gemma-4-31B-it (\texttt{842da37}) & Apache-2.0 \todo{terms of use of Gemma 4 not fully verified} & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Software} All runs use the following versions, locked in \texttt{uv.lock}: the Laya runtime 0.3.22 \citep{laya2026}, vLLM 0.30.0 \citep{kwon2023vllm}, GLiNER 0.2.29 \citep{zaratiana2024gliner}, PyTorch 2.13.0 \citep{paszke2019pytorch} and transformers 5.16.1 \citep{wolf2020transformers}, with Python 3.12.15.

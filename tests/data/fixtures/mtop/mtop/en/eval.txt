@@ -1,0 +1,1 @@
+201	IN:GET_ALARM		show my alarms	alarm	en_XX	[IN:GET_ALARM ]	{"tokens": ["show", "my", "alarms"], "tokenSpans": []}

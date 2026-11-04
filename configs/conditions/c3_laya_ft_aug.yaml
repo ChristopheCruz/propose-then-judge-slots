@@ -1,0 +1,17 @@
+# C3 — Laya fine-tuné + augmentation par options aléatoires : contribution principale (QR5).
+# 5 graines (seed=13..17). Ablations de l'augmentation (ordre, nombre, distracteurs difficiles,
+# valeur absente) : un checkpoint par ablation, même config avec judge.params.model surchargé.
+inherit: [../_base.yaml, ../candidats/oracle.yaml]
+name: C3-laya-ft-aug
+condition: C3
+
+judge:
+  class: laya_slots.judges.laya_judge.LayaJudge
+  finetuned: "checkpoints/c3/${data.dataset}-${data.lang}-s${seed}"   # écrit par make entrainer-c3 ; chargé par LayaJudge (model_path)
+  params:
+    mode: single                    # single | two_step (QR4 : slot exprimé, puis choix)
+    checkpoint: multilingual        # multilingual | english | lang | auto
+    candidate_order: shuffle        # biais de position fort : ne jamais garder l'ordre du générateur
+    rotations: 1                    # >1 : moyenne sur des rotations de l'ordre des options
+    device: cuda
+  batch_size: 128

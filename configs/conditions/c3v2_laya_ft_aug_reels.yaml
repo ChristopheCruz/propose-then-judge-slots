@@ -1,0 +1,7 @@
+# C3 v2 avec candidats réels :  make c3v2 CAND=reels
+inherit: [c3v2_laya_ft_aug.yaml, ../candidats/reels.yaml]
+name: C3v2-laya-ft-aug-reels
+
+judge:
+  params:
+    max_options: 20

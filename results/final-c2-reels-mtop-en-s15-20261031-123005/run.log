@@ -1,0 +1,34 @@
+2026-10-31 12:30:05 INFO config configs/conditions/c2_laya_ft_reels.yaml -> results/final-c2-reels-mtop-en-s15-20261031-123005 data.dataset=mtop data.lang=en seed=15 judge.finetuned=checkpoints/c2/mtop-en-s15
+2026-10-31 12:30:06 INFO 4386 exemples, 113 intentions, 75 slots dans l'ontologie
+2026-10-31 12:30:06 INFO générateurs ajustés sur 15667 exemples d'entraînement
+2026-10-31 12:30:06 INFO juge LayaJudge, générateurs ['LexiconGenerator', 'GlinerGenerator', 'OntologyGenerator', 'HistoryGenerator']
+2026-10-31 12:30:09 INFO Loading the following GLiNER type: <class 'gliner.model.UniEncoderSpanGLiNER'>...
+2026-10-31 12:30:49 INFO 1024 requêtes jugées, 154/4386 exemples terminés
+2026-10-31 12:31:18 INFO 2048 requêtes jugées, 309/4386 exemples terminés
+2026-10-31 12:31:46 INFO 3072 requêtes jugées, 460/4386 exemples terminés
+2026-10-31 12:32:16 INFO 4096 requêtes jugées, 611/4386 exemples terminés
+2026-10-31 12:32:47 INFO 5120 requêtes jugées, 777/4386 exemples terminés
+2026-10-31 12:33:12 INFO 6016 requêtes jugées, 906/4386 exemples terminés
+2026-10-31 12:33:41 INFO 7040 requêtes jugées, 1062/4386 exemples terminés
+2026-10-31 12:34:09 INFO 8064 requêtes jugées, 1219/4386 exemples terminés
+2026-10-31 12:34:37 INFO 9088 requêtes jugées, 1379/4386 exemples terminés
+2026-10-31 12:35:07 INFO 10112 requêtes jugées, 1543/4386 exemples terminés
+2026-10-31 12:35:33 INFO 11008 requêtes jugées, 1687/4386 exemples terminés
+2026-10-31 12:36:01 INFO 12032 requêtes jugées, 1846/4386 exemples terminés
+2026-10-31 12:36:29 INFO 13056 requêtes jugées, 1998/4386 exemples terminés
+2026-10-31 12:36:53 INFO 14080 requêtes jugées, 2165/4386 exemples terminés
+2026-10-31 12:37:20 INFO 15104 requêtes jugées, 2305/4386 exemples terminés
+2026-10-31 12:37:44 INFO 16000 requêtes jugées, 2435/4386 exemples terminés
+2026-10-31 12:38:12 INFO 17024 requêtes jugées, 2596/4386 exemples terminés
+2026-10-31 12:38:36 INFO 18048 requêtes jugées, 2747/4386 exemples terminés
+2026-10-31 12:39:04 INFO 19072 requêtes jugées, 2900/4386 exemples terminés
+2026-10-31 12:39:32 INFO 20096 requêtes jugées, 3044/4386 exemples terminés
+2026-10-31 12:39:59 INFO 21120 requêtes jugées, 3198/4386 exemples terminés
+2026-10-31 12:40:22 INFO 22016 requêtes jugées, 3337/4386 exemples terminés
+2026-10-31 12:40:53 INFO 23040 requêtes jugées, 3499/4386 exemples terminés
+2026-10-31 12:41:20 INFO 24064 requêtes jugées, 3661/4386 exemples terminés
+2026-10-31 12:41:47 INFO 25088 requêtes jugées, 3817/4386 exemples terminés
+2026-10-31 12:41:56 INFO 26112 requêtes jugées, 3968/4386 exemples terminés
+2026-10-31 12:42:01 INFO 27008 requêtes jugées, 4101/4386 exemples terminés
+2026-10-31 12:42:07 INFO 28032 requêtes jugées, 4251/4386 exemples terminés
+2026-10-31 12:42:13 INFO complete : 4386 exemples, F1 slots = 0.6935, rappel candidats = 0.7507, p95 = 15.7127 ms

@@ -1,0 +1,9 @@
+# C4 avec candidats réels (lexique, GLiNER, ontologie, historique) : mesure de bout en bout.
+# Même condition, mêmes réglages du juge ; seuls les candidats changent (dernier fichier hérité).
+#   make c4 CAND=reels
+inherit: [c4_llm_juge.yaml, ../candidats/reels.yaml]
+name: C4-llm-juge-reels
+
+judge:
+  params:
+    max_options: 20

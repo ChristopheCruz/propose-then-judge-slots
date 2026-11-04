@@ -1,0 +1,51 @@
+name: C3v2-laya-ft-aug-reels
+condition: C3v2
+seed: 13
+data:
+  dataset: multi3woz
+  lang: fr
+  split: dev
+  root: data/processed
+  path: null
+  ontology: null
+  train_split: train
+  train_path: null
+  loader: null
+  limit: null
+requests:
+  slots: intent
+  intent: domain
+  filled: state_before
+  strip_gold: true
+candidates:
+  generators:
+  - class: laya_slots.candidates.lexicon.LexiconGenerator
+    params: {}
+  - class: laya_slots.candidates.gliner.GlinerGenerator
+    params:
+      model_name: urchade/gliner_multi-v2.1
+      threshold: 0.3
+      device: cuda
+  - class: laya_slots.candidates.ontology.OntologyGenerator
+    params:
+      threshold: 0.85
+  - class: laya_slots.candidates.history.HistoryGenerator
+    params: {}
+  fit: true
+  shuffle: true
+  max_candidates: 20
+judge:
+  class: laya_slots.judges.laya_judge.LayaJudge
+  params:
+    mode: single
+    checkpoint: multilingual
+    candidate_order: shuffle
+    rotations: 1
+    device: cuda
+    max_options: 20
+  batch_size: 128
+  finetuned: checkpoints/c3v2/multi3woz-en-s13
+intent_predictor: null
+output:
+  save_probs: true
+  log_every: 1000

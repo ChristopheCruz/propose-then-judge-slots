@@ -1,0 +1,26 @@
+# C4 — LLM-juge open-weight servi par vLLM, zero-shot ou few-shot.
+# Prompt fixe, options en lettres, probabilité lue sur les logprobs du jeton de réponse.
+# Modèle : le plus récent au moment des expériences, un seul, version exacte notée ici.
+# Modèles et cartes : .env (LLM_MODEL, LLM_MODEL_DEV, LLM_MODEL_ALT, LLM_MODEL_ALT2) et cibles make c4*.
+inherit: [../_base.yaml, ../candidats/oracle.yaml]
+name: C4-llm-juge
+condition: C4
+
+judge:
+  class: laya_slots.judges.llm_judge.LLMJudge
+  params:
+    backend: vllm                   # vllm | openai (serveur compatible OpenAI)
+    model: ???                      # obligatoire, à fixer (ou judge.params.model=... en surcharge)
+    few_shot: null                  # null = zero-shot ; sinon liste d'exemples (même gabarit que le prompt)
+    candidate_order: shuffle
+    backend_kwargs:
+      top_k_logprobs: 20
+      # auto : raisonnement coupé selon la famille (Qwen, Gemma : enable_thinking: false ;
+      # Mistral : reasoning_effort: none), voir laya_slots/judges/llm_judge.py:THINKING_OFF.
+      # Équivaut à l'ancien {enable_thinking: false} pour Qwen3-32B et Qwen3-235B-2507.
+      chat_template_kwargs: auto
+      # language_model_only : modèles multimodaux (Qwen3.8, Gemma 4, Mistral Small 4) servis en texte
+      # seul, sans profilage ni entrée image/vidéo/audio ; ignoré par vLLM pour un modèle texte.
+      # tensor_parallel_size : surchargé par le Makefile (LLM_TP, LLM_TP_ALT…).
+      llm_kwargs: {tensor_parallel_size: 1, max_model_len: 4096, language_model_only: true}
+  batch_size: 256

@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1130" height="478" viewBox="0 0 1130 478" role="img" aria-label="Proposer-judge architecture: propose candidates, judge in one forward pass, decide with a calibrated threshold">
+<title>Proposer-judge architecture: propose candidates, judge in one forward pass, decide with a calibrated threshold</title>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#59636e"/></marker></defs>
+<rect x="0" y="0" width="1130" height="478" fill="#ffffff"/>
+<rect x="16" y="16" width="214" height="446" rx="12" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.2"/>
+<text x="30" y="42" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#59636e" letter-spacing="1">INPUT</tspan></text>
+<rect x="26" y="56" width="194" height="71" rx="8" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.3"/>
+<text x="38" y="77" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">Current turn</tspan></text>
+<text x="38" y="94" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1f2328">“a flight from Lyon to Paris</tspan></text>
+<text x="38" y="111" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1f2328">on Thursday”</tspan></text>
+<rect x="26" y="135" width="194" height="52" rx="8" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.3"/>
+<text x="38" y="156" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">Dialogue context</tspan></text>
+<text x="38" y="171" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">history and state (multi-turn)</tspan></text>
+<rect x="26" y="195" width="194" height="54" rx="8" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.3"/>
+<text x="38" y="216" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">Intent (gold)</tspan></text>
+<text x="38" y="233" xml:space="preserve"><tspan font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#1f2328">find_flight</tspan></text>
+<text x="30" y="277" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#59636e" letter-spacing="1">ONE REQUEST PER SLOT</tspan></text>
+<text x="30" y="296" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1f2328">q = (turn, slot σ) for every</tspan></text>
+<text x="30" y="313" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1f2328">slot σ of the intent:</tspan></text>
+<text x="30" y="330" xml:space="preserve"><tspan font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="11" font-weight="400" fill="#59636e">from_city, to_city, date,</tspan></text>
+<text x="30" y="345" xml:space="preserve"><tspan font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="11" font-weight="400" fill="#59636e">time, airline, class …</tspan></text>
+<text x="30" y="370" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">Most slots are not expressed:</tspan></text>
+<text x="30" y="385" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">abstaining is the common case.</tspan></text>
+<rect x="258" y="16" width="236" height="446" rx="12" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.2"/>
+<text x="272" y="42" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#59636e" letter-spacing="1">1 · PROPOSE</tspan></text>
+<rect x="268" y="56" width="216" height="52" rx="8" fill="#ddf4ff" stroke="#54aeff" stroke-width="1.3"/>
+<text x="280" y="77" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">Lexicon</tspan></text>
+<text x="280" y="92" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">values seen in training</tspan></text>
+<rect x="268" y="114" width="216" height="52" rx="8" fill="#ddf4ff" stroke="#54aeff" stroke-width="1.3"/>
+<text x="280" y="135" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">GLiNER</tspan></text>
+<text x="280" y="150" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">zero-shot span extraction</tspan></text>
+<rect x="268" y="172" width="216" height="52" rx="8" fill="#ddf4ff" stroke="#54aeff" stroke-width="1.3"/>
+<text x="280" y="193" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">Ontology</tspan></text>
+<text x="280" y="208" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">closed values found in the text</tspan></text>
+<rect x="268" y="230" width="216" height="52" rx="8" fill="#ddf4ff" stroke="#54aeff" stroke-width="1.3"/>
+<text x="280" y="251" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">History</tspan></text>
+<text x="280" y="266" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">values of earlier turns</tspan></text>
+<text x="272" y="300" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">Real lists: union of the four,</tspan></text>
+<text x="272" y="315" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">deduplicated, shuffled, at most 20.</tspan></text>
+<rect x="268" y="328" width="216" height="112" rx="8" fill="#ffffff" stroke="#8c959f" stroke-width="1.3" stroke-dasharray="5 3"/>
+<text x="280" y="349" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">Oracle (analysis)</tspan></text>
+<text x="280" y="364" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">gold value + k − 1 distractors,</tspan></text>
+<text x="280" y="379" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">gold removed with</tspan></text>
+<text x="280" y="394" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">probability p_absent: measures</tspan></text>
+<text x="280" y="409" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">the judge alone</tspan></text>
+<text x="280" y="424" xml:space="preserve"><tspan font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="11" font-weight="400" fill="#59636e">grid: k=5, p_absent=0</tspan></text>
+<rect x="522" y="16" width="196" height="446" rx="12" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.2"/>
+<text x="536" y="42" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#59636e" letter-spacing="1">OPTIONS FOR σ</tspan></text>
+<text x="536" y="70" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1f2328">slot: </tspan><tspan font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#1f2328">from_city</tspan></text>
+<rect x="534" y="79" width="172" height="26" rx="13" fill="#ddf4ff" stroke="#54aeff" stroke-width="1.3"/>
+<text x="546" y="97" xml:space="preserve"><tspan font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#1f2328">A  Lyon</tspan></text>
+<rect x="534" y="111" width="172" height="26" rx="13" fill="#ddf4ff" stroke="#54aeff" stroke-width="1.3"/>
+<text x="546" y="129" xml:space="preserve"><tspan font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#1f2328">B  Paris</tspan></text>
+<rect x="534" y="143" width="172" height="26" rx="13" fill="#ddf4ff" stroke="#54aeff" stroke-width="1.3"/>
+<text x="546" y="161" xml:space="preserve"><tspan font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#1f2328">C  Thursday</tspan></text>
+<rect x="534" y="175" width="172" height="26" rx="13" fill="#ffffff" stroke="#8c959f" stroke-width="1.3" stroke-dasharray="4 3"/>
+<text x="546" y="193" xml:space="preserve"><tspan font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="11" font-weight="400" fill="#59636e">∅  not specified</tspan></text>
+<text x="536" y="223" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">Neutral letter keys. “Not</tspan></text>
+<text x="536" y="238" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">specified” is always the last</tspan></text>
+<text x="536" y="253" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">option: the judge can</tspan></text>
+<text x="536" y="268" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">abstain and can never</tspan></text>
+<text x="536" y="283" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">invent a value.</tspan></text>
+<text x="536" y="310" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#59636e" letter-spacing="1">C0 BASELINE</tspan></text>
+<text x="536" y="327" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">A fine-tuned BIO tagger</tspan></text>
+<text x="536" y="342" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">(mDeBERTa-v3) reads the</tspan></text>
+<text x="536" y="357" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">value directly in the turn,</tspan></text>
+<text x="536" y="372" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">without proposers or judge.</tspan></text>
+<rect x="746" y="16" width="216" height="446" rx="12" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.2"/>
+<text x="760" y="42" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#59636e" letter-spacing="1">2 · JUDGE</tspan></text>
+<rect x="756" y="56" width="196" height="210" rx="8" fill="#fbefff" stroke="#8250df" stroke-width="1.3"/>
+<text x="768" y="77" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">Laya</tspan></text>
+<text x="768" y="92" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">non-autoregressive, &lt; 0.5 B</tspan></text>
+<text x="768" y="109" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">input:</tspan></text>
+<text x="768" y="124" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">state (message, intent, filled</tspan></text>
+<text x="768" y="139" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">slots, history) + question</tspan></text>
+<text x="768" y="154" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">about σ + options A … ∅</tspan></text>
+<text x="768" y="171" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">model:</tspan></text>
+<text x="768" y="186" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">bidirectional encoder +</tspan></text>
+<text x="768" y="201" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">option head, one forward</tspan></text>
+<text x="768" y="216" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">pass per turn</tspan></text>
+<text x="768" y="233" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">output:</tspan></text>
+<text x="768" y="250" xml:space="preserve"><tspan font-family="DejaVu Sans Mono, Menlo, Consolas, monospace" font-size="12" font-weight="400" fill="#1f2328">p(A) = 0.97</tspan></text>
+<text x="760" y="286" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">C1 zero-shot · C2 fine-tuned</tspan></text>
+<text x="760" y="301" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">with the log score · C3 with list</tspan></text>
+<text x="760" y="316" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">augmentation</tspan></text>
+<rect x="756" y="329" width="196" height="82" rx="8" fill="#fff1e5" stroke="#bc4c00" stroke-width="1.3" stroke-dasharray="5 3"/>
+<text x="768" y="350" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">C4 · LLM judges</tspan></text>
+<text x="768" y="365" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">27–180 B, same prompt and</tspan></text>
+<text x="768" y="380" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">options, first-token</tspan></text>
+<text x="768" y="395" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">log-probabilities</tspan></text>
+<rect x="990" y="16" width="124" height="446" rx="12" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.2"/>
+<text x="1004" y="42" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#59636e" letter-spacing="1">3 · DECIDE</tspan></text>
+<rect x="998" y="56" width="108" height="65" rx="8" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.3"/>
+<text x="1010" y="75" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">calibrate</tspan></text>
+<text x="1010" y="90" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">temperature T</tspan></text>
+<text x="1010" y="105" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">fitted on dev</tspan></text>
+<rect x="998" y="129" width="108" height="80" rx="8" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.3"/>
+<text x="1010" y="148" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">threshold τ</tspan></text>
+<text x="1010" y="163" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">for a target</tspan></text>
+<text x="1010" y="178" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">risk (2 %,</tspan></text>
+<text x="1010" y="193" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">5 %)</tspan></text>
+<circle cx="1010" cy="229" r="6" fill="#1a7f37"/>
+<text x="1022" y="234" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">act</tspan></text>
+<text x="1004" y="253" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">value, p ≥ τ</tspan></text>
+<circle cx="1010" cy="272" r="6" fill="#59636e"/>
+<text x="1022" y="277" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">ignore</tspan></text>
+<text x="1004" y="296" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">∅, p ≥ τ</tspan></text>
+<circle cx="1010" cy="315" r="6" fill="#9a6700"/>
+<text x="1022" y="320" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">ask</tspan></text>
+<text x="1004" y="339" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">p &lt; τ: defer to</tspan></text>
+<text x="1004" y="354" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">the user</tspan></text>
+<text x="1004" y="379" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">evaluated by</tspan></text>
+<text x="1004" y="394" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">risk–coverage</tspan></text>
+<text x="1004" y="409" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">curves (AURC)</tspan></text>
+<path d="M232,239.0 L255,239.0" fill="none" stroke="#59636e" stroke-width="1.7" marker-end="url(#a)"/>
+<path d="M496,239.0 L519,239.0" fill="none" stroke="#59636e" stroke-width="1.7" marker-end="url(#a)"/>
+<path d="M720,239.0 L743,239.0" fill="none" stroke="#59636e" stroke-width="1.7" marker-end="url(#a)"/>
+<path d="M964,239.0 L987,239.0" fill="none" stroke="#59636e" stroke-width="1.7" marker-end="url(#a)"/>
+</svg>

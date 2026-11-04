@@ -1,0 +1,15 @@
+# C1 — Laya zero-shot : plancher du juge sans adaptation.
+# Candidats oracle par défaut ; variante réelle : c1_laya_zeroshot_reels.yaml.
+inherit: [../_base.yaml, ../candidats/oracle.yaml]
+name: C1-laya-zeroshot
+condition: C1
+
+judge:
+  class: laya_slots.judges.laya_judge.LayaJudge
+  params:
+    mode: single                    # single | two_step (QR4 : slot exprimé, puis choix)
+    checkpoint: multilingual        # multilingual | english | lang | auto
+    candidate_order: shuffle        # biais de position fort : ne jamais garder l'ordre du générateur
+    rotations: 1                    # >1 : moyenne sur des rotations de l'ordre des options
+    device: cuda
+  batch_size: 128

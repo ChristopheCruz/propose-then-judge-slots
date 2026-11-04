@@ -1,0 +1,276 @@
+%% ===========================================================================
+\section{Results}
+\label{sec:results}
+%% ===========================================================================
+
+All results in this section are \textbf{test-set results} of the frozen protocol (\cref{sec:stats}), obtained in a single pass after every decision had been taken on development data. Unless stated otherwise, values are means over seeds (three for C0, C1, C2 and the LLM judges, five for C3) with the standard deviation across seeds; seed-to-seed standard deviations of the slot F1 are at most 0.012 for every judge in the main grid. The main configuration uses monolingual models (one per dataset and language); bilingual training is analysed in \cref{sec:rq3}. Paired comparisons use seed 13 against seed 13, cluster permutation tests and the Holm correction within the three families of the protocol: C2 against each LLM judge (108 tests), C3 against C2 (36 tests), and C0 against the best Laya judge chosen on development data (18 tests). Latencies were measured on development examples (\cref{sec:metrics}). The per-run metrics, intervals and comparison tables are in the code repository.
+
+%% ---------------------------------------------------------------------------
+\subsection{RQ1: accuracy and cost against LLM judges}
+\label{sec:rq1}
+%% ---------------------------------------------------------------------------
+
+\paragraph{A small fine-tuned judge is far more accurate} \Cref{tab:rq1-atis} compares the judges on MultiATIS++ English. Zero-shot, Laya is not a usable slot judge: its F1 is 0.025 in the grid setting and 0.275 with real candidates, it fills 83\% of the unexpressed slots with oracle lists, and its choice accuracy given a present gold value is only 0.20: the information is missing from the model, not from the decision rule. After fine-tuning, it reaches an F1 of 0.941 with oracle candidates and 0.828 with real ones. The three LLM judges stay between 0.36 and 0.43 (oracle) and 0.52 and 0.53 (real).
+
+\begin{table}[pos=t]
+\centering
+\small
+\caption{MultiATIS++ English, test set: fine-tuned Laya against three open-weight LLM judges. Oracle: \texttt{hard\_no\_overlap}, $k=5$, $p_{\text{absent}}=0$. Mean $\pm$ s.d.\ over seeds (C2 and LLMs: 3; C3: 5). ``Choice'' = choice accuracy given that the gold value is in the list; FP = false-positive rate on unexpressed slots; frame acc.\ = share of utterances whose whole set of slots is exactly right.}
+\label{tab:rq1-atis}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llcccccc@{}}
+\toprule
+Cand. & Judge & F1 & P & R & Frame acc. & Choice & FP \\
+\midrule
+\multirow{5}{*}{oracle}
+ & C2 Laya FT & \textbf{0.941} $\pm$ 0.002 & \textbf{0.932} & 0.951 & \textbf{0.785} & 0.956 & \textbf{0.004} \\
+ & C3 Laya FT + aug. & 0.935 $\pm$ 0.004 & 0.927 & 0.942 & 0.759 & 0.947 & \textbf{0.004} \\
+ & Gemma-4-31B & 0.427 $\pm$ 0.001 & 0.275 & 0.955 & 0.038 & 0.959 & 0.145 \\
+ & Qwen3.8-Flash-Next (180\,B) & 0.395 $\pm$ 0.001 & 0.248 & \textbf{0.968} & 0.025 & \textbf{0.973} & 0.169 \\
+ & Qwen3.8-27B & 0.361 $\pm$ 0.001 & 0.222 & 0.964 & 0.025 & 0.968 & 0.194 \\
+\midrule
+\multirow{5}{*}{real}
+ & C2 Laya FT & 0.828 $\pm$ 0.002 & \textbf{0.829} & 0.826 & \textbf{0.549} & 0.866 & \textbf{0.004} \\
+ & C3 Laya FT + aug. & \textbf{0.829} $\pm$ 0.007 & \textbf{0.829} & 0.830 & 0.542 & 0.870 & 0.005 \\
+ & Gemma-4-31B & 0.531 $\pm$ 0.002 & 0.391 & 0.828 & 0.084 & 0.868 & 0.069 \\
+ & Qwen3.8-Flash-Next (180\,B) & 0.528 $\pm$ 0.003 & 0.384 & \textbf{0.843} & 0.085 & \textbf{0.884} & 0.072 \\
+ & Qwen3.8-27B & 0.522 $\pm$ 0.003 & 0.379 & 0.838 & 0.084 & 0.879 & 0.073 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{The gap is an abstention gap on MultiATIS++} On this dataset, the LLM judges choose the right value at least as well as the fine-tuned judge when it is in the list (choice accuracy 0.87--0.97, against 0.87--0.96), including the 180\,B mixture-of-experts model: in the 12 paired comparisons of choice accuracy on MultiATIS++ (two languages, two candidate types, three LLMs), the differences range from $-0.022$ to $0.000$, five of them significant in favour of the LLM. The whole difference comes from abstention: the LLM judges fill 15--21\% of the unexpressed slots with oracle lists and 7\% with real lists, against 0.4--0.6\% for the fine-tuned judge. Frame accuracy, which requires all slots of an utterance to be right and no extra one, makes this visible: 0.79 for C2 against at most 0.04 for the LLMs. Size does not solve the problem: the 180\,B model is no better than the 27--31\,B dense models.
+
+\paragraph{The result holds across datasets, languages and families} \Cref{tab:rq1-all} extends the comparison to the three benchmarks in English and French. A fine-tuned judge is the best \emph{judge} in every row (the sequence tagger C0 is discussed in \cref{sec:rq2-tagger}). Of the 108 paired comparisons between C2 and the three LLMs (6 dataset--language pairs $\times$ 2 candidate types $\times$ 3 LLMs $\times$ 3 metrics, Holm), 96 are significant in favour of C2: all 36 on slot F1, all 36 on the false-positive rate, and the 24 on choice accuracy outside MultiATIS++. The F1 gains are $+0.51$ to $+0.59$ on MultiATIS++ with oracle lists and $+0.28$ to $+0.32$ with real lists, $+0.20$ to $+0.25$ and $+0.09$ to $+0.13$ on MTOP, and $+0.10$ to $+0.19$ and $+0.10$ to $+0.14$ on Multi3WOZ. Unlike MultiATIS++, the LLMs also choose less well on MTOP and Multi3WOZ (choice accuracy 0.73--0.89 against 0.83--0.96 for C2; differences $+0.06$ to $+0.18$): MTOP has many intents and slots, and Multi3WOZ requires reading the history and database-like values. Multi3WOZ is the most favourable dataset for the LLMs (false-positive rates of 1.6--2.6\%, thanks to the domain filter), MTOP and MultiATIS++ the least favourable (15--21\% with oracle lists). Among the LLMs, Gemma-4-31B is the best in 11 of the 12 settings.
+
+\begin{table}[pos=t]
+\centering
+\small
+\caption{Slot F1 on the test sets of the three benchmarks (mean over seeds). ``Recall'' is candidate recall of the real lists (1.000 for oracle lists by construction). C0: sequence tagger alone (real setting only; in italics when it beats every judge); C1: zero-shot Laya; C2: fine-tuned Laya; C3: fine-tuned with confusion-oriented augmentation; three seeds except C3 (five). Best judge per row in bold.}
+\label{tab:rq1-all}
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}llllccccccc@{}}
+\toprule
+Dataset & Lang. & Cand. & Recall & C0 & C1 & C2 & C3 & Qwen3.8-27B & Gemma-4-31B & Flash-Next 180\,B \\
+\midrule
+MultiATIS++ & EN & oracle & 1.000 & -- & 0.025 & \textbf{0.941} & 0.935 & 0.361 & 0.427 & 0.395 \\
+            & EN & real   & 0.959 & \emph{0.949} & 0.275 & 0.828 & \textbf{0.829} & 0.522 & 0.531 & 0.528 \\
+            & FR & oracle & 1.000 & -- & 0.025 & \textbf{0.925} & 0.921 & 0.339 & 0.383 & 0.368 \\
+            & FR & real   & 0.948 & \emph{0.923} & 0.276 & \textbf{0.832} & 0.828 & 0.525 & 0.539 & 0.556 \\
+MTOP & EN & oracle & 1.000 & -- & 0.143 & \textbf{0.953} & 0.951 & 0.704 & 0.753 & 0.727 \\
+     & EN & real   & 0.751 & \emph{0.904} & 0.433 & 0.690 & \textbf{0.695} & 0.563 & 0.583 & 0.558 \\
+     & FR & oracle & 1.000 & -- & 0.148 & \textbf{0.951} & 0.942 & 0.706 & 0.753 & 0.736 \\
+     & FR & real   & 0.675 & \emph{0.833} & 0.335 & 0.625 & \textbf{0.629} & 0.525 & 0.529 & 0.528 \\
+Multi3WOZ & EN & oracle & 1.000 & -- & 0.072 & 0.940 & \textbf{0.946} & 0.822 & 0.844 & 0.813 \\
+          & EN & real   & 0.888 & 0.733 & 0.196 & \textbf{0.853} & 0.852 & 0.750 & 0.762 & 0.744 \\
+          & FR & oracle & 1.000 & -- & 0.056 & 0.917 & \textbf{0.919} & 0.752 & 0.753 & 0.730 \\
+          & FR & real   & 0.550 & 0.380 & 0.121 & \textbf{0.592} & 0.588 & 0.459 & 0.474 & 0.458 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Cost} \Cref{tab:latency} gives the latency of one request judged alone, measured on development examples. The fine-tuned judge answers in 7.9--8.5\,ms (p50) on a fraction of one GPU, against 24.6--35.1\,ms for Gemma-4-31B, 34.7--50.5\,ms for Qwen3.8-27B and 40.5--49.4\,ms for the 180\,B model on two GPUs: a ratio of 3.1 to 6.0. Once each input length has been seen, its p95 latency stays within 1\,ms of the median (8.0--9.4\,ms); the first occurrence of a length costs about 80\,ms once, which dominates the raw p95 on MTOP and Multi3WOZ, whose 100 examples contain many distinct lengths. With batches, the gap widens: with oracle lists on MultiATIS++, the fine-tuned judge processes 691 requests per second on one GPU, against 83 for the 180\,B model on two GPUs and 38 and 18 for the dense 31\,B and 27\,B models on one GPU (a throughput ratio of 8 to 38); on Multi3WOZ, where the history makes inputs longer, 360--370 requests per second against 28--74 (ratio 5 to 13). Laya's peak GPU memory is below 2\,GiB, against 55.6 to 185.5\,GB of weights alone for the LLMs. Fine-tuning costs about 80\,s per epoch on one H200 for MultiATIS++ (4\,min for three epochs) and about 1\,h per seed for the largest training set, bilingual Multi3WOZ (377,033 questions). The tagger C0 trains in 1 to 9\,min and labels a whole utterance, all slots at once, in 6.5--17.7\,ms, whereas the judge needs one pass per non-empty candidate list (about 5 per utterance on MultiATIS++ with real candidates). The whole study used about 120 H200 GPU-hours (100\,h for the 1,215 evaluation runs, of which 52\,h for the LLM judges, and 20\,h for the 102 fine-tunings), a lower bound since runs discarded early in the study are not counted.
+
+\begin{table}[pos=t]
+\centering
+\small
+\caption{Latency of one request judged alone (batch size 1), first 100 development examples of each English dataset, oracle lists in the grid setting, seed 13. Each cell: p50 / p95 after warm-up (ms), i.e.\ excluding the first occurrence of each input length, which costs Laya about 80\,ms once. GPUs: number of H200 used.}
+\label{tab:latency}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Judge & GPUs & MultiATIS++ & MTOP & Multi3WOZ \\
+\midrule
+C2 Laya FT & 1 (shared) & \textbf{7.9} / 8.0 & \textbf{8.0} / 8.4 & \textbf{8.4} / 9.4 \\
+C3 Laya FT + aug. & 1 (shared) & 8.0 / 8.1 & 8.1 / 8.5 & 8.5 / 9.4 \\
+Gemma-4-31B & 1 & 24.6 / 25.7 & 24.6 / 25.8 & 35.1 / 47.9 \\
+Qwen3.8-27B & 1 & 34.8 / 38.3 & 34.7 / 35.7 & 50.5 / 59.3 \\
+Qwen3.8-Flash-Next (180\,B) & 2 & 40.7 / 42.5 & 40.5 / 41.9 & 49.4 / 53.9 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Hypothesis H1} H1 stated that with oracle candidates the fine-tuned judge would stay within 3 F1 points of the LLM judge, at least ten times faster. The accuracy part is exceeded by a wide margin, since the small judge is better, not merely close. The latency part is \emph{not} supported as stated: request by request, the ratio is 3 to 6, not 10. A ratio of 10 or more is reached only in batch throughput (8 to 38 on MultiATIS++), and the small judge needs a fraction of one GPU where the LLMs need one or two.
+
+%% ---------------------------------------------------------------------------
+\subsection{RQ2: where does the error come from?}
+\label{sec:rq2}
+%% ---------------------------------------------------------------------------
+
+\paragraph{With real candidates, recall is the first source of error} The gap between oracle and real F1 for the fine-tuned judges (\cref{tab:rq1-all}) closely follows candidate recall. The real lists contain the gold value for 75\% and 68\% of the gold pairs on MTOP (English, French), 89\% and 55\% on Multi3WOZ, and 96\% and 95\% on MultiATIS++, while the choice accuracy of C2 given that the value is present remains 0.83--0.91. Hypothesis H2 is therefore supported on all datasets. The proposers are markedly weaker in French: on Multi3WOZ French the real F1 is capped at 0.59 for an oracle F1 of 0.92. The judge itself works well in French (\cref{sec:rq3}); improving the candidates is the most profitable direction, as the comparison with a sequence tagger shows (\cref{sec:rq2-tagger}).
+
+\paragraph{Real lists are short, and their trap is confusion between slots} On MultiATIS++ English (development set), the real lists contain on average 0.27 candidates per request; 89\% of the unexpressed requests have an empty list and are answered ``not specified'' without calling the judge, and the non-empty lists have 1.7 candidates on average, mostly values of \emph{other} slots of the utterance. Choice is therefore harder than with oracle lists (choice accuracy 0.87 against 0.96 on the test set, \cref{tab:rq1-atis}), because the competing candidates come from the same utterance.
+
+\paragraph{With oracle lists, choice is robust and abstention decides} When $p_{\text{absent}}$ removes the gold value, candidate recall drops for all judges alike, the F1 is capped, and the judges are separated by precision and by their ability to abstain when the gold value is missing (\cref{tab:rq5}). With the gold value present, the choice accuracy of the fine-tuned judges stays above 0.90 up to $k=20$, whereas zero-shot Laya falls below 0.10. The sweeps were run for the Laya judges on MultiATIS++ English only.
+
+\paragraph{Boundary variants} With the \texttt{hard} preset, which allows distractors that contain or are contained in the gold value, the choice accuracy of the zero-shot judge halves (from 0.203 to 0.094). A C2 judge trained on the same preset is unaffected (choice accuracy 0.954 against 0.956, F1 0.936 against 0.941, three seeds), whereas C3, whose augmentation never shows boundary variants, drops to 0.841 (F1 0.864). Part of what looks like a ``choice'' error is a segmentation error, which a judge learns to avoid only if it is trained on it. The LLM judges were not evaluated on this preset.
+
+\subsection{Against a sequence tagger}
+\label{sec:rq2-tagger}
+
+\Cref{tab:c0} compares the proposer--judge pipeline with the classical alternative: a fine-tuned BIO tagger that reads values directly in the utterance (C0, \cref{sec:conditions}). The tagger is \emph{better} than the whole pipeline on the two single-turn datasets, by $+0.09$ to $+0.22$ F1 in both languages (family 3, Holm, all significant). Its precision is high (0.85--0.96) and its false-positive rate stays low (0.2--1.4\%), so it does not suffer from the abstention problem of the LLM judges. The reason is recall: its single best span contains the gold value for 84--96\% of the gold pairs, against 68--75\% for the union of our four generic proposers on MTOP. The comparison is reversed on Multi3WOZ, where the pipeline wins by 0.12 (English) and 0.21 (French), also significantly. There, 20\% of the gold pairs of the development set have no span in the current utterance (references to the history, values of the dialogue context), and among those that do, the gold value differs from the normalised surface form in 9\% of the cases in English and 54\% in French, where gold values are canonical values (``prix cher'' $\rightarrow$ \emph{expensive}, ``cinq tickets'' $\rightarrow$ \emph{5}). In all, 27\% (English) and 63\% (French) of the gold values are not literal spans of the utterance. A tagger cannot produce these values; the ontology and history proposers can, and the judge selects them reliably. \Cref{tab:c0-cases} illustrates the three situations. (Choice accuracy is not informative for C0, whose single candidate is chosen by construction.)
+
+\begin{table}[pos=t]
+\centering
+\small
+\caption{Why the tagger wins on single-turn datasets and loses on Multi3WOZ: a tagger can only return a span of the current turn. Illustrative examples (the second one is a Multi3WOZ development turn).}
+\label{tab:c0-cases}
+\begin{tabular}{@{}p{3.2cm}p{5.4cm}p{2.4cm}cc@{}}
+\toprule
+Situation & Turn (and context) & Expected value & C0 & Pipeline \\
+\midrule
+The value is a span of the turn & ``a flight from \emph{Boston} to Denver on Monday'' & \texttt{boston} & yes & yes \\
+The value comes from an earlier turn & earlier: ``\ldots\ the restaurant \emph{Sitar Tandoori}''; now: ``I also need a taxi to \emph{the restaurant}'' & \texttt{sitar tandoori} (taxi destination) & no & yes (history proposer) \\
+The value is a canonical form & ``un restaurant \emph{cher}''; ``il me faut \emph{cinq tickets}'' & \texttt{expensive}; \texttt{5} & no & yes (ontology proposer) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[pos=t]
+\centering
+\small
+\caption{Sequence tagger alone (C0, 3 seeds) against the proposer--judge pipeline with real candidates (best of C2 and C3 on the test set, \cref{tab:rq1-all}), test sets. ``Recall'': share of gold pairs whose value is the tagger's best span (C0) or is in the real list (pipeline).}
+\label{tab:c0}
+\begin{tabular}{@{}llcccccc@{}}
+\toprule
+Dataset & Lang. & F1 C0 & P C0 & R C0 & Recall C0 & Recall lists & F1 pipeline \\
+\midrule
+MultiATIS++ & EN & \textbf{0.949} $\pm$ 0.002 & 0.962 & 0.937 & 0.958 & 0.959 & 0.829 \\
+            & FR & \textbf{0.923} $\pm$ 0.005 & 0.935 & 0.911 & 0.931 & 0.948 & 0.832 \\
+MTOP & EN & \textbf{0.904} $\pm$ 0.002 & 0.918 & 0.891 & 0.917 & 0.751 & 0.695 \\
+     & FR & \textbf{0.833} $\pm$ 0.003 & 0.849 & 0.817 & 0.838 & 0.675 & 0.629 \\
+Multi3WOZ & EN & 0.733 $\pm$ 0.002 & 0.832 & 0.655 & 0.666 & 0.888 & \textbf{0.853} \\
+          & FR & 0.380 $\pm$ 0.002 & 0.429 & 0.340 & 0.346 & 0.550 & \textbf{0.592} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Where the pipeline loses, the judge is not the cause} On MultiATIS++, the real lists contain the gold value as often as the tagger finds it (0.959 against 0.958 in English), yet the pipeline loses 0.12 F1: the lists also contain values of other slots of the utterance, and the judge, trained on oracle lists, confuses them (choice accuracy 0.87, \cref{sec:rq2}). On MTOP, the gap comes first from candidate recall. In both cases the fix lies on the proposer side: the tagger's spans are the obvious candidates to add, and the judge would then decide among the tagger's proposal, the lexicon, the ontology and the history. We have not run this combination, which would change the real-candidate setting of the frozen grid; it is the most direct next step.
+
+%% ---------------------------------------------------------------------------
+\subsection{RQ3: cross-lingual transfer}
+\label{sec:rq3}
+%% ---------------------------------------------------------------------------
+
+\Cref{tab:rq3} evaluates on the French test sets judges trained on French only (FR$\rightarrow$FR), on English only (EN$\rightarrow$FR, no French data, checkpoint selected on the English development set) and on both (EN+FR$\rightarrow$FR).
+
+\begin{table}[pos=t]
+\centering
+\small
+\caption{Cross-lingual transfer: slot F1 on the French test sets (mean $\pm$ s.d. over seeds: 3 for C2 and 5 for C3; bilingual models: the existing checkpoints, two seeds for C2 and three for C3 on Multi3WOZ). $^{\dagger}$Unstable across seeds: F1 of seeds 13, 14 and 15.}
+\label{tab:rq3}
+\begin{tabular}{@{}lllccc@{}}
+\toprule
+Dataset & Cand. & Judge & FR$\rightarrow$FR & EN$\rightarrow$FR (no FR data) & EN+FR$\rightarrow$FR \\
+\midrule
+MultiATIS++ & oracle & C2 & 0.925 $\pm$ 0.003 & 0.833 $\pm$ 0.015 & \textbf{0.939} $\pm$ 0.001 \\
+            & oracle & C3 & 0.921 $\pm$ 0.004 & 0.757 $\pm$ 0.047 & \textbf{0.930} $\pm$ 0.004 \\
+            & real   & C2 & 0.832 $\pm$ 0.007 & 0.778 $\pm$ 0.015 & \textbf{0.846} $\pm$ 0.005 \\
+            & real   & C3 & 0.828 $\pm$ 0.009 & 0.775 $\pm$ 0.014 & \textbf{0.829} $\pm$ 0.010 \\
+MTOP & oracle & C2 & 0.951 $\pm$ 0.002 & 0.910 $\pm$ 0.002 & \textbf{0.958} $\pm$ 0.002 \\
+     & oracle & C3 & 0.942 $\pm$ 0.002 & 0.896 $\pm$ 0.004 & \textbf{0.952} $\pm$ 0.002 \\
+     & real   & C2 & \textbf{0.625} $\pm$ 0.003 & 0.610 $\pm$ 0.003 & 0.616 $\pm$ 0.003 \\
+     & real   & C3 & \textbf{0.629} $\pm$ 0.006 & 0.617 $\pm$ 0.010 & \textbf{0.629} $\pm$ 0.012 \\
+Multi3WOZ & oracle & C2 & \textbf{0.917} $\pm$ 0.003 & 0.833 $\pm$ 0.003 & 0.916 $\pm$ 0.002 \\
+          & oracle & C3 & 0.919 $\pm$ 0.001 & 0.801 $\pm$ 0.012 & \textbf{0.923} $\pm$ 0.002 \\
+          & real   & C2 & \textbf{0.592} $\pm$ 0.007 & 0.554 $\pm$ 0.010 & 0.565 $\pm$ 0.007 \\
+          & real   & C3 & \textbf{0.588} $\pm$ 0.012 & 0.555 $\pm$ 0.006 & 0.506 / 0.578 / 0.571$^{\dagger}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{The judge works in French; zero-shot transfer costs 0.04--0.09 F1} Trained and tested in French, the judge loses little with respect to English with oracle lists ($-0.002$ to $-0.023$ F1). Without any French data, C2 loses 0.092 on MultiATIS++, 0.041 on MTOP and 0.084 on Multi3WOZ with oracle lists: the multilingual checkpoint transfers partly, without matching in-language training. With real lists the transfer loss is smaller ($-0.015$ to $-0.054$), because the ceiling is then set by the French proposers rather than by the judge. The augmented judge transfers worse without French data (0.757 $\pm$ 0.047 against 0.833 on MultiATIS++, with a large variance across seeds): an augmentation tuned on English distractors does not help the change of language.
+
+\paragraph{Bilingual training: stable with oracle lists, unstable with real ones} With oracle lists, bilingual training matches or exceeds French-only training ($-0.001$ to $+0.014$) and costs nothing in English (EN$\rightarrow$EN versus EN+FR$\rightarrow$EN test F1: MultiATIS++ C2 0.941 $\rightarrow$ 0.947, C3 0.935 $\rightarrow$ 0.946; MTOP C2 0.953 $\rightarrow$ 0.959; Multi3WOZ C2 0.940 $\rightarrow$ 0.943). With real candidates, however, it does not transfer this benefit: on the French test sets, bilingual minus monolingual F1 is $+0.014$, $-0.009$ and $-0.027$ for C2 and $+0.001$, $0.000$ and $-0.036$ for C3 (MultiATIS++, MTOP, Multi3WOZ). On Multi3WOZ, the bilingual C3 is unstable across seeds with real lists: F1 0.714, 0.845 and 0.802 in English (against 0.852 $\pm$ 0.006 for the monolingual model) and 0.506, 0.578 and 0.571 in French (against 0.588). The cause is an excess of wrong abstentions: the bilingual checkpoints refuse 644 to 1,979 gold values that are present in the list, against 398 to 800 for the monolingual ones, whereas the same checkpoints are normal with oracle lists. This instability had been observed on the development sets, where it motivated the choice of monolingual models for the main configuration; the test set confirms it. A likely explanation is checkpoint selection: the epoch is chosen on the \emph{English} development set with \emph{oracle} candidates, which says nothing about abstention on real French lists. Selecting the checkpoint on a development set that includes real candidates and both languages is a direct way to make bilingual training reliable.
+
+%% ---------------------------------------------------------------------------
+\subsection{RQ4: calibration, abstention and risk--coverage}
+\label{sec:rq4}
+%% ---------------------------------------------------------------------------
+
+\paragraph{All judges are over-confident, the LLMs much more so} Temperature scaling fitted on development data always gives $T>1$, i.e.\ probabilities must be flattened. With real lists, $T$ ranges from 1.8 to 4.5 for the fine-tuned judges (largest on MTOP, where real lists are furthest from the training lists) and from 1.6 to 16.3 for the LLM judges; Gemma-4-31B, the most accurate LLM, is also the most over-confident ($T$ = 3.7--16.3). Scaling, fitted on the development set and applied unchanged to the test set, divides the ECE of the fine-tuned judges by 2 to 8 (e.g.\ 0.063 $\rightarrow$ 0.016 for C2 with real lists on MultiATIS++ English).
+
+\paragraph{The small judge's confidences rank its errors far better} Calibration changes the confidence scale but not the ranking of requests; what matters for a selective policy is whether high confidences coincide with correct decisions, which AURC measures. \Cref{tab:rq4} reports, for real candidates, the AURC and the coverage obtained on the test set when the threshold is chosen on the development set for a 5\% risk. The best fine-tuned judge has an AURC 3 to 40 times lower than every LLM judge in all six dataset--language pairs. On MultiATIS++ and MTOP, no LLM decides more than 0.5\% of the requests on its own at the 5\% target, whereas the fine-tuned judges decide 39--68\% of the MTOP requests and 95--100\% of the MultiATIS++ requests. On Multi3WOZ, most judges reach 82--100\% coverage at the 5\% target (Gemma-4-31B in French: none), but only the fine-tuned judges keep it at 2\% (99--100\%, against 0--88\% for the LLMs). Thresholds tuned on development data transfer imperfectly: the risk realised on the test set exceeds the 5\% target on MultiATIS++ (6.2--7.0\% for the fine-tuned judges, \cref{tab:rq4-atis}) and stays at or below about 5\% on MTOP and Multi3WOZ.
+
+\begin{table}[pos=t]
+\centering
+\small
+\caption{Selective decision with real candidates, test sets (seed 13). Temperature, isotonic map and thresholds are fitted on the development set and applied unchanged. Each cell: AURC (lower is better) $\cdot$ coverage on the test set at the 5\% target risk (share of requests decided without asking). Best AURC per row in bold.}
+\label{tab:rq4}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Dataset, lang. & C2 & C3 & Qwen3.8-27B & Gemma-4-31B & Flash-Next 180\,B \\
+\midrule
+MultiATIS++ EN & 0.029 $\cdot$ 1.00 & \textbf{0.015} $\cdot$ 1.00 & 0.370 $\cdot$ 0.00 & 0.444 $\cdot$ 0.00 & 0.520 $\cdot$ 0.00 \\
+MultiATIS++ FR & \textbf{0.013} $\cdot$ 1.00 & 0.015 $\cdot$ 0.95 & 0.283 $\cdot$ 0.00 & 0.365 $\cdot$ 0.00 & 0.399 $\cdot$ 0.00 \\
+MTOP EN        & 0.071 $\cdot$ 0.39 & \textbf{0.062} $\cdot$ 0.50 & 0.217 $\cdot$ 0.00 & 0.212 $\cdot$ 0.00 & 0.239 $\cdot$ 0.00 \\
+MTOP FR        & 0.047 $\cdot$ 0.68 & \textbf{0.044} $\cdot$ 0.66 & 0.158 $\cdot$ 0.00 & 0.194 $\cdot$ 0.00 & 0.198 $\cdot$ 0.01 \\
+Multi3WOZ EN   & \textbf{0.003} $\cdot$ 1.00 & \textbf{0.003} $\cdot$ 1.00 & 0.009 $\cdot$ 1.00 & 0.028 $\cdot$ 1.00 & 0.028 $\cdot$ 1.00 \\
+Multi3WOZ FR   & \textbf{0.003} $\cdot$ 1.00 & 0.004 $\cdot$ 1.00 & 0.027 $\cdot$ 0.94 & 0.060 $\cdot$ 0.00 & 0.109 $\cdot$ 0.82 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[pos=t]
+\centering
+\small
+\caption{Calibration and selective decision on MultiATIS++ English, real candidates, test set (seed 13; calibration and thresholds fitted on the development set). $T$: fitted temperature; ECE before $\rightarrow$ after temperature scaling; coverage and realised risk at the 1\% and 5\% target risks.}
+\label{tab:rq4-atis}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Judge & $T$ & ECE & AURC & Cov.\ @1\% & Cov.\ / risk @5\% \\
+\midrule
+C2 & 3.17 & 0.063 $\rightarrow$ 0.016 & 0.029 & 0 (unreachable) & 0.997 / 0.068 \\
+C3 & 2.73 & 0.065 $\rightarrow$ 0.025 & \textbf{0.015} & \textbf{0.792} & 0.999 / 0.070 \\
+LLM judges (3 models) & 5.1--16.3 & 0.37--0.45 $\rightarrow$ 0.09--0.16 & 0.37--0.52 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Augmentation helps calibration on MultiATIS++, less elsewhere} At equal F1 on real lists (\cref{tab:rq1-atis}), C3 ranks its certainties twice as well as C2 on MultiATIS++ English (AURC 0.015 against 0.029): at a 1\% target C2 can decide nothing without asking, whereas C3 decides 79\% of the requests. This advantage does not generalise: C3 is slightly better on MTOP and C2 slightly better on MultiATIS++ French and Multi3WOZ (\cref{tab:rq4}).
+
+\begin{figure}[pos=t]
+\centering
+\genfigure{risque-mtop-en}{risk--coverage curves of C2, C3 and the three LLM judges, real candidates}
+\caption{Risk--coverage curves with real candidates, MTOP English test set, seed 13 (one curve per judge; the legend gives the AURC). The curves for the other dataset--language pairs are generated in the same folder of the repository.}
+\label{fig:risk}
+\end{figure}
+
+%% ---------------------------------------------------------------------------
+\subsection{RQ5: robustness through option-list augmentation}
+\label{sec:rq5}
+%% ---------------------------------------------------------------------------
+
+\paragraph{Generic augmentation: robust on oracle sweeps, harmful on real lists} We first trained C3 v1, whose augmentation mixes easy random distractors and hard ones (five seeds, same training recipe as the other judges). It behaves as intended on oracle sweeps: outside the training setting of C2 ($k=5$, gold always present), C2 degrades (F1 from 0.952 at $k=2$ to 0.828 at $k=20$; correct abstention when the gold value is missing from 0.79 at $k=5$ to 0.57 at $k=20$), while C3 v1 remains stable (abstention 0.97--0.98 at every $k$; F1 0.918 at $k=20$, $+0.09$). It pays a price of 0.030 F1 in the grid setting (0.911 against 0.941). On real candidates, however, it is \emph{worse} than C2 (F1 0.784 $\pm$ 0.016 against 0.828 $\pm$ 0.002; every one of its five seeds, 0.765--0.808, is below every C2 seed, 0.826--0.830), mainly through false positives on unexpressed slots (1.1\% against 0.4\%). Hypothesis H3 is therefore not supported with generic augmentation. The diagnosis (\cref{sec:rq2}) is that real lists are short and that their trap is the value of another slot of the same utterance, which the easy distractors of v1 never show.
+
+\paragraph{Confusion-oriented augmentation: robust without cost} C3 v2 replaces the easy distractors by the \texttt{confusion} preset and over-samples short lists. \Cref{tab:rq5} compares it with C2 on the MultiATIS++ English test set. On real lists the two are indistinguishable (0.829 against 0.828; no significant difference, family 2), and the price in the grid setting falls to 0.007 F1 (not significant after Holm). Outside the training setting of C2, C3 keeps the robustness of the augmentation: at $k=20$ without missing values its F1 is 0.097 higher than C2's, with a much higher precision (0.938 against 0.749); at $k=10$, $p_{\text{absent}}=0.5$, it is 0.062 higher and abstains correctly when the gold value is missing in 98\% of the cases, against 67\% for C2. C3 v2 is also more stable across seeds than v1 (standard deviations 0.003--0.012 against 0.008--0.018). Across the six dataset--language pairs of the grid (family 2, 36 tests), C3 and C2 differ by less than 0.01 F1 except on MultiATIS++ French with real lists ($-0.022$, significant); C3 has slightly fewer false positives with oracle lists and slightly more with real lists, and a lower choice accuracy with oracle lists (by 0.007 to 0.017).
+
+\begin{table}[pos=t]
+\centering
+\small
+\caption{Robustness to list size and missing gold value, MultiATIS++ English test set: C2 (trained on $k=5$, $p_{\text{absent}}=0$; 3 seeds) against C3 (confusion-oriented augmentation; 5 seeds). Abst.\ = correct abstention rate when the gold value is missing from the list (undefined for $p_{\text{absent}}=0$).}
+\label{tab:rq5}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Setting & F1 C2 & F1 C3 & P C2 & P C3 & Abst.\ C2 & Abst.\ C3 \\
+\midrule
+Real candidates & 0.828 $\pm$ 0.002 & \textbf{0.829} $\pm$ 0.007 & 0.829 & 0.829 & 0.88 & 0.88 \\
+$k=2$, $p_{\text{absent}}=0$ & \textbf{0.952} $\pm$ 0.001 & 0.948 $\pm$ 0.003 & 0.953 & 0.950 & -- & -- \\
+$k=5$, $p_{\text{absent}}=0$ & \textbf{0.941} $\pm$ 0.002 & 0.935 $\pm$ 0.004 & 0.932 & 0.927 & -- & -- \\
+$k=5$, $p_{\text{absent}}=0.5$ & 0.570 $\pm$ 0.017 & \textbf{0.600} $\pm$ 0.010 & 0.735 & 0.849 & 0.79 & \textbf{0.98} \\
+$k=10$, $p_{\text{absent}}=0$ & 0.916 $\pm$ 0.008 & \textbf{0.928} $\pm$ 0.004 & 0.885 & 0.926 & -- & -- \\
+$k=10$, $p_{\text{absent}}=0.5$ & 0.533 $\pm$ 0.025 & \textbf{0.595} $\pm$ 0.012 & 0.624 & 0.851 & 0.67 & \textbf{0.98} \\
+$k=20$, $p_{\text{absent}}=0$ & 0.828 $\pm$ 0.038 & \textbf{0.925} $\pm$ 0.005 & 0.749 & 0.938 & -- & -- \\
+$k=20$, $p_{\text{absent}}=0.5$ & 0.463 $\pm$ 0.044 & \textbf{0.593} $\pm$ 0.011 & 0.473 & 0.872 & 0.57 & \textbf{0.98} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[pos=t]
+\centering
+\genfigure{balayage-multiatis-en}{F1 against $k$ for $p_{\text{absent}}\in\{0,0.5\}$, C1, C2 and both versions of C3}
+\caption{Robustness to the number of candidates $k$ and to a missing gold value ($p_{\text{absent}}=0.5$, dashed), MultiATIS++ English test set, mean $\pm$ s.d.\ over seeds, for zero-shot Laya, C2 and the two augmentation designs.}
+\label{fig:sweep}
+\end{figure}
+
+\paragraph{Revised hypothesis H3} Random augmentation of the option lists makes the judge robust to changes of context \emph{only if it reproduces the confusions of real proposers} (values of other slots, short lists); generic random distractors make it robust on synthetic sweeps but hurt it on real lists. The two versions together constitute an ablation of the augmentation design; finer ablations (one component at a time) and schema perturbations in the spirit of SGD-X are left for future work.

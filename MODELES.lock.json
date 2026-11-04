@@ -1,0 +1,70 @@
+{
+  "generated_at": "2026-10-28T06:58:10+00:00",
+  "hf_home": null,
+  "models": [
+    {
+      "repo_id": "Qwen/Qwen3.8-27B",
+      "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+      "refs": [
+        "main"
+      ],
+      "size_gb": 55.59
+    },
+    {
+      "repo_id": "Qwen/Qwen3.8-Flash-Next-FP8",
+      "revision": "236dfdf285828023ca3bcd3f37366c58a3469b13",
+      "refs": [
+        "main"
+      ],
+      "size_gb": 185.56
+    },
+    {
+      "repo_id": "convaiinnovations/laya",
+      "revision": "7b928d828b7b0e022f929d9bd2e44165aa270148",
+      "refs": [
+        "main"
+      ],
+      "size_gb": 1.52
+    },
+    {
+      "repo_id": "google/gemma-4-31B-it",
+      "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+      "refs": [
+        "main"
+      ],
+      "size_gb": 62.58
+    },
+    {
+      "repo_id": "microsoft/mdeberta-v3-base",
+      "revision": "a0484667b22365f84929a935b5e50a51f71f159d",
+      "refs": [
+        "main"
+      ],
+      "size_gb": 0.0
+    },
+    {
+      "repo_id": "mistralai/Mistral-Small-4-119B-2603",
+      "revision": "a11f36bebf709121056b1dbcc943d1c6afbe494d",
+      "refs": [
+        "main"
+      ],
+      "size_gb": 120.95
+    },
+    {
+      "repo_id": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "revision": "e8f8c211226b894fcb81acc59f3b34ba3efd5f42",
+      "refs": [
+        "main"
+      ],
+      "size_gb": 0.48
+    },
+    {
+      "repo_id": "urchade/gliner_multi-v2.1",
+      "revision": "443d26d654e0324125a96bebd8e796c14ff2efe6",
+      "refs": [
+        "main"
+      ],
+      "size_gb": 2.31
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1130" height="410" viewBox="0 0 1130 410" role="img" aria-label="Error decomposition: each request ends in exactly one outcome">
+<title>Error decomposition: each request ends in exactly one outcome</title>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#59636e"/></marker></defs>
+<rect x="0" y="0" width="1130" height="410" fill="#ffffff"/>
+<text x="16" y="26" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#59636e" letter-spacing="1">SLOT EXPRESSED BY THE USER (A GOLD VALUE EXISTS)</tspan></text>
+<rect x="16" y="82" width="170" height="56" rx="8" fill="#f6f8fa" stroke="#8c959f" stroke-width="1.3"/>
+<text x="28" y="108" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">Gold pair</tspan></text>
+<text x="28" y="123" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">(slot, value) to find</tspan></text>
+<path d="M188,110 L230,110" fill="none" stroke="#59636e" stroke-width="1.7" marker-end="url(#a)"/>
+<rect x="234" y="82" width="170" height="56" rx="8" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.3"/>
+<text x="246" y="106" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">Gold value in the</tspan></text>
+<text x="246" y="125" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">list?</tspan></text>
+<path d="M319,140 L319,176" fill="none" stroke="#59636e" stroke-width="1.7" marker-end="url(#a)"/>
+<text x="328" y="164" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">no</tspan></text>
+<rect x="234" y="180" width="250" height="65" rx="8" fill="#fff8c5" stroke="#d4a72c" stroke-width="1.3"/>
+<text x="246" y="203" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">Recall error</tspan></text>
+<text x="246" y="218" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">caused by the proposers; the best</tspan></text>
+<text x="246" y="233" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">possible answer is then ∅</tspan></text>
+<path d="M406,110 L448,110" fill="none" stroke="#59636e" stroke-width="1.7" marker-end="url(#a)"/>
+<text x="414" y="102" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">yes</tspan></text>
+<rect x="452" y="82" width="170" height="56" rx="8" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.3"/>
+<text x="464" y="108" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">Judge answers</tspan></text>
+<text x="464" y="123" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">one option or ∅</tspan></text>
+<rect x="690" y="40" width="210" height="38" rx="8" fill="#dafbe1" stroke="#2da44e" stroke-width="1.3"/>
+<text x="702" y="63.5" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">gold value</tspan><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1f2328"> → correct</tspan></text>
+<rect x="690" y="91" width="210" height="38" rx="8" fill="#ffebe9" stroke="#cf222e" stroke-width="1.3"/>
+<text x="702" y="114.5" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">other value</tspan><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1f2328"> → choice error</tspan></text>
+<rect x="690" y="142" width="210" height="38" rx="8" fill="#ffebe9" stroke="#cf222e" stroke-width="1.3"/>
+<text x="702" y="165.5" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">∅</tspan><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1f2328"> → wrong abstention</tspan></text>
+<path d="M624,96 C656,96 656,59 686,59" fill="none" stroke="#59636e" stroke-width="1.7" marker-end="url(#a)"/>
+<path d="M624,110 L686,110" fill="none" stroke="#59636e" stroke-width="1.7" marker-end="url(#a)"/>
+<path d="M624,124 C656,124 656,161 686,161" fill="none" stroke="#59636e" stroke-width="1.7" marker-end="url(#a)"/>
+<rect x="916" y="40" width="198" height="172" rx="8" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.3"/>
+<text x="928" y="59" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#59636e" letter-spacing="1">MEASURED BY</tspan></text>
+<text x="928" y="76" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">candidate recall</tspan></text>
+<text x="928" y="91" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">gold pairs whose value is in</tspan></text>
+<text x="928" y="106" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">the list</tspan></text>
+<text x="928" y="123" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">choice accuracy</tspan></text>
+<text x="928" y="138" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">correct answers when the</tspan></text>
+<text x="928" y="153" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">value is in the list</tspan></text>
+<text x="928" y="170" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">abstention when absent</tspan></text>
+<text x="928" y="185" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">∅ answered when the gold</tspan></text>
+<text x="928" y="200" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">value is not in the list</tspan></text>
+<line x1="16" y1="280" x2="1114" y2="280" stroke="#d1d9e0" stroke-width="1.2"/>
+<text x="16" y="306" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#59636e" letter-spacing="1">SLOT NOT EXPRESSED (THE MAJORITY OF REQUESTS)</tspan></text>
+<rect x="16" y="330" width="170" height="56" rx="8" fill="#f6f8fa" stroke="#8c959f" stroke-width="1.3"/>
+<text x="28" y="356" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">Unexpressed</tspan></text>
+<text x="28" y="371" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">slot of the intent</tspan></text>
+<path d="M188,358 L448,358" fill="none" stroke="#59636e" stroke-width="1.7" marker-end="url(#a)"/>
+<text x="200" y="380" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">empty list: ∅ without calling the judge</tspan></text>
+<rect x="452" y="330" width="170" height="56" rx="8" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.3"/>
+<text x="464" y="356" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="700" fill="#1f2328">Judge answers</tspan></text>
+<text x="464" y="371" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">one option or ∅</tspan></text>
+<rect x="690" y="318" width="210" height="38" rx="8" fill="#dafbe1" stroke="#2da44e" stroke-width="1.3"/>
+<text x="702" y="341.5" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">∅</tspan><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1f2328"> → correct abstention</tspan></text>
+<rect x="690" y="362" width="210" height="38" rx="8" fill="#ffebe9" stroke="#cf222e" stroke-width="1.3"/>
+<text x="702" y="385.5" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">a value</tspan><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1f2328"> → false positive</tspan></text>
+<path d="M624,348 C656,348 656,337 686,337" fill="none" stroke="#59636e" stroke-width="1.7" marker-end="url(#a)"/>
+<path d="M624,368 C656,368 656,381 686,381" fill="none" stroke="#59636e" stroke-width="1.7" marker-end="url(#a)"/>
+<rect x="916" y="318" width="198" height="78" rx="8" fill="#ffffff" stroke="#d1d9e0" stroke-width="1.3"/>
+<text x="928" y="339" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#1f2328">false-positive rate</tspan></text>
+<text x="928" y="354" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">unexpressed requests that</tspan></text>
+<text x="928" y="369" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">receive a value: the main</tspan></text>
+<text x="928" y="384" xml:space="preserve"><tspan font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#59636e">error of LLM judges</tspan></text>
+</svg>

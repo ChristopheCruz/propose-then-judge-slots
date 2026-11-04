@@ -1,0 +1,7 @@
+2026-10-31 09:55:38 INFO config configs/conditions/c4_llm_juge.yaml -> results/lat-c4-alt2-multi3woz-en-20261031-095538 data.dataset=multi3woz data.lang=en seed=13 requests.intent=domain requests.filled=state_before data.split=dev judge.params.model=google/gemma-4-31B-it judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=1 judge.batch_size=1 data.limit=100
+2026-10-31 09:55:39 INFO 100 exemples, 5 intentions, 30 slots dans l'ontologie
+2026-10-31 09:55:42 INFO générateurs ajustés sur 49395 exemples d'entraînement
+2026-10-31 09:55:42 INFO juge LLMJudge, générateurs ['OracleGenerator']
+2026-10-31 09:55:47 INFO vLLM google/gemma-4-31B-it : llm_kwargs={'tensor_parallel_size': 1, 'max_model_len': 4096, 'language_model_only': True} chat_template_kwargs={'enable_thinking': False}
+2026-10-31 09:58:27 INFO 1000 requêtes jugées, 86/100 exemples terminés
+2026-10-31 09:58:34 INFO complete : 100 exemples, F1 slots = 0.8374, rappel candidats = 1.0000, p95 = 47.8799 ms

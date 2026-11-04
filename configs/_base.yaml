@@ -1,0 +1,27 @@
+# Socle commun des conditions C0–C5 (hérité par `inherit: ../_base.yaml`).
+# Jeu, langue et graine se choisissent en ligne de commande ou dans un fichier fils :
+#   ... data.dataset=mtop data.lang=fr seed=14
+# L'héritage fusionne les dicts ; les listes (candidates.generators) sont remplacées.
+
+seed: 13
+
+data:
+  dataset: multiatis
+  lang: en
+  split: test
+  root: data/processed
+  train_split: train
+  limit: null
+
+requests:
+  slots: intent
+  intent: gold                  # QR1–QR2 : intention gold ; « predicted » pour le bout en bout complet
+  filled: none                  # state_before pour Multi3WOZ
+  strip_gold: true
+
+judge:
+  batch_size: 64
+
+output:
+  save_probs: true
+  log_every: 1000

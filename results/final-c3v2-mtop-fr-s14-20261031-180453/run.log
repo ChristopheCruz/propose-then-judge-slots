@@ -1,0 +1,24 @@
+2026-10-31 18:04:53 INFO config configs/conditions/c3v2_laya_ft_aug.yaml -> results/final-c3v2-mtop-fr-s14-20261031-180453 data.dataset=mtop data.lang=fr seed=14 judge.finetuned=checkpoints/c3v2/mtop-fr-s14
+2026-10-31 18:04:54 INFO 3193 exemples, 110 intentions, 73 slots dans l'ontologie
+2026-10-31 18:04:54 INFO générateurs ajustés sur 11814 exemples d'entraînement
+2026-10-31 18:04:54 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 18:05:18 INFO 1024 requêtes jugées, 201/3193 exemples terminés
+2026-10-31 18:05:26 INFO 2048 requêtes jugées, 340/3193 exemples terminés
+2026-10-31 18:05:35 INFO 3072 requêtes jugées, 525/3193 exemples terminés
+2026-10-31 18:05:43 INFO 4096 requêtes jugées, 743/3193 exemples terminés
+2026-10-31 18:05:51 INFO 5120 requêtes jugées, 943/3193 exemples terminés
+2026-10-31 18:05:57 INFO 6016 requêtes jugées, 1091/3193 exemples terminés
+2026-10-31 18:06:03 INFO 7040 requêtes jugées, 1208/3193 exemples terminés
+2026-10-31 18:06:09 INFO 8064 requêtes jugées, 1376/3193 exemples terminés
+2026-10-31 18:06:15 INFO 9088 requêtes jugées, 1553/3193 exemples terminés
+2026-10-31 18:06:22 INFO 10112 requêtes jugées, 1696/3193 exemples terminés
+2026-10-31 18:06:27 INFO 11008 requêtes jugées, 1866/3193 exemples terminés
+2026-10-31 18:06:32 INFO 12032 requêtes jugées, 2004/3193 exemples terminés
+2026-10-31 18:06:39 INFO 13056 requêtes jugées, 2177/3193 exemples terminés
+2026-10-31 18:06:47 INFO 14080 requêtes jugées, 2388/3193 exemples terminés
+2026-10-31 18:06:52 INFO 15104 requêtes jugées, 2530/3193 exemples terminés
+2026-10-31 18:06:57 INFO 16000 requêtes jugées, 2675/3193 exemples terminés
+2026-10-31 18:07:03 INFO 17024 requêtes jugées, 2844/3193 exemples terminés
+2026-10-31 18:07:09 INFO 18048 requêtes jugées, 3028/3193 exemples terminés
+2026-10-31 18:07:15 INFO 19072 requêtes jugées, 3182/3193 exemples terminés
+2026-10-31 18:07:15 INFO complete : 3193 exemples, F1 slots = 0.9390, rappel candidats = 1.0000, p95 = 12.1569 ms

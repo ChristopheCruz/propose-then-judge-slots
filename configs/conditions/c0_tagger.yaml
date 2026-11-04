@@ -1,0 +1,18 @@
+# C0 — Tagger seul (encodeur multilingue fine-tuné en BIO, style JointBERT).
+# Baseline classique d'extraction, exprimée dans le même pipeline : le tagger est le seul
+# générateur (top_k=1 par slot) et le « juge » prend le candidat de meilleur score.
+# Seule la variante « candidats réels » a un sens (pas de version oracle).
+#   make entrainer-c0 SEED=13 && make c0 SEED=13 SPLIT=dev
+inherit: [../_base.yaml]
+name: C0-tagger
+condition: C0
+
+candidates:
+  generators:
+    - class: laya_slots.candidates.tagger.TaggerGenerator
+      params: {checkpoint: "checkpoints/tagger/${data.dataset}-${data.lang}-s${seed}", top_k: 1, device: cuda}
+  fit: false
+
+judge:
+  class: laya_slots.judges.baselines.GeneratorScoreJudge
+  params: {min_score: null}     # seuil optionnel sous lequel on répond « non précisé »

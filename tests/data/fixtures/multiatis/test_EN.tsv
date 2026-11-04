@@ -1,0 +1,2 @@
+id	utterance	slot_labels	intent
+20	flights to san  francisco on friday	O O I-toloc.city_name I-toloc.city_name O B-depart_date.day_name	atis_flight

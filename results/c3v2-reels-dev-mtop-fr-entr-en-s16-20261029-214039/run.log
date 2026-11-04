@@ -1,0 +1,15 @@
+2026-10-29 21:40:39 INFO config configs/conditions/c3v2_laya_ft_aug_reels.yaml -> results/c3v2-reels-dev-mtop-fr-entr-en-s16-20261029-214039 data.dataset=mtop data.lang=fr seed=16 data.split=dev judge.finetuned=checkpoints/c3v2/mtop-en-s16
+2026-10-29 21:40:40 INFO 1577 exemples, 110 intentions, 73 slots dans l'ontologie
+2026-10-29 21:40:41 INFO générateurs ajustés sur 11814 exemples d'entraînement
+2026-10-29 21:40:41 INFO juge LayaJudge, générateurs ['LexiconGenerator', 'GlinerGenerator', 'OntologyGenerator', 'HistoryGenerator']
+2026-10-29 21:40:43 INFO Loading the following GLiNER type: <class 'gliner.model.UniEncoderSpanGLiNER'>...
+2026-10-29 21:41:02 INFO 1024 requêtes jugées, 164/1577 exemples terminés
+2026-10-29 21:41:11 INFO 2048 requêtes jugées, 358/1577 exemples terminés
+2026-10-29 21:41:19 INFO 3072 requêtes jugées, 547/1577 exemples terminés
+2026-10-29 21:41:24 INFO 4096 requêtes jugées, 665/1577 exemples terminés
+2026-10-29 21:41:31 INFO 5120 requêtes jugées, 806/1577 exemples terminés
+2026-10-29 21:41:37 INFO 6016 requêtes jugées, 955/1577 exemples terminés
+2026-10-29 21:41:43 INFO 7040 requêtes jugées, 1123/1577 exemples terminés
+2026-10-29 21:41:50 INFO 8064 requêtes jugées, 1293/1577 exemples terminés
+2026-10-29 21:41:57 INFO 9088 requêtes jugées, 1470/1577 exemples terminés
+2026-10-29 21:42:02 INFO complete : 1577 exemples, F1 slots = 0.6282, rappel candidats = 0.6978, p95 = 12.8200 ms

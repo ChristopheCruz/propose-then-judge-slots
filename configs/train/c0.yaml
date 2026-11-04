@@ -1,0 +1,30 @@
+# Entraînement C0 — tagger BIO (encodeur multilingue fine-tuné, une étiquette par mot).
+#
+#   make entrainer-c0 DATASET=multiatis LANGUE=en SEED=13
+#   -> checkpoints/tagger/multiatis-en-s13, lu par configs/conditions/c0_tagger.yaml
+#
+# Étiquettes : slots qui ont un span dans l'énoncé (les valeurs de l'historique ou du contexte
+# de Multi3WOZ ne sont pas taguées : C0 ne les retrouve pas, c'est une limite du tagger seul).
+inherit: [../_base.yaml]
+name: train-C0
+condition: C0
+
+judge:                              # pas utilisé à l'entraînement ; même juge que configs/conditions/c0_tagger.yaml
+  class: laya_slots.judges.baselines.GeneratorScoreJudge
+  params: {min_score: null}
+
+train:
+  model: microsoft/mdeberta-v3-base
+  max_len: 256
+  epochs: 10                        # le F1 dev monte encore à 5 (0,950 -> 0,956, MultiATIS++ EN, 31/10)
+  batch_size: 32
+  lr: 3.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  max_grad_norm: 1.0
+  bf16: true
+  limit_train: null                 # n premiers exemples du train (essais rapides)
+  dev_split: dev
+  dev_limit: null                   # tout le dev : choix du checkpoint sur le F1 des spans
+  langs: null                       # ex. en+fr (null = data.lang)
+  log_every: 100

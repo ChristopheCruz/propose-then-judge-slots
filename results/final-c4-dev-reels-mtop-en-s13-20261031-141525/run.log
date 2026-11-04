@@ -1,0 +1,35 @@
+2026-10-31 14:15:25 INFO config configs/conditions/c4_llm_juge_reels.yaml -> results/final-c4-dev-reels-mtop-en-s13-20261031-141525 data.dataset=mtop data.lang=en seed=13 judge.params.model=Qwen/Qwen3.8-27B judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=1 judge.params.backend_kwargs.llm_kwargs.gpu_memory_utilization=0.88
+2026-10-31 14:15:26 INFO 4386 exemples, 113 intentions, 75 slots dans l'ontologie
+2026-10-31 14:15:27 INFO générateurs ajustés sur 15667 exemples d'entraînement
+2026-10-31 14:15:27 INFO juge LLMJudge, générateurs ['LexiconGenerator', 'GlinerGenerator', 'OntologyGenerator', 'HistoryGenerator']
+2026-10-31 14:15:29 INFO Loading the following GLiNER type: <class 'gliner.model.UniEncoderSpanGLiNER'>...
+2026-10-31 14:15:36 INFO vLLM Qwen/Qwen3.8-27B : llm_kwargs={'tensor_parallel_size': 1, 'max_model_len': 4096, 'language_model_only': True, 'gpu_memory_utilization': 0.88} chat_template_kwargs={'enable_thinking': False}
+2026-10-31 14:16:28 INFO 1024 requêtes jugées, 154/4386 exemples terminés
+2026-10-31 14:16:39 INFO 2048 requêtes jugées, 309/4386 exemples terminés
+2026-10-31 14:16:50 INFO 3072 requêtes jugées, 460/4386 exemples terminés
+2026-10-31 14:17:02 INFO 4096 requêtes jugées, 611/4386 exemples terminés
+2026-10-31 14:17:14 INFO 5120 requêtes jugées, 777/4386 exemples terminés
+2026-10-31 14:17:25 INFO 6144 requêtes jugées, 928/4386 exemples terminés
+2026-10-31 14:17:37 INFO 7168 requêtes jugées, 1079/4386 exemples terminés
+2026-10-31 14:17:48 INFO 8192 requêtes jugées, 1242/4386 exemples terminés
+2026-10-31 14:18:00 INFO 9216 requêtes jugées, 1399/4386 exemples terminés
+2026-10-31 14:18:12 INFO 10240 requêtes jugées, 1563/4386 exemples terminés
+2026-10-31 14:18:20 INFO 11008 requêtes jugées, 1687/4386 exemples terminés
+2026-10-31 14:18:32 INFO 12032 requêtes jugées, 1846/4386 exemples terminés
+2026-10-31 14:18:43 INFO 13056 requêtes jugées, 1998/4386 exemples terminés
+2026-10-31 14:18:55 INFO 14080 requêtes jugées, 2165/4386 exemples terminés
+2026-10-31 14:19:05 INFO 15104 requêtes jugées, 2305/4386 exemples terminés
+2026-10-31 14:19:16 INFO 16128 requêtes jugées, 2455/4386 exemples terminés
+2026-10-31 14:19:27 INFO 17152 requêtes jugées, 2615/4386 exemples terminés
+2026-10-31 14:19:38 INFO 18176 requêtes jugées, 2767/4386 exemples terminés
+2026-10-31 14:19:49 INFO 19200 requêtes jugées, 2920/4386 exemples terminés
+2026-10-31 14:20:00 INFO 20224 requêtes jugées, 3064/4386 exemples terminés
+2026-10-31 14:20:12 INFO 21248 requêtes jugées, 3216/4386 exemples terminés
+2026-10-31 14:20:20 INFO 22016 requêtes jugées, 3337/4386 exemples terminés
+2026-10-31 14:20:32 INFO 23040 requêtes jugées, 3499/4386 exemples terminés
+2026-10-31 14:20:44 INFO 24064 requêtes jugées, 3661/4386 exemples terminés
+2026-10-31 14:20:55 INFO 25088 requêtes jugées, 3817/4386 exemples terminés
+2026-10-31 14:21:06 INFO 26112 requêtes jugées, 3968/4386 exemples terminés
+2026-10-31 14:21:17 INFO 27136 requêtes jugées, 4121/4386 exemples terminés
+2026-10-31 14:21:28 INFO 28160 requêtes jugées, 4270/4386 exemples terminés
+2026-10-31 14:21:37 INFO complete : 4386 exemples, F1 slots = 0.5645, rappel candidats = 0.7507, p95 = 20.2483 ms

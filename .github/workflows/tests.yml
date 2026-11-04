@@ -1,0 +1,42 @@
+# Intégration continue légère : tests et lint sur CPU, sans GPU ni modèle.
+# Les tests marqués `integration` (GPU, réseau, modèles) sont exclus par pyproject (addopts).
+name: tests
+
+on:
+  push:
+    branches: [main]
+    # les commits de résultats poussés par le serveur ne relancent pas la CI
+    paths-ignore: ["results/**"]
+  pull_request:
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Python
+        run: uv python install 3.12
+
+      - name: Dépendances (verrouillées, sans extras GPU)
+        run: uv sync --frozen
+
+      - name: Lint
+        # Chemins limités tant que pyproject ne fixe pas les règles ruff
+        # (les règles par défaut de ruff récent signalent schema.py, interfaces.py et les notebooks).
+        run: uv run ruff check experiments laya_slots/evaluation tests/experiments tests/evaluation
+
+      - name: Syntaxe des scripts shell
+        run: bash -n scripts/labo.sh && bash -n scripts/preparer.sh
+
+      - name: Tests
+        run: uv run pytest -q

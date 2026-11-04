@@ -1,0 +1,1 @@
+201	IN:GET_ALARM		montre mes réveils	alarm	fr_XX	[IN:GET_ALARM ]	{"tokens": ["montre", "mes", "réveils"], "tokenSpans": []}

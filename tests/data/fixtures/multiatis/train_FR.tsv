@@ -1,0 +1,4 @@
+id	utterance	slot_labels	intent
+1	montrez-moi les vols de boston à new york demain matin	O O O O B-fromloc.city_name O B-toloc.city_name I-toloc.city_name B-depart_date.today_relative B-depart_time.period_of_day	atis_flight
+2	quel est le tarif de denver à pittsburgh lundi	O O O O O B-fromloc.city_name O B-toloc.city_name B-depart_date.day_name	atis_airfare
+3	vols et tarifs de dallas à atlanta avant dix-sept heures	O O O O B-fromloc.city_name O B-toloc.city_name B-depart_time.time_relative B-depart_time.time I-depart_time.time	atis_flight#atis_airfare

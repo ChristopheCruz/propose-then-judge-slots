@@ -1,0 +1,10 @@
+# C3 avec candidats réels (lexique, GLiNER, ontologie, historique) : mesure de bout en bout.
+# Même condition, mêmes réglages du juge ; seuls les candidats changent (dernier fichier hérité).
+#   make c3 CAND=reels
+# Checkpoint : celui de C3 (augmentation par options aléatoires) ; aucun réentraînement.
+inherit: [c3_laya_ft_aug.yaml, ../candidats/reels.yaml]
+name: C3-laya-ft-aug-reels
+
+judge:
+  params:
+    max_options: 20

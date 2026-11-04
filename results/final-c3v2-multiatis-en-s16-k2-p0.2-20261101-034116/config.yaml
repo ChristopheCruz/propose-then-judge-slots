@@ -1,0 +1,45 @@
+name: C3v2-laya-ft-aug
+condition: C3v2
+seed: 16
+data:
+  dataset: multiatis
+  lang: en
+  split: test
+  root: data/processed
+  path: null
+  ontology: null
+  train_split: train
+  train_path: null
+  loader: null
+  limit: null
+requests:
+  slots: intent
+  intent: gold
+  filled: none
+  strip_gold: true
+candidates:
+  generators:
+  - class: laya_slots.candidates.oracle.OracleGenerator
+    params:
+      k: 2
+      p_absent: 0.2
+      distractors: hard_no_overlap
+      seed: 16
+  fit: true
+  shuffle: false
+  max_candidates: null
+judge:
+  class: laya_slots.judges.laya_judge.LayaJudge
+  params:
+    mode: single
+    checkpoint: multilingual
+    candidate_order: shuffle
+    rotations: 1
+    device: cuda
+    max_options: 20
+  batch_size: 128
+  finetuned: checkpoints/c3v2/multiatis-en-s16
+intent_predictor: null
+output:
+  save_probs: true
+  log_every: 1000

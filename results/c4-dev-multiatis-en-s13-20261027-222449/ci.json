@@ -1,0 +1,55 @@
+{
+  "method": "bootstrap percentile 95 %, grappes = dialogues (Multi3WOZ) ou énoncés",
+  "seed": 0,
+  "metrics": {
+    "slot_f1": {
+      "value": 0.39945618588555176,
+      "lo": 0.3899196697509942,
+      "hi": 0.4087059337735295,
+      "n_boot": 1000,
+      "n_clusters": 500
+    },
+    "slot_precision": {
+      "value": 0.25214542050241845,
+      "lo": 0.24477203815962542,
+      "hi": 0.25948248794675,
+      "n_boot": 1000,
+      "n_clusters": 500
+    },
+    "slot_recall": {
+      "value": 0.9607609988109393,
+      "lo": 0.9470189091497626,
+      "hi": 0.9718576330485098,
+      "n_boot": 1000,
+      "n_clusters": 500
+    },
+    "frame_accuracy": {
+      "value": 0.006,
+      "lo": 0.0,
+      "hi": 0.014,
+      "n_boot": 1000,
+      "n_clusters": 500
+    },
+    "choice_accuracy_given_present": {
+      "value": 0.9714625445897741,
+      "lo": 0.9609888566197361,
+      "hi": 0.9803807908419016,
+      "n_boot": 1000,
+      "n_clusters": 500
+    },
+    "false_positive_rate": {
+      "value": 0.16674223136748859,
+      "lo": 0.1601184982694181,
+      "hi": 0.17335922754220612,
+      "n_boot": 1000,
+      "n_clusters": 500
+    },
+    "absent_abstention_rate": {
+      "value": null,
+      "lo": null,
+      "hi": null,
+      "n_boot": 1000,
+      "n_clusters": 500
+    }
+  }
+}

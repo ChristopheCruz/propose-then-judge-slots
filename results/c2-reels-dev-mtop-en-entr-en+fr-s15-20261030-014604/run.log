@@ -1,0 +1,21 @@
+2026-10-30 01:46:04 INFO config configs/conditions/c2_laya_ft_reels.yaml -> results/c2-reels-dev-mtop-en-entr-en+fr-s15-20261030-014604 data.dataset=mtop data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c2/mtop-en+fr-s15
+2026-10-30 01:46:05 INFO 2235 exemples, 113 intentions, 75 slots dans l'ontologie
+2026-10-30 01:46:06 INFO générateurs ajustés sur 15667 exemples d'entraînement
+2026-10-30 01:46:06 INFO juge LayaJudge, générateurs ['LexiconGenerator', 'GlinerGenerator', 'OntologyGenerator', 'HistoryGenerator']
+2026-10-30 01:46:08 INFO Loading the following GLiNER type: <class 'gliner.model.UniEncoderSpanGLiNER'>...
+2026-10-30 01:46:23 INFO 1024 requêtes jugées, 143/2235 exemples terminés
+2026-10-30 01:46:30 INFO 2048 requêtes jugées, 285/2235 exemples terminés
+2026-10-30 01:46:37 INFO 3072 requêtes jugées, 443/2235 exemples terminés
+2026-10-30 01:46:44 INFO 4096 requêtes jugées, 591/2235 exemples terminés
+2026-10-30 01:46:50 INFO 5120 requêtes jugées, 753/2235 exemples terminés
+2026-10-30 01:46:56 INFO 6016 requêtes jugées, 888/2235 exemples terminés
+2026-10-30 01:47:02 INFO 7040 requêtes jugées, 1047/2235 exemples terminés
+2026-10-30 01:47:07 INFO 8064 requêtes jugées, 1191/2235 exemples terminés
+2026-10-30 01:47:14 INFO 9088 requêtes jugées, 1356/2235 exemples terminés
+2026-10-30 01:47:20 INFO 10112 requêtes jugées, 1512/2235 exemples terminés
+2026-10-30 01:47:25 INFO 11008 requêtes jugées, 1648/2235 exemples terminés
+2026-10-30 01:47:30 INFO 12032 requêtes jugées, 1794/2235 exemples terminés
+2026-10-30 01:47:36 INFO 13056 requêtes jugées, 1938/2235 exemples terminés
+2026-10-30 01:47:42 INFO 14080 requêtes jugées, 2091/2235 exemples terminés
+2026-10-30 01:47:47 INFO 15096 requêtes jugées, 2235/2235 exemples terminés
+2026-10-30 01:47:47 INFO complete : 2235 exemples, F1 slots = 0.6826, rappel candidats = 0.7661, p95 = 8.1350 ms

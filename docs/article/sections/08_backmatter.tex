@@ -1,0 +1,31 @@
+%% ===========================================================================
+%% Unnumbered back matter
+%% ===========================================================================
+
+\section*{Data and code availability}
+\label{sec:data-availability}
+%% Research data statement (deposit encouraged, otherwise a statement).
+
+The code of this study (data conversion, candidate generators, judges, fine-tuning, decision module, statistics, tables and figures), all configurations and the scripts that reproduce every run are available at \url{https://github.com/ChristopheCruz/propose-then-judge-slots} under the MIT licence, and will be archived with a DOI \todo{DOI Zenodo (or Mendeley Data) of the code release, cited as software}. The converted splits of MTOP \citep{li2021mtop} will be released under CC BY-SA 4.0, as required by the licence of the original data (attribution, indication of the changes, same licence), and those of Multi3WOZ \citep{hu2023multi3woz} under the MIT licence of the original data, together with the candidate lists and the predictions of all judges \todo{DOI of the data deposit, cited with the [dataset] prefix}. MultiATIS++ is distributed by the Linguistic Data Consortium (\emph{ATIS -- Seven Languages}, LDC2021T04) \citep{mansour2021atis7} under a licence that does not allow redistribution; for this dataset we release only the conversion scripts and the SHA-256 hashes of the converted files, so that holders of the LDC release can regenerate them exactly, and predictions without text. The fine-tuned checkpoints for MTOP and Multi3WOZ will be released on the Hugging Face Hub \todo{licence of the MTOP checkpoints (CC BY-SA 4.0 or Apache-2.0 with a note), author decision; MultiATIS++ checkpoint only with LDC permission}. Exact model revisions are listed in \cref{tab:llms} and in the released \texttt{MODELES.lock.json}.
+
+\section*{Declaration of competing interest}
+
+\todo{Declaration of competing interest, to be produced with Elsevier's declaration tool (.docx); for submissions after 1 January 2026 it must cover the last three years. If none: ``The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.'' Check the links with the industrial partner of the LabCom (DAVI).}
+
+\section*{Funding}
+
+%% ANR grant number found on anr.fr (project page ANR-24-LCV1-0008): to be confirmed by the author.
+This work was supported by the French National Research Agency (ANR) through the LabCom LAMAE project [grant number ANR-24-LCV1-0008].
+
+%% CRediT authorship contribution statement, generated from \credit{...} in main.tex
+\printcredits
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+
+During the preparation of this work, the authors used Claude, an AI assistant developed by Anthropic, in order to assist with software development (experiment code, tests and scripts), to check bibliographic references against their sources, and to prepare drafts of the documentation and of this manuscript. After using this tool, the authors reviewed and edited the content as needed and take full responsibility for the content of the published article.
+\todo{Authors to confirm the wording. Elsevier's policy (June 2026) also asks that the use of AI for code be described in the Methods section: add one sentence to Section 4.6 if the authors agree.}
+
+\section*{Acknowledgements}
+
+This work was supported by the French National Research Agency (ANR) through the LabCom LAMAE project [grant number ANR-24-LCV1-0008].
+\todo{Other acknowledgements (computing infrastructure \texttt{caire-gpu2}, colleagues, LDC access).}

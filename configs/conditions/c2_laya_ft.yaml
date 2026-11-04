@@ -1,0 +1,16 @@
+# C2 — Laya fine-tuné standard : effet du fine-tuning.
+# Checkpoints produits par laya_slots/train (vague 2), un par graine ; 3 graines (seed=13, 14, 15).
+inherit: [../_base.yaml, ../candidats/oracle.yaml]
+name: C2-laya-ft
+condition: C2
+
+judge:
+  class: laya_slots.judges.laya_judge.LayaJudge
+  finetuned: "checkpoints/c2/${data.dataset}-${data.lang}-s${seed}"   # écrit par make entrainer-c2 ; chargé par LayaJudge (model_path)
+  params:
+    mode: single                    # single | two_step (QR4 : slot exprimé, puis choix)
+    checkpoint: multilingual        # multilingual | english | lang | auto
+    candidate_order: shuffle        # biais de position fort : ne jamais garder l'ordre du générateur
+    rotations: 1                    # >1 : moyenne sur des rotations de l'ordre des options
+    device: cuda
+  batch_size: 128

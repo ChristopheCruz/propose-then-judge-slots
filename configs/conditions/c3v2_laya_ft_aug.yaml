@@ -1,0 +1,7 @@
+# C3 v2 — Laya fine-tuné + augmentation centrée sur la confusion entre slots (configs/train/c3v2.yaml).
+inherit: [c3_laya_ft_aug.yaml]
+name: C3v2-laya-ft-aug
+condition: C3v2
+
+judge:
+  finetuned: "checkpoints/c3v2/${data.dataset}-${data.lang}-s${seed}"   # écrit par make entrainer-c3v2

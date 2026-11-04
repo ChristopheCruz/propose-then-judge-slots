@@ -1,0 +1,6 @@
+2026-10-27 17:04:41 INFO config configs/conditions/c4_llm_juge.yaml -> results/tester-llm-google_gemma-4-31B-it-tp1 data.dataset=multiatis data.lang=en data.split=dev data.limit=20 seed=13 judge.params.model=google/gemma-4-31B-it judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=1
+2026-10-27 17:04:42 INFO 20 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-27 17:04:42 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-27 17:04:42 INFO juge LLMJudge, générateurs ['OracleGenerator']
+2026-10-27 17:04:46 INFO vLLM google/gemma-4-31B-it : llm_kwargs={'tensor_parallel_size': 1, 'max_model_len': 4096, 'language_model_only': True} chat_template_kwargs={'enable_thinking': False}
+2026-10-27 17:07:01 INFO complete : 20 exemples, F1 slots = 0.6341, rappel candidats = 1.0000, p95 = 474.4588 ms

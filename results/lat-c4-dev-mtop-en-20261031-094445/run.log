@@ -1,0 +1,6 @@
+2026-10-31 09:44:45 INFO config configs/conditions/c4_llm_juge.yaml -> results/lat-c4-dev-mtop-en-20261031-094445 data.dataset=mtop data.lang=en seed=13 data.split=dev judge.params.model=Qwen/Qwen3.8-27B judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=1 judge.batch_size=1 data.limit=100
+2026-10-31 09:44:46 INFO 100 exemples, 113 intentions, 75 slots dans l'ontologie
+2026-10-31 09:44:46 INFO générateurs ajustés sur 15667 exemples d'entraînement
+2026-10-31 09:44:46 INFO juge LLMJudge, générateurs ['OracleGenerator']
+2026-10-31 09:44:51 INFO vLLM Qwen/Qwen3.8-27B : llm_kwargs={'tensor_parallel_size': 1, 'max_model_len': 4096, 'language_model_only': True} chat_template_kwargs={'enable_thinking': False}
+2026-10-31 09:46:57 INFO complete : 100 exemples, F1 slots = 0.7123, rappel candidats = 1.0000, p95 = 37.4326 ms

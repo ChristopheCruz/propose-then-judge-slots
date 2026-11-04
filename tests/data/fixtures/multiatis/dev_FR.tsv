@@ -1,0 +1,2 @@
+id	utterance	slot_labels	intent
+10	compagnies desservant denver	O O B-city_name	atis_airline

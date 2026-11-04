@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+\begin{axis}[xlabel={Coverage (decided without asking)},ylabel={Risk (error rate)},ymin=0,xmin=0,xmax=1,legend pos=north west,title={multiatis EN, real candidates: risk--coverage},width=9cm,height=6cm]
+\addplot+[blue,mark=*,mark=none,thick] table[x=coverage,y=risk]{risque-multiatis-en-C2-multiatis-en.dat};
+\addlegendentry{Laya fine-tuned (C2) (AURC 0.029)}
+\addplot+[red,mark=square*,mark=none,thick] table[x=coverage,y=risk]{risque-multiatis-en-C3v2-multiatis-en.dat};
+\addlegendentry{Laya FT + augmentation (C3) (AURC 0.015)}
+\addplot+[black,mark=triangle*,mark=none,thick] table[x=coverage,y=risk]{risque-multiatis-en-Qwen3.8-27B.dat};
+\addlegendentry{Qwen3.8-27B (LLM judge) (AURC 0.370)}
+\addplot+[orange,mark=diamond*,mark=none,thick] table[x=coverage,y=risk]{risque-multiatis-en-Qwen3.8-Flash-Next-FP8.dat};
+\addlegendentry{Qwen3.8-Flash-Next-FP8 (LLM judge) (AURC 0.520)}
+\addplot+[teal,mark=pentagon*,mark=none,thick] table[x=coverage,y=risk]{risque-multiatis-en-gemma-4-31B-it.dat};
+\addlegendentry{gemma-4-31B-it (LLM judge) (AURC 0.444)}
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,10 @@
+# C2 avec candidats réels (lexique, GLiNER, ontologie, historique) : mesure de bout en bout.
+# Même condition, mêmes réglages du juge ; seuls les candidats changent (dernier fichier hérité).
+#   make c2 CAND=reels
+# Checkpoint : celui de C2 (entraîné sur les candidats oracle de la grille) ; aucun réentraînement.
+inherit: [c2_laya_ft.yaml, ../candidats/reels.yaml]
+name: C2-laya-ft-reels
+
+judge:
+  params:
+    max_options: 20

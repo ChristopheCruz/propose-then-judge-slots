@@ -1,0 +1,23 @@
+Propose, then judge — code of the paper
+Copyright (c) 2026 Université Bourgogne Europe. Code under the MIT licence (see LICENSE).
+
+This repository uses, but does not redistribute, the following resources. Their licences apply to
+any data, model or prediction derived from them.
+
+Datasets
+- MultiATIS++ (LDC2021T04), Linguistic Data Consortium, LDC user agreement. Not redistributed:
+  no converted data, prediction, checkpoint or excerpt is included; only conversion scripts and
+  SHA-256 hashes.
+- MTOP v2 (Li et al., 2021), CC BY-SA 4.0. Predictions on MTOP attached to the release are
+  distributed under CC BY-SA 4.0.
+- Multi3WOZ (Hu et al., 2023), MIT, Copyright (c) 2023 Songbo Hu. Predictions on Multi3WOZ attached
+  to the release are distributed under the MIT licence.
+
+Models (downloaded at run time, revisions in MODELES.lock.json)
+- Laya (convaiinnovations/laya), Apache-2.0.
+- GLiNER multi v2.1 (urchade/gliner_multi-v2.1), Apache-2.0.
+- mDeBERTa-v3-base (microsoft/mdeberta-v3-base), MIT.
+- Qwen3.8-27B, Apache-2.0; Qwen3.8-Flash-Next-FP8, Qwen Community License 1.0; Gemma-4-31B-it,
+  licence stated on its model card (google/gemma-4-31B-it).
+
+Funding: French National Research Agency (ANR), LabCom LAMAE, grant ANR-24-LCV1-0008.

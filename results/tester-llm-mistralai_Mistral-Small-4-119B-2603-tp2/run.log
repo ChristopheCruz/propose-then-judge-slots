@@ -1,0 +1,295 @@
+2026-10-27 17:02:35 INFO config configs/conditions/c4_llm_juge.yaml -> results/tester-llm-mistralai_Mistral-Small-4-119B-2603-tp2 data.dataset=multiatis data.lang=en data.split=dev data.limit=20 seed=13 judge.params.model=mistralai/Mistral-Small-4-119B-2603 judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=2
+2026-10-27 17:02:36 INFO 20 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-27 17:02:37 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-27 17:02:37 INFO juge LLMJudge, générateurs ['OracleGenerator']
+2026-10-27 17:02:41 INFO vLLM mistralai/Mistral-Small-4-119B-2603 : llm_kwargs={'tensor_parallel_size': 2, 'max_model_len': 4096, 'language_model_only': True} chat_template_kwargs={'reasoning_effort': 'none'}
+2026-10-27 17:03:12 ERROR échec du run ; écriture des résultats partiels
+Traceback (most recent call last):
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/experiments/run.py", line 410, in run
+    flush(pending[:bs])
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/experiments/run.py", line 375, in flush
+    judgments = judge.judge_batch([p.request for p in batch])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 231, in judge_batch
+    out = self.backend.top_logprobs([built[i][0] for i in todo])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 289, in top_logprobs
+    llm = self._get()
+          ^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 284, in _get
+    self._llm = LLM(model=self.model, **self.llm_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 343, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 184, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 109, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 122, in make_client
+    return SyncMPClient(
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 880, in __init__
+    super().__init__(
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 656, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1240, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1320, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+2026-10-27 17:03:22 INFO error : 0 exemples, F1 slots = 1.0000, rappel candidats = -, p95 = - ms
+2026-10-27 17:08:51 INFO config configs/conditions/c4_llm_juge.yaml -> results/tester-llm-mistralai_Mistral-Small-4-119B-2603-tp2 data.dataset=multiatis data.lang=en data.split=dev data.limit=20 seed=13 judge.params.model=mistralai/Mistral-Small-4-119B-2603 judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=2
+2026-10-27 17:08:52 INFO 20 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-27 17:08:53 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-27 17:08:53 INFO juge LLMJudge, générateurs ['OracleGenerator']
+2026-10-27 17:08:57 INFO vLLM mistralai/Mistral-Small-4-119B-2603 : llm_kwargs={'tensor_parallel_size': 2, 'max_model_len': 4096, 'language_model_only': True} chat_template_kwargs={'reasoning_effort': 'none'}
+2026-10-27 17:09:20 ERROR échec du run ; écriture des résultats partiels
+Traceback (most recent call last):
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/experiments/run.py", line 410, in run
+    flush(pending[:bs])
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/experiments/run.py", line 375, in flush
+    judgments = judge.judge_batch([p.request for p in batch])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 231, in judge_batch
+    out = self.backend.top_logprobs([built[i][0] for i in todo])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 289, in top_logprobs
+    llm = self._get()
+          ^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 284, in _get
+    self._llm = LLM(model=self.model, **self.llm_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 343, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 184, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 109, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 122, in make_client
+    return SyncMPClient(
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 880, in __init__
+    super().__init__(
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 656, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1240, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1320, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+2026-10-27 17:09:30 INFO error : 0 exemples, F1 slots = 1.0000, rappel candidats = -, p95 = - ms
+2026-10-27 17:44:05 INFO config configs/conditions/c4_llm_juge.yaml -> results/tester-llm-mistralai_Mistral-Small-4-119B-2603-tp2 data.dataset=multiatis data.lang=en data.split=dev data.limit=20 seed=13 judge.params.model=mistralai/Mistral-Small-4-119B-2603 judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=2
+2026-10-27 17:44:06 INFO 20 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-27 17:44:06 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-27 17:44:06 INFO juge LLMJudge, générateurs ['OracleGenerator']
+2026-10-27 17:44:11 INFO vLLM mistralai/Mistral-Small-4-119B-2603 : llm_kwargs={'config_format': 'hf', 'load_format': 'safetensors', 'tokenizer_mode': 'hf', 'tensor_parallel_size': 2, 'max_model_len': 4096, 'language_model_only': True} chat_template_kwargs={'reasoning_effort': 'none'}
+2026-10-27 17:44:34 ERROR échec du run ; écriture des résultats partiels
+Traceback (most recent call last):
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/experiments/run.py", line 410, in run
+    flush(pending[:bs])
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/experiments/run.py", line 375, in flush
+    judgments = judge.judge_batch([p.request for p in batch])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 250, in judge_batch
+    out = self.backend.top_logprobs([built[i][0] for i in todo])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 309, in top_logprobs
+    llm = self._get()
+          ^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 304, in _get
+    self._llm = LLM(model=self.model, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 343, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 184, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 109, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 122, in make_client
+    return SyncMPClient(
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 880, in __init__
+    super().__init__(
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 656, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1240, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1320, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+2026-10-27 17:44:44 INFO error : 0 exemples, F1 slots = 1.0000, rappel candidats = -, p95 = - ms
+2026-10-27 17:45:34 INFO config configs/conditions/c4_llm_juge.yaml -> results/tester-llm-mistralai_Mistral-Small-4-119B-2603-tp2 data.dataset=multiatis data.lang=en data.split=dev data.limit=20 seed=13 judge.params.model=mistralai/Mistral-Small-4-119B-2603 judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=2 judge.params.backend_kwargs.llm_kwargs.tokenizer_mode=auto
+2026-10-27 17:45:35 INFO 20 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-27 17:45:35 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-27 17:45:35 INFO juge LLMJudge, générateurs ['OracleGenerator']
+2026-10-27 17:45:40 INFO vLLM mistralai/Mistral-Small-4-119B-2603 : llm_kwargs={'config_format': 'hf', 'load_format': 'safetensors', 'tokenizer_mode': 'auto', 'tensor_parallel_size': 2, 'max_model_len': 4096, 'language_model_only': True} chat_template_kwargs={'reasoning_effort': 'none'}
+2026-10-27 17:46:02 ERROR échec du run ; écriture des résultats partiels
+Traceback (most recent call last):
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/experiments/run.py", line 410, in run
+    flush(pending[:bs])
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/experiments/run.py", line 375, in flush
+    judgments = judge.judge_batch([p.request for p in batch])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 250, in judge_batch
+    out = self.backend.top_logprobs([built[i][0] for i in todo])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 309, in top_logprobs
+    llm = self._get()
+          ^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 304, in _get
+    self._llm = LLM(model=self.model, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 343, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 184, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 109, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 122, in make_client
+    return SyncMPClient(
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 880, in __init__
+    super().__init__(
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 656, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1240, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1320, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+2026-10-27 17:46:12 INFO error : 0 exemples, F1 slots = 1.0000, rappel candidats = -, p95 = - ms
+2026-10-27 17:48:27 INFO config configs/conditions/c4_llm_juge.yaml -> results/tester-llm-mistralai_Mistral-Small-4-119B-2603-tp2 data.dataset=multiatis data.lang=en data.split=dev data.limit=20 seed=13 judge.params.model=mistralai/Mistral-Small-4-119B-2603 judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=2 judge.params.backend_kwargs.llm_kwargs.language_model_only=false
+2026-10-27 17:48:28 INFO 20 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-27 17:48:28 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-27 17:48:28 INFO juge LLMJudge, générateurs ['OracleGenerator']
+2026-10-27 17:48:33 INFO vLLM mistralai/Mistral-Small-4-119B-2603 : llm_kwargs={'config_format': 'hf', 'load_format': 'safetensors', 'tokenizer_mode': 'hf', 'tensor_parallel_size': 2, 'max_model_len': 4096, 'language_model_only': False} chat_template_kwargs={'reasoning_effort': 'none'}
+2026-10-27 17:49:00 ERROR échec du run ; écriture des résultats partiels
+Traceback (most recent call last):
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/experiments/run.py", line 410, in run
+    flush(pending[:bs])
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/experiments/run.py", line 375, in flush
+    judgments = judge.judge_batch([p.request for p in batch])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 250, in judge_batch
+    out = self.backend.top_logprobs([built[i][0] for i in todo])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 309, in top_logprobs
+    llm = self._get()
+          ^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 304, in _get
+    self._llm = LLM(model=self.model, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 343, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 184, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 109, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 122, in make_client
+    return SyncMPClient(
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 880, in __init__
+    super().__init__(
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 656, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1240, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1320, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+2026-10-27 17:49:10 INFO error : 0 exemples, F1 slots = 1.0000, rappel candidats = -, p95 = - ms
+2026-10-27 17:57:23 INFO config configs/conditions/c4_llm_juge.yaml -> results/tester-llm-mistralai_Mistral-Small-4-119B-2603-tp2 data.dataset=multiatis data.lang=en data.split=dev data.limit=20 seed=13 judge.params.model=mistralai/Mistral-Small-4-119B-2603 judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=2 judge.params.backend_kwargs.llm_kwargs.config_format=mistral judge.params.backend_kwargs.llm_kwargs.load_format=mistral judge.params.backend_kwargs.llm_kwargs.tokenizer_mode=mistral
+2026-10-27 17:57:24 INFO 20 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-27 17:57:24 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-27 17:57:24 INFO juge LLMJudge, générateurs ['OracleGenerator']
+2026-10-27 17:57:29 INFO vLLM mistralai/Mistral-Small-4-119B-2603 : llm_kwargs={'config_format': 'mistral', 'load_format': 'mistral', 'tokenizer_mode': 'mistral', 'tensor_parallel_size': 2, 'max_model_len': 4096, 'language_model_only': True} chat_template_kwargs={'reasoning_effort': 'none'}
+2026-10-27 17:57:36 INFO Non special vocabulary size is 130072 with 1000 special tokens.
+2026-10-27 17:57:58 ERROR échec du run ; écriture des résultats partiels
+Traceback (most recent call last):
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/experiments/run.py", line 410, in run
+    flush(pending[:bs])
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/experiments/run.py", line 375, in flush
+    judgments = judge.judge_batch([p.request for p in batch])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 250, in judge_batch
+    out = self.backend.top_logprobs([built[i][0] for i in todo])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 309, in top_logprobs
+    llm = self._get()
+          ^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 304, in _get
+    self._llm = LLM(model=self.model, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 343, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 184, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 109, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 122, in make_client
+    return SyncMPClient(
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 880, in __init__
+    super().__init__(
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 656, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1240, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1320, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+2026-10-27 17:58:08 INFO error : 0 exemples, F1 slots = 1.0000, rappel candidats = -, p95 = - ms

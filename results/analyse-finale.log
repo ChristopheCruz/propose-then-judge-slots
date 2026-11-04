@@ -1,0 +1,6 @@
+ci.json : 534 existe, 36 écrit
+famille 1 : 36 paires sur 36 attendues, 108 tests
+écrit results/analyse/famille-1.csv (108 lignes)
+écrit results/analyse/decisions.csv (30 lignes)
+écrit results/analyse/tableau-test.csv (79 lignes)
+FIN-ANALYSE

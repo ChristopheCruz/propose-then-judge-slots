@@ -1,0 +1,40 @@
+# Entraînement C2 — Laya fine-tuné standard (candidats oracle de la grille, sans augmentation).
+#
+#   make entrainer-c2 DATASET=multiatis LANGUE=en SEED=13
+#   -> checkpoints/c2/multiatis-en-s13, lu par configs/conditions/c2_laya_ft.yaml (judge.finetuned)
+#
+# Les questions d'entraînement passent par le même code que l'évaluation : le bloc judge doit
+# rester identique à celui de configs/conditions/c2_laya_ft.yaml (sans `finetuned`).
+inherit: [../_base.yaml, ../candidats/oracle.yaml]
+name: train-C2
+condition: C2
+
+judge:
+  class: laya_slots.judges.laya_judge.LayaJudge
+  params:
+    mode: single                    # single | two_step : entraîner avec le mode évalué ensuite
+    checkpoint: multilingual        # checkpoint de départ (multilingual | english)
+    candidate_order: shuffle
+    rotations: 1
+    device: cuda
+
+train:
+  # préparation des items
+  unexpressed_ratio: 2.0            # requêtes non exprimées gardées par requête exprimée (null = toutes)
+  limit_train: null                 # n premiers exemples du train (essais rapides)
+  dev_split: dev
+  dev_limit: 300                    # exemples dev pour la perte de suivi et le choix du meilleur checkpoint
+  augment: null                     # C2 : pas d'augmentation
+  # optimisation (laya_slots.train.trainer.TrainConfig)
+  epochs: 3
+  micro_batch: 32
+  grad_accum: 1
+  lr_encoder: 2.0e-5
+  lr_head: 1.0e-4
+  weight_decay: 0.01
+  warmup_ratio: 0.05
+  max_grad_norm: 1.0
+  grad_checkpointing: true
+  bf16: true
+  log_every: 100
+  select_on: f1                    # checkpoint : F1 des slots sur le dev (balanced = pertes exprimé / non exprimé ; all = perte globale)

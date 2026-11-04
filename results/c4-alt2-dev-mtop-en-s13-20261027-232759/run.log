@@ -1,0 +1,21 @@
+2026-10-27 23:28:00 INFO config configs/conditions/c4_llm_juge.yaml -> results/c4-alt2-dev-mtop-en-s13-20261027-232759 data.dataset=mtop data.lang=en seed=13 data.split=dev judge.params.model=google/gemma-4-31B-it judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=1
+2026-10-27 23:28:01 INFO 2235 exemples, 113 intentions, 75 slots dans l'ontologie
+2026-10-27 23:28:01 INFO générateurs ajustés sur 15667 exemples d'entraînement
+2026-10-27 23:28:01 INFO juge LLMJudge, générateurs ['OracleGenerator']
+2026-10-27 23:28:06 INFO vLLM google/gemma-4-31B-it : llm_kwargs={'tensor_parallel_size': 1, 'max_model_len': 4096, 'language_model_only': True} chat_template_kwargs={'enable_thinking': False}
+2026-10-27 23:29:27 INFO 1024 requêtes jugées, 143/2235 exemples terminés
+2026-10-27 23:29:38 INFO 2048 requêtes jugées, 285/2235 exemples terminés
+2026-10-27 23:29:49 INFO 3072 requêtes jugées, 443/2235 exemples terminés
+2026-10-27 23:30:00 INFO 4096 requêtes jugées, 591/2235 exemples terminés
+2026-10-27 23:30:12 INFO 5120 requêtes jugées, 753/2235 exemples terminés
+2026-10-27 23:30:23 INFO 6144 requêtes jugées, 906/2235 exemples terminés
+2026-10-27 23:30:34 INFO 7168 requêtes jugées, 1066/2235 exemples terminés
+2026-10-27 23:30:45 INFO 8192 requêtes jugées, 1211/2235 exemples terminés
+2026-10-27 23:30:57 INFO 9216 requêtes jugées, 1371/2235 exemples terminés
+2026-10-27 23:31:09 INFO 10240 requêtes jugées, 1531/2235 exemples terminés
+2026-10-27 23:31:17 INFO 11008 requêtes jugées, 1648/2235 exemples terminés
+2026-10-27 23:31:28 INFO 12032 requêtes jugées, 1794/2235 exemples terminés
+2026-10-27 23:31:40 INFO 13056 requêtes jugées, 1938/2235 exemples terminés
+2026-10-27 23:31:51 INFO 14080 requêtes jugées, 2091/2235 exemples terminés
+2026-10-27 23:32:02 INFO 15096 requêtes jugées, 2235/2235 exemples terminés
+2026-10-27 23:32:12 INFO complete : 2235 exemples, F1 slots = 0.7385, rappel candidats = 1.0000, p95 = 10.7730 ms

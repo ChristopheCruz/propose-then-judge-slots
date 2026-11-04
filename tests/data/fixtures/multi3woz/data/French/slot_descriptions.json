@@ -1,0 +1,14 @@
+{
+ "restaurant-name": [
+  "name of the restaurant"
+ ],
+ "restaurant-book day": [
+  "day of the restaurant booking"
+ ],
+ "hotel-area": [
+  "area or place of the hotel"
+ ],
+ "train-leaveat": [
+  "leaving time for the train"
+ ]
+}

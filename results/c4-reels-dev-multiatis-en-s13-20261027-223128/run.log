@@ -1,0 +1,50 @@
+2026-10-27 22:31:28 INFO config configs/conditions/c4_llm_juge_reels.yaml -> results/c4-reels-dev-multiatis-en-s13-20261027-223128 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.params.model=Qwen/Qwen3.8-Flash-Next-FP8 judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=2
+2026-10-27 22:31:30 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-27 22:31:30 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-27 22:31:30 INFO juge LLMJudge, générateurs ['LexiconGenerator', 'GlinerGenerator', 'OntologyGenerator', 'HistoryGenerator']
+2026-10-27 22:31:33 INFO Loading the following GLiNER type: <class 'gliner.model.UniEncoderSpanGLiNER'>...
+2026-10-27 22:31:38 INFO vLLM Qwen/Qwen3.8-Flash-Next-FP8 : llm_kwargs={'tensor_parallel_size': 2, 'max_model_len': 4096, 'language_model_only': True} chat_template_kwargs={'enable_thinking': False}
+2026-10-27 22:33:20 ERROR échec du run ; écriture des résultats partiels
+Traceback (most recent call last):
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/experiments/run.py", line 410, in run
+    flush(pending[:bs])
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/experiments/run.py", line 375, in flush
+    judgments = judge.judge_batch([p.request for p in batch])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 250, in judge_batch
+    out = self.backend.top_logprobs([built[i][0] for i in todo])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 309, in top_logprobs
+    llm = self._get()
+          ^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/laya_slots/judges/llm_judge.py", line 304, in _get
+    self._llm = LLM(model=self.model, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 343, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 184, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 109, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 122, in make_client
+    return SyncMPClient(
+           ^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 880, in __init__
+    super().__init__(
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 656, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/share/uv/python/cpython-3.12.15-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1240, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1320, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+2026-10-27 22:33:30 INFO error : 0 exemples, F1 slots = 1.0000, rappel candidats = -, p95 = - ms

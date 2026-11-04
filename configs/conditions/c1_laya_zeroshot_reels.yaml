@@ -1,0 +1,9 @@
+# C1 avec candidats réels (lexique, GLiNER, ontologie, historique) : mesure de bout en bout.
+# Même condition, mêmes réglages du juge ; seuls les candidats changent (dernier fichier hérité).
+#   make c1 CAND=reels
+inherit: [c1_laya_zeroshot.yaml, ../candidats/reels.yaml]
+name: C1-laya-zeroshot-reels
+
+judge:
+  params:
+    max_options: 20                 # = candidates.max_candidates : aucune troncature par le juge

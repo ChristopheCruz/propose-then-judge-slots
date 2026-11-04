@@ -1,0 +1,16 @@
+2026-10-28 07:15:33 INFO config configs/conditions/c4_llm_juge_reels.yaml -> results/c4ref-reels-dev-mtop-fr-s13-20261028-071533 data.dataset=mtop data.lang=fr seed=13 data.split=dev judge.params.model=Qwen/Qwen3.8-Flash-Next-FP8 judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=2 judge.params.backend_kwargs.llm_kwargs.gpu_memory_utilization=0.88
+2026-10-28 07:15:34 INFO 1577 exemples, 110 intentions, 73 slots dans l'ontologie
+2026-10-28 07:15:34 INFO générateurs ajustés sur 11814 exemples d'entraînement
+2026-10-28 07:15:34 INFO juge LLMJudge, générateurs ['LexiconGenerator', 'GlinerGenerator', 'OntologyGenerator', 'HistoryGenerator']
+2026-10-28 07:15:37 INFO Loading the following GLiNER type: <class 'gliner.model.UniEncoderSpanGLiNER'>...
+2026-10-28 07:15:44 INFO vLLM Qwen/Qwen3.8-Flash-Next-FP8 : llm_kwargs={'tensor_parallel_size': 2, 'max_model_len': 4096, 'language_model_only': True, 'gpu_memory_utilization': 0.88} chat_template_kwargs={'enable_thinking': False}
+2026-10-28 07:17:34 INFO 1024 requêtes jugées, 164/1577 exemples terminés
+2026-10-28 07:17:43 INFO 2048 requêtes jugées, 358/1577 exemples terminés
+2026-10-28 07:17:52 INFO 3072 requêtes jugées, 547/1577 exemples terminés
+2026-10-28 07:17:58 INFO 4096 requêtes jugées, 665/1577 exemples terminés
+2026-10-28 07:18:05 INFO 5120 requêtes jugées, 806/1577 exemples terminés
+2026-10-28 07:18:13 INFO 6144 requêtes jugées, 973/1577 exemples terminés
+2026-10-28 07:18:21 INFO 7168 requêtes jugées, 1152/1577 exemples terminés
+2026-10-28 07:18:29 INFO 8192 requêtes jugées, 1315/1577 exemples terminés
+2026-10-28 07:18:38 INFO 9216 requêtes jugées, 1495/1577 exemples terminés
+2026-10-28 07:18:52 INFO complete : 1577 exemples, F1 slots = 0.5277, rappel candidats = 0.6978, p95 = 8.1407 ms

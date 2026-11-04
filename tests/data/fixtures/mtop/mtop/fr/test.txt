@@ -1,0 +1,1 @@
+301	IN:GET_WEATHER	8:12:SL:WEATHER_ATTRIBUTE,16:25:SL:LOCATION	fait-il beau à Besançon	weather	fr_XX	[IN:GET_WEATHER [SL:WEATHER_ATTRIBUTE beau ] [SL:LOCATION Besançon ] ]	{"tokens": ["fait-il", "beau", "à", "Besançon"], "tokenSpans": []}

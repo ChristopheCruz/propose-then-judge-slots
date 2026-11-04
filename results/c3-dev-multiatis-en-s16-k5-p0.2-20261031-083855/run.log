@@ -1,0 +1,35 @@
+2026-10-31 08:38:55 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s16-k5-p0.2-20261031-083855 data.dataset=multiatis data.lang=en seed=16 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s16 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 08:38:56 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:38:56 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:38:56 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 08:39:04 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:39:06 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:39:08 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:39:10 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:39:12 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:39:13 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:39:15 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:39:17 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:39:19 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:39:21 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:39:22 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:39:24 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:39:26 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:39:27 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:39:28 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:39:30 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:39:31 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:39:33 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:39:34 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:39:36 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:39:38 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:39:39 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:39:41 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:39:43 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:39:44 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:39:46 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:39:49 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:39:51 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:39:52 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:39:53 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:39:54 INFO complete : 500 exemples, F1 slots = 0.8213, rappel candidats = 0.7941, p95 = 2.1142 ms

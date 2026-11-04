@@ -1,0 +1,51 @@
+CUDA_VISIBLE_DEVICES=0 HF_HUB_OFFLINE=1 uv run --no-sync python -m experiments.train --config configs/train/c2.yaml \
+  --output checkpoints/c2/multiatis-en-s13 data.dataset=multiatis data.lang=en seed=13 
+2026-10-23 08:30:56 INFO effectifs : {"train": {"examples": 4478, "requests_expressed": 14336, "requests_unexpressed": 256251, "requests_unexpressed_kept": 28671, "items": 43007, "items_choice": 43007}, "dev": {"examples": 300, "requests_expressed": 1070, "requests_unexpressed": 19078, "requests_unexpressed_kept": 19078, "items": 20148, "items_choice": 20148}}
+2026-10-23 08:31:11 INFO encodage : 43007 items d'entraînement, 20148 de dev (11 s)
+2026-10-23 08:31:19 INFO dev avant entraînement : all perte 3.259 exact. 0.156 (n=20148), choice perte 3.259 exact. 0.156 (n=20148), expressed perte 3.025 exact. 0.223 (n=1070), unexpressed perte 3.272 exact. 0.152 (n=19078)
+2026-10-23 08:31:28 INFO époque 1, pas 100/4032 : perte 0.9602, lr 1.00e-05
+2026-10-23 08:31:34 INFO époque 1, pas 200/4032 : perte 0.6333, lr 2.00e-05
+2026-10-23 08:31:40 INFO époque 1, pas 300/4032 : perte 0.4953, lr 2.00e-05
+2026-10-23 08:31:45 INFO époque 1, pas 400/4032 : perte 0.4084, lr 1.99e-05
+2026-10-23 08:31:51 INFO époque 1, pas 500/4032 : perte 0.3572, lr 1.97e-05
+2026-10-23 08:31:56 INFO époque 1, pas 600/4032 : perte 0.3162, lr 1.95e-05
+2026-10-23 08:32:01 INFO époque 1, pas 700/4032 : perte 0.2857, lr 1.92e-05
+2026-10-23 08:32:07 INFO époque 1, pas 800/4032 : perte 0.2629, lr 1.88e-05
+2026-10-23 08:32:12 INFO époque 1, pas 900/4032 : perte 0.2441, lr 1.84e-05
+2026-10-23 08:32:18 INFO époque 1, pas 1000/4032 : perte 0.2273, lr 1.79e-05
+2026-10-23 08:32:23 INFO époque 1, pas 1100/4032 : perte 0.2138, lr 1.74e-05
+2026-10-23 08:32:28 INFO époque 1, pas 1200/4032 : perte 0.2031, lr 1.68e-05
+2026-10-23 08:32:34 INFO époque 1, pas 1300/4032 : perte 0.1935, lr 1.62e-05
+2026-10-23 08:32:42 INFO époque 1 : perte train 0.1893, dev all perte 0.030 exact. 0.992 (n=20148), choice perte 0.030 exact. 0.992 (n=20148), expressed perte 0.065 exact. 0.981 (n=1070), unexpressed perte 0.028 exact. 0.992 (n=19078) (83 s)
+2026-10-23 08:32:43 INFO checkpoint enregistré (meilleure perte dev balanced = 0.0463) : checkpoints/c2/multiatis-en-s13
+2026-10-23 08:32:46 INFO époque 2, pas 1400/4032 : perte 0.0389, lr 1.55e-05
+2026-10-23 08:32:51 INFO époque 2, pas 1500/4032 : perte 0.0302, lr 1.48e-05
+2026-10-23 08:32:57 INFO époque 2, pas 1600/4032 : perte 0.0310, lr 1.41e-05
+2026-10-23 08:33:02 INFO époque 2, pas 1700/4032 : perte 0.0323, lr 1.33e-05
+2026-10-23 08:33:07 INFO époque 2, pas 1800/4032 : perte 0.0331, lr 1.26e-05
+2026-10-23 08:33:13 INFO époque 2, pas 1900/4032 : perte 0.0317, lr 1.18e-05
+2026-10-23 08:33:18 INFO époque 2, pas 2000/4032 : perte 0.0311, lr 1.10e-05
+2026-10-23 08:33:23 INFO époque 2, pas 2100/4032 : perte 0.0322, lr 1.01e-05
+2026-10-23 08:33:29 INFO époque 2, pas 2200/4032 : perte 0.0325, lr 9.32e-06
+2026-10-23 08:33:34 INFO époque 2, pas 2300/4032 : perte 0.0324, lr 8.50e-06
+2026-10-23 08:33:40 INFO époque 2, pas 2400/4032 : perte 0.0321, lr 7.70e-06
+2026-10-23 08:33:45 INFO époque 2, pas 2500/4032 : perte 0.0321, lr 6.91e-06
+2026-10-23 08:33:50 INFO époque 2, pas 2600/4032 : perte 0.0324, lr 6.14e-06
+2026-10-23 08:34:00 INFO époque 2 : perte train 0.0312, dev all perte 0.013 exact. 0.997 (n=20148), choice perte 0.013 exact. 0.997 (n=20148), expressed perte 0.069 exact. 0.985 (n=1070), unexpressed perte 0.010 exact. 0.998 (n=19078) (77 s)
+2026-10-23 08:34:03 INFO checkpoint enregistré (meilleure perte dev balanced = 0.0395) : checkpoints/c2/multiatis-en-s13
+2026-10-23 08:34:04 INFO époque 3, pas 2700/4032 : perte 0.0131, lr 5.40e-06
+2026-10-23 08:34:10 INFO époque 3, pas 2800/4032 : perte 0.0058, lr 4.68e-06
+2026-10-23 08:34:16 INFO époque 3, pas 2900/4032 : perte 0.0052, lr 4.01e-06
+2026-10-23 08:34:21 INFO époque 3, pas 3000/4032 : perte 0.0045, lr 3.37e-06
+2026-10-23 08:34:27 INFO époque 3, pas 3100/4032 : perte 0.0041, lr 2.78e-06
+2026-10-23 08:34:32 INFO époque 3, pas 3200/4032 : perte 0.0040, lr 2.24e-06
+2026-10-23 08:34:38 INFO époque 3, pas 3300/4032 : perte 0.0041, lr 1.75e-06
+2026-10-23 08:34:44 INFO époque 3, pas 3400/4032 : perte 0.0041, lr 1.31e-06
+2026-10-23 08:34:50 INFO époque 3, pas 3500/4032 : perte 0.0049, lr 9.37e-07
+2026-10-23 08:34:56 INFO époque 3, pas 3600/4032 : perte 0.0050, lr 6.21e-07
+2026-10-23 08:35:01 INFO époque 3, pas 3700/4032 : perte 0.0050, lr 3.68e-07
+2026-10-23 08:35:07 INFO époque 3, pas 3800/4032 : perte 0.0048, lr 1.80e-07
+2026-10-23 08:35:13 INFO époque 3, pas 3900/4032 : perte 0.0046, lr 5.85e-08
+2026-10-23 08:35:18 INFO époque 3, pas 4000/4032 : perte 0.0045, lr 3.44e-09
+2026-10-23 08:35:26 INFO époque 3 : perte train 0.0045, dev all perte 0.015 exact. 0.998 (n=20148), choice perte 0.015 exact. 0.998 (n=20148), expressed perte 0.086 exact. 0.988 (n=1070), unexpressed perte 0.011 exact. 0.998 (n=19078) (82 s)
+2026-10-23 08:35:26 INFO terminé : meilleure perte dev (balanced) 0.0395 -> checkpoints/c2/multiatis-en-s13

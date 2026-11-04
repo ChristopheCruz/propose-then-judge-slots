@@ -1,0 +1,57 @@
+2026-10-31 11:54:25 INFO config configs/conditions/c4_llm_juge.yaml -> results/final-c4-alt2-multiatis-en-s15-20261031-115425 data.dataset=multiatis data.lang=en seed=15 judge.params.model=google/gemma-4-31B-it judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=1
+2026-10-31 11:54:26 INFO 893 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 11:54:26 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 11:54:26 INFO juge LLMJudge, générateurs ['OracleGenerator']
+2026-10-31 11:54:31 INFO vLLM google/gemma-4-31B-it : llm_kwargs={'tensor_parallel_size': 1, 'max_model_len': 4096, 'language_model_only': True} chat_template_kwargs={'enable_thinking': False}
+2026-10-31 11:55:53 INFO 1024 requêtes jugées, 14/893 exemples terminés
+2026-10-31 11:56:06 INFO 2048 requêtes jugées, 29/893 exemples terminés
+2026-10-31 11:56:18 INFO 3072 requêtes jugées, 46/893 exemples terminés
+2026-10-31 11:56:32 INFO 4096 requêtes jugées, 62/893 exemples terminés
+2026-10-31 11:56:44 INFO 5120 requêtes jugées, 76/893 exemples terminés
+2026-10-31 11:56:56 INFO 6144 requêtes jugées, 91/893 exemples terminés
+2026-10-31 11:57:10 INFO 7168 requêtes jugées, 107/893 exemples terminés
+2026-10-31 11:57:23 INFO 8192 requêtes jugées, 124/893 exemples terminés
+2026-10-31 11:57:37 INFO 9216 requêtes jugées, 142/893 exemples terminés
+2026-10-31 11:57:50 INFO 10240 requêtes jugées, 157/893 exemples terminés
+2026-10-31 11:58:00 INFO 11008 requêtes jugées, 171/893 exemples terminés
+2026-10-31 11:58:13 INFO 12032 requêtes jugées, 187/893 exemples terminés
+2026-10-31 11:58:26 INFO 13056 requêtes jugées, 211/893 exemples terminés
+2026-10-31 11:58:39 INFO 14080 requêtes jugées, 227/893 exemples terminés
+2026-10-31 11:58:53 INFO 15104 requêtes jugées, 249/893 exemples terminés
+2026-10-31 11:59:06 INFO 16128 requêtes jugées, 266/893 exemples terminés
+2026-10-31 11:59:18 INFO 17152 requêtes jugées, 281/893 exemples terminés
+2026-10-31 11:59:31 INFO 18176 requêtes jugées, 297/893 exemples terminés
+2026-10-31 11:59:45 INFO 19200 requêtes jugées, 314/893 exemples terminés
+2026-10-31 11:59:58 INFO 20224 requêtes jugées, 332/893 exemples terminés
+2026-10-31 12:00:10 INFO 21248 requêtes jugées, 350/893 exemples terminés
+2026-10-31 12:00:20 INFO 22016 requêtes jugées, 366/893 exemples terminés
+2026-10-31 12:00:33 INFO 23040 requêtes jugées, 388/893 exemples terminés
+2026-10-31 12:00:46 INFO 24064 requêtes jugées, 402/893 exemples terminés
+2026-10-31 12:01:00 INFO 25088 requêtes jugées, 418/893 exemples terminés
+2026-10-31 12:01:12 INFO 26112 requêtes jugées, 433/893 exemples terminés
+2026-10-31 12:01:24 INFO 27136 requêtes jugées, 449/893 exemples terminés
+2026-10-31 12:01:38 INFO 28160 requêtes jugées, 465/893 exemples terminés
+2026-10-31 12:01:50 INFO 29184 requêtes jugées, 481/893 exemples terminés
+2026-10-31 12:02:04 INFO 30208 requêtes jugées, 498/893 exemples terminés
+2026-10-31 12:02:16 INFO 31232 requêtes jugées, 522/893 exemples terminés
+2026-10-31 12:02:26 INFO 32000 requêtes jugées, 539/893 exemples terminés
+2026-10-31 12:02:39 INFO 33024 requêtes jugées, 558/893 exemples terminés
+2026-10-31 12:02:51 INFO 34048 requêtes jugées, 577/893 exemples terminés
+2026-10-31 12:03:03 INFO 35072 requêtes jugées, 595/893 exemples terminés
+2026-10-31 12:03:15 INFO 36096 requêtes jugées, 613/893 exemples terminés
+2026-10-31 12:03:28 INFO 37120 requêtes jugées, 636/893 exemples terminés
+2026-10-31 12:03:42 INFO 38144 requêtes jugées, 653/893 exemples terminés
+2026-10-31 12:03:55 INFO 39168 requêtes jugées, 671/893 exemples terminés
+2026-10-31 12:04:09 INFO 40192 requêtes jugées, 685/893 exemples terminés
+2026-10-31 12:04:22 INFO 41216 requêtes jugées, 706/893 exemples terminés
+2026-10-31 12:04:33 INFO 42240 requêtes jugées, 720/893 exemples terminés
+2026-10-31 12:04:42 INFO 43008 requêtes jugées, 737/893 exemples terminés
+2026-10-31 12:04:54 INFO 44032 requêtes jugées, 754/893 exemples terminés
+2026-10-31 12:05:07 INFO 45056 requêtes jugées, 787/893 exemples terminés
+2026-10-31 12:05:20 INFO 46080 requêtes jugées, 807/893 exemples terminés
+2026-10-31 12:05:33 INFO 47104 requêtes jugées, 822/893 exemples terminés
+2026-10-31 12:05:46 INFO 48128 requêtes jugées, 838/893 exemples terminés
+2026-10-31 12:05:59 INFO 49152 requêtes jugées, 853/893 exemples terminés
+2026-10-31 12:06:13 INFO 50176 requêtes jugées, 867/893 exemples terminés
+2026-10-31 12:06:26 INFO 51200 requêtes jugées, 882/893 exemples terminés
+2026-10-31 12:06:35 INFO complete : 893 exemples, F1 slots = 0.4273, rappel candidats = 0.9996, p95 = 13.2868 ms

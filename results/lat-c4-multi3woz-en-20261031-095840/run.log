@@ -1,0 +1,7 @@
+2026-10-31 09:58:40 INFO config configs/conditions/c4_llm_juge.yaml -> results/lat-c4-multi3woz-en-20261031-095840 data.dataset=multi3woz data.lang=en seed=13 requests.intent=domain requests.filled=state_before data.split=dev judge.params.model=Qwen/Qwen3.8-Flash-Next-FP8 judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=2 judge.batch_size=1 data.limit=100
+2026-10-31 09:58:42 INFO 100 exemples, 5 intentions, 30 slots dans l'ontologie
+2026-10-31 09:58:44 INFO générateurs ajustés sur 49395 exemples d'entraînement
+2026-10-31 09:58:44 INFO juge LLMJudge, générateurs ['OracleGenerator']
+2026-10-31 09:58:48 INFO vLLM Qwen/Qwen3.8-Flash-Next-FP8 : llm_kwargs={'tensor_parallel_size': 2, 'max_model_len': 4096, 'language_model_only': True} chat_template_kwargs={'enable_thinking': False}
+2026-10-31 10:05:08 INFO 1000 requêtes jugées, 86/100 exemples terminés
+2026-10-31 10:05:16 INFO complete : 100 exemples, F1 slots = 0.8288, rappel candidats = 1.0000, p95 = 53.7986 ms

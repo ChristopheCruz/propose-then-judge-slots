@@ -1,0 +1,22 @@
+2026-10-27 23:32:19 INFO config configs/conditions/c4_llm_juge_reels.yaml -> results/c4-alt2-reels-dev-mtop-en-s13-20261027-233219 data.dataset=mtop data.lang=en seed=13 data.split=dev judge.params.model=google/gemma-4-31B-it judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=1 judge.params.backend_kwargs.llm_kwargs.gpu_memory_utilization=0.88
+2026-10-27 23:32:20 INFO 2235 exemples, 113 intentions, 75 slots dans l'ontologie
+2026-10-27 23:32:21 INFO générateurs ajustés sur 15667 exemples d'entraînement
+2026-10-27 23:32:21 INFO juge LLMJudge, générateurs ['LexiconGenerator', 'GlinerGenerator', 'OntologyGenerator', 'HistoryGenerator']
+2026-10-27 23:32:24 INFO Loading the following GLiNER type: <class 'gliner.model.UniEncoderSpanGLiNER'>...
+2026-10-27 23:32:30 INFO vLLM google/gemma-4-31B-it : llm_kwargs={'tensor_parallel_size': 1, 'max_model_len': 4096, 'language_model_only': True, 'gpu_memory_utilization': 0.88} chat_template_kwargs={'enable_thinking': False}
+2026-10-27 23:33:39 INFO 1024 requêtes jugées, 143/2235 exemples terminés
+2026-10-27 23:33:46 INFO 2048 requêtes jugées, 285/2235 exemples terminés
+2026-10-27 23:33:54 INFO 3072 requêtes jugées, 443/2235 exemples terminés
+2026-10-27 23:34:01 INFO 4096 requêtes jugées, 591/2235 exemples terminés
+2026-10-27 23:34:08 INFO 5120 requêtes jugées, 753/2235 exemples terminés
+2026-10-27 23:34:15 INFO 6144 requêtes jugées, 906/2235 exemples terminés
+2026-10-27 23:34:23 INFO 7168 requêtes jugées, 1066/2235 exemples terminés
+2026-10-27 23:34:30 INFO 8192 requêtes jugées, 1211/2235 exemples terminés
+2026-10-27 23:34:37 INFO 9216 requêtes jugées, 1371/2235 exemples terminés
+2026-10-27 23:34:44 INFO 10240 requêtes jugées, 1531/2235 exemples terminés
+2026-10-27 23:34:50 INFO 11008 requêtes jugées, 1648/2235 exemples terminés
+2026-10-27 23:34:56 INFO 12032 requêtes jugées, 1794/2235 exemples terminés
+2026-10-27 23:35:03 INFO 13056 requêtes jugées, 1938/2235 exemples terminés
+2026-10-27 23:35:11 INFO 14080 requêtes jugées, 2091/2235 exemples terminés
+2026-10-27 23:35:17 INFO 15096 requêtes jugées, 2235/2235 exemples terminés
+2026-10-27 23:35:27 INFO complete : 2235 exemples, F1 slots = 0.5803, rappel candidats = 0.7661, p95 = 8.4967 ms

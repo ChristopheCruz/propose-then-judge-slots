@@ -1,0 +1,48 @@
+# Pilote : MultiATIS++ anglais, test, candidats oracle k=5 sans valeur absente, juge baseline.
+# Valide la chaîne de bout en bout sur 200 exemples (jalon « Pipeline de bout en bout »).
+#
+#   uv run python -m experiments.run --config configs/pilote.yaml --output results/pilote
+#   ... data.limit=null            # tout le split
+#   ... judge.batch_size=128       # toute clé se surcharge en ligne de commande (cle.sous_cle=valeur)
+#
+# Les composants sont désignés par chemin d'import : {class: module.Classe, params: {...}}.
+# Si le constructeur accepte `seed` et que params ne le donne pas, la graine du run est injectée.
+
+name: pilote
+condition: pilote
+seed: 13
+
+data:
+  dataset: multiatis
+  lang: en
+  split: test
+  root: data/processed          # lit data/processed/multiatis/en/test.jsonl + ontology.json
+  limit: 200                    # n premiers exemples ; null = tout le split
+
+requests:
+  slots: intent                 # slots autorisés par l'intention ; « ontology » = tous les slots
+  intent: gold                  # intention passée au juge : gold | predicted | none
+  filled: none                  # contexte « déjà rempli » : none | state_before (multi-tours)
+  strip_gold: true              # le juge reçoit l'exemple sans ses slots gold
+
+candidates:
+  generators:
+    - class: laya_slots.candidates.oracle.OracleGenerator
+      params:
+        k: 5                    # taille de la liste, valeur correcte comprise
+        p_absent: 0.0           # probabilité de retirer la valeur correcte
+        distractors: hard       # easy (aléatoires) | hard (même type, proches)
+        seed: ${seed}
+  fit: true                     # obligatoire : les réservoirs train_values / random des distracteurs
+                                # sont construits sur le train (sans fit, les listes « easy » sont vides)
+  shuffle: false                # l'oracle mélange déjà
+  max_candidates: null
+
+judge:
+  class: laya_slots.judges.baselines.StringMatchJudge   # baseline sans apprentissage
+  params: {}
+  batch_size: 64                # requêtes par appel à judge_batch
+
+output:
+  save_probs: true              # probs et raw du juge dans predictions.jsonl
+  log_every: 500

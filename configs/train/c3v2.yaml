@@ -1,0 +1,16 @@
+# Entraînement C3 v2 — augmentation centrée sur la confusion entre slots (décision du 26/10/2026).
+# Constat du 26/10 : sur candidats réels, C3 (v1) perd face à C2 par des faux positifs sur des listes
+# courtes contenant la valeur d'un autre slot de l'énoncé. Par rapport à C3 v1 :
+#   - distracteurs « confusion » (autres slots de l'énoncé, poids 3) au lieu de « easy » ;
+#   - listes courtes surreprésentées (k = 2 et 3 deux fois plus probables).
+#
+#   make entrainer-c3v2 DATASET=multiatis LANGUE=en SEED=13  ->  checkpoints/c3v2/multiatis-en-s13
+inherit: [c3.yaml]
+name: train-C3v2
+condition: C3v2
+
+train:
+  augment:
+    k: [2, 2, 3, 3, 5, 10, 20]        # valeurs répétées = tirées plus souvent
+    p_absent: [0.0, 0.2, 0.5]
+    distractors: [confusion, hard_no_overlap]

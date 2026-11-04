@@ -1,0 +1,74 @@
+2026-11-01 18:27:38 INFO config configs/conditions/c4_llm_juge_reels.yaml -> results/final-c4-reels-multi3woz-en-s14-20261101-182738 data.dataset=multi3woz data.lang=en seed=14 requests.intent=domain requests.filled=state_before judge.params.model=Qwen/Qwen3.8-Flash-Next-FP8 judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=2 judge.params.backend_kwargs.llm_kwargs.gpu_memory_utilization=0.88
+2026-11-01 18:27:39 INFO 6266 exemples, 5 intentions, 30 slots dans l'ontologie
+2026-11-01 18:27:42 INFO générateurs ajustés sur 49395 exemples d'entraînement
+2026-11-01 18:27:42 INFO juge LLMJudge, générateurs ['LexiconGenerator', 'GlinerGenerator', 'OntologyGenerator', 'HistoryGenerator']
+2026-11-01 18:27:44 INFO Loading the following GLiNER type: <class 'gliner.model.UniEncoderSpanGLiNER'>...
+2026-11-01 18:27:52 INFO vLLM Qwen/Qwen3.8-Flash-Next-FP8 : llm_kwargs={'tensor_parallel_size': 2, 'max_model_len': 4096, 'language_model_only': True, 'gpu_memory_utilization': 0.88} chat_template_kwargs={'enable_thinking': False}
+2026-11-01 18:29:49 INFO 1024 requêtes jugées, 89/6266 exemples terminés
+2026-11-01 18:30:09 INFO 2048 requêtes jugées, 180/6266 exemples terminés
+2026-11-01 18:30:28 INFO 3072 requêtes jugées, 280/6266 exemples terminés
+2026-11-01 18:30:47 INFO 4096 requêtes jugées, 376/6266 exemples terminés
+2026-11-01 18:31:05 INFO 5120 requêtes jugées, 482/6266 exemples terminés
+2026-11-01 18:31:22 INFO 6144 requêtes jugées, 567/6266 exemples terminés
+2026-11-01 18:31:41 INFO 7168 requêtes jugées, 658/6266 exemples terminés
+2026-11-01 18:32:01 INFO 8192 requêtes jugées, 751/6266 exemples terminés
+2026-11-01 18:32:17 INFO 9216 requêtes jugées, 860/6266 exemples terminés
+2026-11-01 18:32:36 INFO 10240 requêtes jugées, 971/6266 exemples terminés
+2026-11-01 18:32:50 INFO 11008 requêtes jugées, 1047/6266 exemples terminés
+2026-11-01 18:33:08 INFO 12032 requêtes jugées, 1141/6266 exemples terminés
+2026-11-01 18:33:26 INFO 13056 requêtes jugées, 1228/6266 exemples terminés
+2026-11-01 18:33:44 INFO 14080 requêtes jugées, 1326/6266 exemples terminés
+2026-11-01 18:34:02 INFO 15104 requêtes jugées, 1433/6266 exemples terminés
+2026-11-01 18:34:20 INFO 16128 requêtes jugées, 1543/6266 exemples terminés
+2026-11-01 18:34:38 INFO 17152 requêtes jugées, 1662/6266 exemples terminés
+2026-11-01 18:34:54 INFO 18176 requêtes jugées, 1763/6266 exemples terminés
+2026-11-01 18:35:12 INFO 19200 requêtes jugées, 1847/6266 exemples terminés
+2026-11-01 18:35:32 INFO 20224 requêtes jugées, 1947/6266 exemples terminés
+2026-11-01 18:35:47 INFO 21248 requêtes jugées, 2049/6266 exemples terminés
+2026-11-01 18:36:00 INFO 22016 requêtes jugées, 2130/6266 exemples terminés
+2026-11-01 18:36:18 INFO 23040 requêtes jugées, 2241/6266 exemples terminés
+2026-11-01 18:36:35 INFO 24064 requêtes jugées, 2332/6266 exemples terminés
+2026-11-01 18:36:52 INFO 25088 requêtes jugées, 2422/6266 exemples terminés
+2026-11-01 18:37:10 INFO 26112 requêtes jugées, 2522/6266 exemples terminés
+2026-11-01 18:37:26 INFO 27136 requêtes jugées, 2627/6266 exemples terminés
+2026-11-01 18:37:43 INFO 28160 requêtes jugées, 2727/6266 exemples terminés
+2026-11-01 18:37:59 INFO 29184 requêtes jugées, 2848/6266 exemples terminés
+2026-11-01 18:38:18 INFO 30208 requêtes jugées, 2979/6266 exemples terminés
+2026-11-01 18:38:33 INFO 31232 requêtes jugées, 3088/6266 exemples terminés
+2026-11-01 18:38:46 INFO 32000 requêtes jugées, 3160/6266 exemples terminés
+2026-11-01 18:39:03 INFO 33024 requêtes jugées, 3250/6266 exemples terminés
+2026-11-01 18:39:18 INFO 34048 requêtes jugées, 3330/6266 exemples terminés
+2026-11-01 18:39:35 INFO 35072 requêtes jugées, 3431/6266 exemples terminés
+2026-11-01 18:39:53 INFO 36096 requêtes jugées, 3551/6266 exemples terminés
+2026-11-01 18:40:10 INFO 37120 requêtes jugées, 3667/6266 exemples terminés
+2026-11-01 18:40:27 INFO 38144 requêtes jugées, 3767/6266 exemples terminés
+2026-11-01 18:40:45 INFO 39168 requêtes jugées, 3859/6266 exemples terminés
+2026-11-01 18:41:01 INFO 40192 requêtes jugées, 3957/6266 exemples terminés
+2026-11-01 18:41:19 INFO 41216 requêtes jugées, 4054/6266 exemples terminés
+2026-11-01 18:41:34 INFO 42240 requêtes jugées, 4143/6266 exemples terminés
+2026-11-01 18:41:47 INFO 43008 requêtes jugées, 4221/6266 exemples terminés
+2026-11-01 18:42:04 INFO 44032 requêtes jugées, 4318/6266 exemples terminés
+2026-11-01 18:42:19 INFO 45056 requêtes jugées, 4415/6266 exemples terminés
+2026-11-01 18:42:37 INFO 46080 requêtes jugées, 4498/6266 exemples terminés
+2026-11-01 18:42:53 INFO 47104 requêtes jugées, 4598/6266 exemples terminés
+2026-11-01 18:43:10 INFO 48128 requêtes jugées, 4692/6266 exemples terminés
+2026-11-01 18:43:26 INFO 49152 requêtes jugées, 4779/6266 exemples terminés
+2026-11-01 18:43:42 INFO 50176 requêtes jugées, 4876/6266 exemples terminés
+2026-11-01 18:44:00 INFO 51200 requêtes jugées, 4975/6266 exemples terminés
+2026-11-01 18:44:17 INFO 52224 requêtes jugées, 5068/6266 exemples terminés
+2026-11-01 18:44:33 INFO 53248 requêtes jugées, 5152/6266 exemples terminés
+2026-11-01 18:44:45 INFO 54016 requêtes jugées, 5221/6266 exemples terminés
+2026-11-01 18:44:57 INFO 55040 requêtes jugées, 5311/6266 exemples terminés
+2026-11-01 18:45:08 INFO 56064 requêtes jugées, 5393/6266 exemples terminés
+2026-11-01 18:45:20 INFO 57088 requêtes jugées, 5475/6266 exemples terminés
+2026-11-01 18:45:31 INFO 58112 requêtes jugées, 5555/6266 exemples terminés
+2026-11-01 18:45:42 INFO 59136 requêtes jugées, 5634/6266 exemples terminés
+2026-11-01 18:45:54 INFO 60160 requêtes jugées, 5713/6266 exemples terminés
+2026-11-01 18:46:07 INFO 61184 requêtes jugées, 5794/6266 exemples terminés
+2026-11-01 18:46:18 INFO 62208 requêtes jugées, 5869/6266 exemples terminés
+2026-11-01 18:46:32 INFO 63232 requêtes jugées, 5951/6266 exemples terminés
+2026-11-01 18:46:43 INFO 64000 requêtes jugées, 6011/6266 exemples terminés
+2026-11-01 18:46:56 INFO 65024 requêtes jugées, 6080/6266 exemples terminés
+2026-11-01 18:47:08 INFO 66048 requêtes jugées, 6152/6266 exemples terminés
+2026-11-01 18:47:22 INFO 67072 requêtes jugées, 6222/6266 exemples terminés
+2026-11-01 18:47:26 INFO complete : 6266 exemples, F1 slots = 0.7446, rappel candidats = 0.8881, p95 = 12.6886 ms

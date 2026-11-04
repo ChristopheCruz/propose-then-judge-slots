@@ -1,0 +1,205 @@
+==== 2026-10-31 07:58:33 C0, carte 1 : multiatis mtop multi3woz / en fr / graines 13 14 15
+== 07:58:33 entraînement checkpoints/tagger/multiatis-en-s13
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 uv run --no-sync python -m experiments.train_tagger --config configs/train/c0.yaml \
+  --output checkpoints/tagger/multiatis-en-s13 data.dataset=multiatis data.lang=en seed=13 train.langs=en 
+2026-10-31 07:58:34 INFO effectifs : {"train": {"en": {"examples": 4478, "spans": 14878, "conflicts": 0, "misaligned": 0, "empty": 0}}, "dev": {"examples": 500, "spans": 1682, "conflicts": 0, "misaligned": 0, "empty": 0}} ; 159 étiquettes
+[transformers] The tokenizer you are loading from 'microsoft/mdeberta-v3-base' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/ubuntu/Workspace/laya-c0-essai/experiments/train_tagger.py", line 223, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/experiments/train_tagger.py", line 166, in main
+    model = AutoModelForTokenClassification.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 402, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4293, in from_pretrained
+    checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 745, in _get_resolved_checkpoint_files
+    raise OSError(
+OSError: microsoft/mdeberta-v3-base does not appear to have a file named pytorch_model.bin or model.safetensors.
+make: *** [Makefile:170: entrainer-c0] Error 1
+  ÉCHEC entraînement multiatis-en-s13
+== 07:58:38 entraînement checkpoints/tagger/multiatis-en-s14
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 uv run --no-sync python -m experiments.train_tagger --config configs/train/c0.yaml \
+  --output checkpoints/tagger/multiatis-en-s14 data.dataset=multiatis data.lang=en seed=14 train.langs=en 
+2026-10-31 07:58:39 INFO effectifs : {"train": {"en": {"examples": 4478, "spans": 14878, "conflicts": 0, "misaligned": 0, "empty": 0}}, "dev": {"examples": 500, "spans": 1682, "conflicts": 0, "misaligned": 0, "empty": 0}} ; 159 étiquettes
+[transformers] The tokenizer you are loading from 'microsoft/mdeberta-v3-base' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/ubuntu/Workspace/laya-c0-essai/experiments/train_tagger.py", line 223, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/experiments/train_tagger.py", line 166, in main
+    model = AutoModelForTokenClassification.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 402, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4293, in from_pretrained
+    checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 745, in _get_resolved_checkpoint_files
+    raise OSError(
+OSError: microsoft/mdeberta-v3-base does not appear to have a file named pytorch_model.bin or model.safetensors.
+make: *** [Makefile:170: entrainer-c0] Error 1
+  ÉCHEC entraînement multiatis-en-s14
+== 07:58:42 entraînement checkpoints/tagger/multiatis-en-s15
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 uv run --no-sync python -m experiments.train_tagger --config configs/train/c0.yaml \
+  --output checkpoints/tagger/multiatis-en-s15 data.dataset=multiatis data.lang=en seed=15 train.langs=en 
+2026-10-31 07:58:43 INFO effectifs : {"train": {"en": {"examples": 4478, "spans": 14878, "conflicts": 0, "misaligned": 0, "empty": 0}}, "dev": {"examples": 500, "spans": 1682, "conflicts": 0, "misaligned": 0, "empty": 0}} ; 159 étiquettes
+[transformers] The tokenizer you are loading from 'microsoft/mdeberta-v3-base' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/ubuntu/Workspace/laya-c0-essai/experiments/train_tagger.py", line 223, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/experiments/train_tagger.py", line 166, in main
+    model = AutoModelForTokenClassification.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 402, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4293, in from_pretrained
+    checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 745, in _get_resolved_checkpoint_files
+    raise OSError(
+OSError: microsoft/mdeberta-v3-base does not appear to have a file named pytorch_model.bin or model.safetensors.
+make: *** [Makefile:170: entrainer-c0] Error 1
+  ÉCHEC entraînement multiatis-en-s15
+== 07:58:47 entraînement checkpoints/tagger/multiatis-fr-s13
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 uv run --no-sync python -m experiments.train_tagger --config configs/train/c0.yaml \
+  --output checkpoints/tagger/multiatis-fr-s13 data.dataset=multiatis data.lang=fr seed=13 train.langs=fr 
+2026-10-31 07:58:48 INFO effectifs : {"train": {"fr": {"examples": 4465, "spans": 14807, "conflicts": 0, "misaligned": 0, "empty": 0}}, "dev": {"examples": 500, "spans": 1678, "conflicts": 0, "misaligned": 0, "empty": 0}} ; 159 étiquettes
+[transformers] The tokenizer you are loading from 'microsoft/mdeberta-v3-base' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/ubuntu/Workspace/laya-c0-essai/experiments/train_tagger.py", line 223, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/experiments/train_tagger.py", line 166, in main
+    model = AutoModelForTokenClassification.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 402, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4293, in from_pretrained
+    checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 745, in _get_resolved_checkpoint_files
+    raise OSError(
+OSError: microsoft/mdeberta-v3-base does not appear to have a file named pytorch_model.bin or model.safetensors.
+make: *** [Makefile:170: entrainer-c0] Error 1
+  ÉCHEC entraînement multiatis-fr-s13
+== 07:58:52 entraînement checkpoints/tagger/multiatis-fr-s14
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 uv run --no-sync python -m experiments.train_tagger --config configs/train/c0.yaml \
+  --output checkpoints/tagger/multiatis-fr-s14 data.dataset=multiatis data.lang=fr seed=14 train.langs=fr 
+2026-10-31 07:58:53 INFO effectifs : {"train": {"fr": {"examples": 4465, "spans": 14807, "conflicts": 0, "misaligned": 0, "empty": 0}}, "dev": {"examples": 500, "spans": 1678, "conflicts": 0, "misaligned": 0, "empty": 0}} ; 159 étiquettes
+[transformers] The tokenizer you are loading from 'microsoft/mdeberta-v3-base' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/ubuntu/Workspace/laya-c0-essai/experiments/train_tagger.py", line 223, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/experiments/train_tagger.py", line 166, in main
+    model = AutoModelForTokenClassification.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 402, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4293, in from_pretrained
+    checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 745, in _get_resolved_checkpoint_files
+    raise OSError(
+OSError: microsoft/mdeberta-v3-base does not appear to have a file named pytorch_model.bin or model.safetensors.
+make: *** [Makefile:170: entrainer-c0] Error 1
+  ÉCHEC entraînement multiatis-fr-s14
+== 07:58:57 entraînement checkpoints/tagger/multiatis-fr-s15
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 uv run --no-sync python -m experiments.train_tagger --config configs/train/c0.yaml \
+  --output checkpoints/tagger/multiatis-fr-s15 data.dataset=multiatis data.lang=fr seed=15 train.langs=fr 
+2026-10-31 07:58:59 INFO effectifs : {"train": {"fr": {"examples": 4465, "spans": 14807, "conflicts": 0, "misaligned": 0, "empty": 0}}, "dev": {"examples": 500, "spans": 1678, "conflicts": 0, "misaligned": 0, "empty": 0}} ; 159 étiquettes
+[transformers] The tokenizer you are loading from 'microsoft/mdeberta-v3-base' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/ubuntu/Workspace/laya-c0-essai/experiments/train_tagger.py", line 223, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/experiments/train_tagger.py", line 166, in main
+    model = AutoModelForTokenClassification.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 402, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4293, in from_pretrained
+    checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 745, in _get_resolved_checkpoint_files
+    raise OSError(
+OSError: microsoft/mdeberta-v3-base does not appear to have a file named pytorch_model.bin or model.safetensors.
+make: *** [Makefile:170: entrainer-c0] Error 1
+  ÉCHEC entraînement multiatis-fr-s15
+== 07:59:03 entraînement checkpoints/tagger/mtop-en-s13
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 uv run --no-sync python -m experiments.train_tagger --config configs/train/c0.yaml \
+  --output checkpoints/tagger/mtop-en-s13 data.dataset=mtop data.lang=en seed=13 train.langs=en 
+2026-10-31 07:59:04 INFO effectifs : {"train": {"en": {"examples": 15667, "spans": 26797, "conflicts": 1, "misaligned": 376, "empty": 0}}, "dev": {"examples": 2235, "spans": 3904, "conflicts": 0, "misaligned": 73, "empty": 0}} ; 149 étiquettes
+[transformers] The tokenizer you are loading from 'microsoft/mdeberta-v3-base' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/ubuntu/Workspace/laya-c0-essai/experiments/train_tagger.py", line 223, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/experiments/train_tagger.py", line 166, in main
+    model = AutoModelForTokenClassification.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 402, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4293, in from_pretrained
+    checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 745, in _get_resolved_checkpoint_files
+    raise OSError(
+OSError: microsoft/mdeberta-v3-base does not appear to have a file named pytorch_model.bin or model.safetensors.
+make: *** [Makefile:170: entrainer-c0] Error 1
+  ÉCHEC entraînement mtop-en-s13
+== 07:59:08 entraînement checkpoints/tagger/mtop-en-s14
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 uv run --no-sync python -m experiments.train_tagger --config configs/train/c0.yaml \
+  --output checkpoints/tagger/mtop-en-s14 data.dataset=mtop data.lang=en seed=14 train.langs=en 
+2026-10-31 07:59:09 INFO effectifs : {"train": {"en": {"examples": 15667, "spans": 26797, "conflicts": 1, "misaligned": 376, "empty": 0}}, "dev": {"examples": 2235, "spans": 3904, "conflicts": 0, "misaligned": 73, "empty": 0}} ; 149 étiquettes
+[transformers] The tokenizer you are loading from 'microsoft/mdeberta-v3-base' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/ubuntu/Workspace/laya-c0-essai/experiments/train_tagger.py", line 223, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/experiments/train_tagger.py", line 166, in main
+    model = AutoModelForTokenClassification.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 402, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4293, in from_pretrained
+    checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/Workspace/laya-c0-essai/.venv/lib/python3.12/site-packages/transformers/modeling_utils.py", line 745, in _get_resolved_checkpoint_files
+    raise OSError(
+OSError: microsoft/mdeberta-v3-base does not appear to have a file named pytorch_model.bin or model.safetensors.
+make: *** [Makefile:170: entrainer-c0] Error 1
+  ÉCHEC entraînement mtop-en-s14
+== 07:59:13 entraînement checkpoints/tagger/mtop-en-s15
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 uv run --no-sync python -m experiments.train_tagger --config configs/train/c0.yaml \
+  --output checkpoints/tagger/mtop-en-s15 data.dataset=mtop data.lang=en seed=15 train.langs=en 
+2026-10-31 07:59:14 INFO effectifs : {"train": {"en": {"examples": 15667, "spans": 26797, "conflicts": 1, "misaligned": 376, "empty": 0}}, "dev": {"examples": 2235, "spans": 3904, "conflicts": 0, "misaligned": 73, "empty": 0}} ; 149 étiquettes

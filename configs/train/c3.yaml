@@ -1,0 +1,18 @@
+# Entraînement C3 — Laya fine-tuné + augmentation par options aléatoires (contribution principale, QR5).
+# Pour chaque exemple d'entraînement, une combinaison (k, p_absent, distracteurs) est tirée parmi
+# les listes ci-dessous ; l'ordre des options est mélangé par le juge (candidate_order: shuffle).
+#
+#   make entrainer-c3 DATASET=multiatis LANGUE=en SEED=13
+#   -> checkpoints/c3/multiatis-en-s13, lu par configs/conditions/c3_laya_ft_aug.yaml
+#
+# Ablations (une composante retirée à la fois) : surcharger une liste, par exemple
+#   ARGS="train.augment.k=[5]"  ou  ARGS="train.augment.p_absent=[0.0]"
+inherit: [c2.yaml]
+name: train-C3
+condition: C3
+
+train:
+  augment:
+    k: [2, 5, 10, 20]
+    p_absent: [0.0, 0.2, 0.5]
+    distractors: [easy, hard_no_overlap]

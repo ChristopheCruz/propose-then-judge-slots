@@ -1,0 +1,650 @@
+{
+ "FAKE001.json": {
+  "goal": {},
+  "log": [
+   {
+    "text": "Bonjour, je cherche le restaurant Le Petit Zinc.",
+    "metadata": {},
+    "dialog_act": {
+     "Restaurant-Inform": [
+      [
+       "Name",
+       "Le Petit Zinc"
+      ]
+     ]
+    },
+    "span_info": [
+     [
+      "Restaurant-Inform",
+      "Name",
+      "Le Petit Zinc",
+      34,
+      47
+     ]
+    ],
+    "turn_id": 0,
+    "speaker": "USER"
+   },
+   {
+    "text": "Le Petit Zinc est au centre.",
+    "metadata": {
+     "taxi": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "leaveAt": "",
+       "destination": "",
+       "departure": "",
+       "arriveBy": ""
+      }
+     },
+     "restaurant": {
+      "book": {
+       "booked": [],
+       "time": "",
+       "day": "",
+       "people": ""
+      },
+      "semi": {
+       "food": "not mentioned",
+       "pricerange": "not mentioned",
+       "name": "Le Petit Zinc",
+       "area": "not mentioned"
+      }
+     },
+     "hotel": {
+      "book": {
+       "booked": [],
+       "stay": "",
+       "day": "",
+       "people": ""
+      },
+      "semi": {
+       "name": "",
+       "area": "",
+       "parking": "",
+       "pricerange": "",
+       "stars": "",
+       "internet": "",
+       "type": ""
+      }
+     },
+     "attraction": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "type": "",
+       "name": "",
+       "area": ""
+      }
+     },
+     "train": {
+      "book": {
+       "booked": [],
+       "people": ""
+      },
+      "semi": {
+       "leaveAt": "",
+       "destination": "",
+       "day": "",
+       "arriveBy": "",
+       "departure": ""
+      }
+     },
+     "bus": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "departure": "",
+       "destination": ""
+      }
+     }
+    },
+    "dialog_act": {},
+    "span_info": [],
+    "turn_id": 1,
+    "speaker": "SYSTEM"
+   },
+   {
+    "text": "Je voudrais réserver vendredi à 19:30 pour 4 personnes.",
+    "metadata": {},
+    "dialog_act": {
+     "Restaurant-Inform": [
+      [
+       "Day",
+       "friday"
+      ],
+      [
+       "Time",
+       "19:30"
+      ]
+     ],
+     "Booking-Inform": [
+      [
+       "People",
+       "4"
+      ]
+     ]
+    },
+    "span_info": [
+     [
+      "Restaurant-Inform",
+      "Day",
+      "friday",
+      21,
+      29
+     ],
+     [
+      "Restaurant-Inform",
+      "Time",
+      "19:30",
+      32,
+      37
+     ],
+     [
+      "Booking-Inform",
+      "People",
+      "4",
+      43,
+      44
+     ]
+    ],
+    "turn_id": 2,
+    "speaker": "USER"
+   },
+   {
+    "text": "C'est réservé.",
+    "metadata": {
+     "taxi": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "leaveAt": "",
+       "destination": "",
+       "departure": "",
+       "arriveBy": ""
+      }
+     },
+     "restaurant": {
+      "book": {
+       "booked": [],
+       "time": "19:30",
+       "day": "friday",
+       "people": "4"
+      },
+      "semi": {
+       "food": "not mentioned",
+       "pricerange": "not mentioned",
+       "name": "Le Petit Zinc",
+       "area": "not mentioned"
+      }
+     },
+     "hotel": {
+      "book": {
+       "booked": [],
+       "stay": "",
+       "day": "",
+       "people": ""
+      },
+      "semi": {
+       "name": "",
+       "area": "",
+       "parking": "",
+       "pricerange": "",
+       "stars": "",
+       "internet": "",
+       "type": ""
+      }
+     },
+     "attraction": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "type": "",
+       "name": "",
+       "area": ""
+      }
+     },
+     "train": {
+      "book": {
+       "booked": [],
+       "people": ""
+      },
+      "semi": {
+       "leaveAt": "",
+       "destination": "",
+       "day": "",
+       "arriveBy": "",
+       "departure": ""
+      }
+     },
+     "bus": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "departure": "",
+       "destination": ""
+      }
+     }
+    },
+    "dialog_act": {},
+    "span_info": [],
+    "turn_id": 3,
+    "speaker": "SYSTEM"
+   },
+   {
+    "text": "Merci beaucoup.",
+    "metadata": {},
+    "dialog_act": {
+     "general-thank": [
+      [
+       "none",
+       "none"
+      ]
+     ]
+    },
+    "span_info": [],
+    "turn_id": 4,
+    "speaker": "USER"
+   },
+   {
+    "text": "Au revoir.",
+    "metadata": {
+     "taxi": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "leaveAt": "",
+       "destination": "",
+       "departure": "",
+       "arriveBy": ""
+      }
+     },
+     "restaurant": {
+      "book": {
+       "booked": [],
+       "time": "19:30",
+       "day": "friday",
+       "people": "4"
+      },
+      "semi": {
+       "food": "not mentioned",
+       "pricerange": "not mentioned",
+       "name": "Le Petit Zinc",
+       "area": "not mentioned"
+      }
+     },
+     "hotel": {
+      "book": {
+       "booked": [],
+       "stay": "",
+       "day": "",
+       "people": ""
+      },
+      "semi": {
+       "name": "",
+       "area": "",
+       "parking": "",
+       "pricerange": "",
+       "stars": "",
+       "internet": "",
+       "type": ""
+      }
+     },
+     "attraction": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "type": "",
+       "name": "",
+       "area": ""
+      }
+     },
+     "train": {
+      "book": {
+       "booked": [],
+       "people": ""
+      },
+      "semi": {
+       "leaveAt": "",
+       "destination": "",
+       "day": "",
+       "arriveBy": "",
+       "departure": ""
+      }
+     },
+     "bus": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "departure": "",
+       "destination": ""
+      }
+     }
+    },
+    "dialog_act": {},
+    "span_info": [],
+    "turn_id": 5,
+    "speaker": "SYSTEM"
+   }
+  ]
+ },
+ "FAKE002.json": {
+  "goal": {},
+  "log": [
+   {
+    "text": "Un hôtel avec parking, peu importe le quartier.",
+    "metadata": {},
+    "dialog_act": {
+     "Hotel-Inform": [
+      [
+       "Area",
+       "dontcare"
+      ],
+      [
+       "Parking",
+       "yes"
+      ]
+     ]
+    },
+    "span_info": [],
+    "turn_id": 0,
+    "speaker": "USER"
+   },
+   {
+    "text": "Je vous propose l'Hôtel du Lac.",
+    "metadata": {
+     "taxi": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "leaveAt": "",
+       "destination": "",
+       "departure": "",
+       "arriveBy": ""
+      }
+     },
+     "restaurant": {
+      "book": {
+       "booked": [],
+       "time": "",
+       "day": "",
+       "people": ""
+      },
+      "semi": {
+       "food": "",
+       "pricerange": "",
+       "name": "",
+       "area": ""
+      }
+     },
+     "hotel": {
+      "book": {
+       "booked": [],
+       "stay": "",
+       "day": "",
+       "people": ""
+      },
+      "semi": {
+       "name": "",
+       "area": "dontcare",
+       "parking": "yes",
+       "pricerange": "",
+       "stars": "",
+       "internet": "",
+       "type": ""
+      }
+     },
+     "attraction": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "type": "",
+       "name": "",
+       "area": ""
+      }
+     },
+     "train": {
+      "book": {
+       "booked": [],
+       "people": ""
+      },
+      "semi": {
+       "leaveAt": "",
+       "destination": "",
+       "day": "",
+       "arriveBy": "",
+       "departure": ""
+      }
+     },
+     "bus": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "departure": "",
+       "destination": ""
+      }
+     }
+    },
+    "dialog_act": {},
+    "span_info": [],
+    "turn_id": 1,
+    "speaker": "SYSTEM"
+   },
+   {
+    "text": "Parfait, je le prends.",
+    "metadata": {},
+    "dialog_act": {},
+    "span_info": [],
+    "turn_id": 2,
+    "speaker": "USER"
+   },
+   {
+    "text": "C'est noté.",
+    "metadata": {
+     "taxi": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "leaveAt": "",
+       "destination": "",
+       "departure": "",
+       "arriveBy": ""
+      }
+     },
+     "restaurant": {
+      "book": {
+       "booked": [],
+       "time": "",
+       "day": "",
+       "people": ""
+      },
+      "semi": {
+       "food": "",
+       "pricerange": "",
+       "name": "",
+       "area": ""
+      }
+     },
+     "hotel": {
+      "book": {
+       "booked": [],
+       "stay": "",
+       "day": "",
+       "people": ""
+      },
+      "semi": {
+       "name": "Hôtel du Lac",
+       "area": "dontcare",
+       "parking": "yes",
+       "pricerange": "",
+       "stars": "",
+       "internet": "",
+       "type": ""
+      }
+     },
+     "attraction": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "type": "",
+       "name": "",
+       "area": ""
+      }
+     },
+     "train": {
+      "book": {
+       "booked": [],
+       "people": ""
+      },
+      "semi": {
+       "leaveAt": "",
+       "destination": "",
+       "day": "",
+       "arriveBy": "",
+       "departure": ""
+      }
+     },
+     "bus": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "departure": "",
+       "destination": ""
+      }
+     }
+    },
+    "dialog_act": {},
+    "span_info": [],
+    "turn_id": 3,
+    "speaker": "SYSTEM"
+   }
+  ]
+ },
+ "FAKE003.json": {
+  "goal": {},
+  "log": [
+   {
+    "text": "Je pars de cambridge en train.",
+    "metadata": {},
+    "dialog_act": {
+     "Train-Inform": [
+      [
+       "Depart",
+       "cambridge"
+      ]
+     ]
+    },
+    "span_info": [
+     [
+      "Train-Inform",
+      "Depart",
+      "cambridge",
+      11,
+      20
+     ]
+    ],
+    "turn_id": 0,
+    "speaker": "USER"
+   },
+   {
+    "text": "À quelle heure ?",
+    "metadata": {
+     "taxi": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "leaveAt": "",
+       "destination": "",
+       "departure": "",
+       "arriveBy": ""
+      }
+     },
+     "restaurant": {
+      "book": {
+       "booked": [],
+       "time": "",
+       "day": "",
+       "people": ""
+      },
+      "semi": {
+       "food": "",
+       "pricerange": "",
+       "name": "",
+       "area": ""
+      }
+     },
+     "hotel": {
+      "book": {
+       "booked": [],
+       "stay": "",
+       "day": "",
+       "people": ""
+      },
+      "semi": {
+       "name": "",
+       "area": "",
+       "parking": "",
+       "pricerange": "",
+       "stars": "",
+       "internet": "",
+       "type": ""
+      }
+     },
+     "attraction": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "type": "",
+       "name": "",
+       "area": ""
+      }
+     },
+     "train": {
+      "book": {
+       "booked": [],
+       "people": ""
+      },
+      "semi": {
+       "leaveAt": "09:15",
+       "destination": "",
+       "day": "",
+       "arriveBy": "",
+       "departure": "cambridge"
+      }
+     },
+     "bus": {
+      "book": {
+       "booked": []
+      },
+      "semi": {
+       "departure": "",
+       "destination": ""
+      }
+     }
+    },
+    "dialog_act": {},
+    "span_info": [],
+    "turn_id": 1,
+    "speaker": "SYSTEM"
+   }
+  ]
+ }
+}

@@ -1,0 +1,38 @@
+[project]
+name = "laya-slots"
+version = "0.1.0"
+description = "Propose, then judge: Laya as a calibrated slot judge versus LLM judges (EN/FR)"
+license = "MIT"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "pyyaml>=6.0",
+    "omegaconf>=2.3",
+    "scikit-learn>=1.5",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+laya = ["laya>=0.3,<0.4", "torch>=2.4", "transformers>=4.44"]
+llm = ["vllm>=0.6; sys_platform == 'linux'"]
+candidates = ["gliner>=0.2", "sentence-transformers>=3.0"]
+data = ["datasets>=2.20"]
+
+[dependency-groups]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["laya_slots", "experiments"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m 'not integration'"
+markers = ["integration: demande GPU, réseau ou téléchargement de modèle"]
+
+[tool.ruff]
+line-length = 110

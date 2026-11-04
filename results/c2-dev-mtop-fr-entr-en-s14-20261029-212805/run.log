@@ -1,0 +1,14 @@
+2026-10-29 21:28:05 INFO config configs/conditions/c2_laya_ft.yaml -> results/c2-dev-mtop-fr-entr-en-s14-20261029-212805 data.dataset=mtop data.lang=fr seed=14 data.split=dev judge.finetuned=checkpoints/c2/mtop-en-s14
+2026-10-29 21:28:06 INFO 1577 exemples, 110 intentions, 73 slots dans l'ontologie
+2026-10-29 21:28:06 INFO générateurs ajustés sur 11814 exemples d'entraînement
+2026-10-29 21:28:06 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-29 21:28:25 INFO 1024 requêtes jugées, 164/1577 exemples terminés
+2026-10-29 21:28:31 INFO 2048 requêtes jugées, 358/1577 exemples terminés
+2026-10-29 21:28:37 INFO 3072 requêtes jugées, 547/1577 exemples terminés
+2026-10-29 21:28:40 INFO 4096 requêtes jugées, 665/1577 exemples terminés
+2026-10-29 21:28:44 INFO 5120 requêtes jugées, 806/1577 exemples terminés
+2026-10-29 21:28:47 INFO 6016 requêtes jugées, 955/1577 exemples terminés
+2026-10-29 21:28:50 INFO 7040 requêtes jugées, 1123/1577 exemples terminés
+2026-10-29 21:28:53 INFO 8064 requêtes jugées, 1293/1577 exemples terminés
+2026-10-29 21:28:56 INFO 9088 requêtes jugées, 1470/1577 exemples terminés
+2026-10-29 21:28:58 INFO complete : 1577 exemples, F1 slots = 0.8900, rappel candidats = 1.0000, p95 = 9.3690 ms

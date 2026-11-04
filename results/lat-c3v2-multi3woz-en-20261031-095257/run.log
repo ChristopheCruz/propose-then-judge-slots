@@ -1,0 +1,6 @@
+2026-10-31 09:52:57 INFO config configs/conditions/c3v2_laya_ft_aug.yaml -> results/lat-c3v2-multi3woz-en-20261031-095257 data.dataset=multi3woz data.lang=en seed=13 requests.intent=domain requests.filled=state_before data.split=dev judge.finetuned=checkpoints/c3v2/multi3woz-en-s13 judge.batch_size=1 data.limit=100
+2026-10-31 09:52:58 INFO 100 exemples, 5 intentions, 30 slots dans l'ontologie
+2026-10-31 09:53:00 INFO générateurs ajustés sur 49395 exemples d'entraînement
+2026-10-31 09:53:00 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 09:53:36 INFO 1000 requêtes jugées, 86/100 exemples terminés
+2026-10-31 09:53:38 INFO complete : 100 exemples, F1 slots = 0.9712, rappel candidats = 1.0000, p95 = 79.7916 ms

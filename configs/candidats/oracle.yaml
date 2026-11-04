@@ -1,0 +1,13 @@
+# Candidats oracle : la bonne valeur + des distracteurs, pour mesurer le juge seul.
+# Balayages QR2 en surcharge :
+#   candidates.generators.0.params.k=2|5|10|20
+#   candidates.generators.0.params.p_absent=0|0.2|0.5
+#   candidates.generators.0.params.distractors=easy|hard|hard_no_overlap  (hard sans variantes de frontière de la gold)
+candidates:
+  generators:
+    - class: laya_slots.candidates.oracle.OracleGenerator
+      # hard_no_overlap : réglage de la grille principale (décision du 23/10/2026) ; hard = ablation
+      params: {k: 5, p_absent: 0.0, distractors: hard_no_overlap, seed: "${seed}"}
+  fit: true                     # obligatoire : les réservoirs train_values / random des distracteurs
+                                # sont construits sur le train (sans fit, les listes « easy » sont vides)
+  shuffle: false

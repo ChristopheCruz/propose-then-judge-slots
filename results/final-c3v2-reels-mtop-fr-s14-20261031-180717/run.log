@@ -1,0 +1,25 @@
+2026-10-31 18:07:17 INFO config configs/conditions/c3v2_laya_ft_aug_reels.yaml -> results/final-c3v2-reels-mtop-fr-s14-20261031-180717 data.dataset=mtop data.lang=fr seed=14 judge.finetuned=checkpoints/c3v2/mtop-fr-s14
+2026-10-31 18:07:18 INFO 3193 exemples, 110 intentions, 73 slots dans l'ontologie
+2026-10-31 18:07:19 INFO générateurs ajustés sur 11814 exemples d'entraînement
+2026-10-31 18:07:19 INFO juge LayaJudge, générateurs ['LexiconGenerator', 'GlinerGenerator', 'OntologyGenerator', 'HistoryGenerator']
+2026-10-31 18:07:21 INFO Loading the following GLiNER type: <class 'gliner.model.UniEncoderSpanGLiNER'>...
+2026-10-31 18:08:06 INFO 1024 requêtes jugées, 201/3193 exemples terminés
+2026-10-31 18:08:30 INFO 2048 requêtes jugées, 340/3193 exemples terminés
+2026-10-31 18:09:02 INFO 3072 requêtes jugées, 525/3193 exemples terminés
+2026-10-31 18:09:38 INFO 4096 requêtes jugées, 743/3193 exemples terminés
+2026-10-31 18:10:08 INFO 5120 requêtes jugées, 943/3193 exemples terminés
+2026-10-31 18:10:35 INFO 6016 requêtes jugées, 1091/3193 exemples terminés
+2026-10-31 18:10:56 INFO 7040 requêtes jugées, 1208/3193 exemples terminés
+2026-10-31 18:11:20 INFO 8064 requêtes jugées, 1376/3193 exemples terminés
+2026-10-31 18:11:48 INFO 9088 requêtes jugées, 1553/3193 exemples terminés
+2026-10-31 18:12:13 INFO 10112 requêtes jugées, 1696/3193 exemples terminés
+2026-10-31 18:12:40 INFO 11008 requêtes jugées, 1866/3193 exemples terminés
+2026-10-31 18:13:04 INFO 12032 requêtes jugées, 2004/3193 exemples terminés
+2026-10-31 18:13:30 INFO 13056 requêtes jugées, 2177/3193 exemples terminés
+2026-10-31 18:14:02 INFO 14080 requêtes jugées, 2388/3193 exemples terminés
+2026-10-31 18:14:26 INFO 15104 requêtes jugées, 2530/3193 exemples terminés
+2026-10-31 18:14:47 INFO 16000 requêtes jugées, 2675/3193 exemples terminés
+2026-10-31 18:15:13 INFO 17024 requêtes jugées, 2844/3193 exemples terminés
+2026-10-31 18:15:41 INFO 18048 requêtes jugées, 3028/3193 exemples terminés
+2026-10-31 18:16:05 INFO 19072 requêtes jugées, 3182/3193 exemples terminés
+2026-10-31 18:16:07 INFO complete : 3193 exemples, F1 slots = 0.6222, rappel candidats = 0.6754, p95 = 16.6425 ms

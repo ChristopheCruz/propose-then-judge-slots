@@ -1,0 +1,81 @@
+%% ===========================================================================
+\section{Hyperparameters}
+\label{app:hyper}
+%% ===========================================================================
+
+\Cref{tab:hyper} lists the settings of fine-tuning (\texttt{configs/train/c2.yaml}, \texttt{c3.yaml}, \texttt{c3v2.yaml}) and evaluation. They were fixed on development data and frozen at the end of the first phase (26 October 2026).
+
+\begin{table}[pos=h]
+\centering
+\footnotesize
+\caption{Hyperparameters of fine-tuning and evaluation.}
+\label{tab:hyper}
+\begin{tabular}{@{}p{5.2cm}p{9.3cm}@{}}
+\toprule
+Setting & Value \\
+\midrule
+\multicolumn{2}{@{}l}{\emph{Fine-tuning (C2, C3)}} \\
+Initial checkpoint & \texttt{convaiinnovations/laya}, sub-folder \texttt{multilingual}, revision \texttt{7b928d8} \\
+Mode & single question, ``not specified'' as last option \\
+Training candidates (C2) & oracle, $k=5$, $p_{\text{absent}}=0$, \texttt{hard\_no\_overlap} \\
+Augmentation (C3 v1) & $k\in\{2,5,10,20\}$, $p_{\text{absent}}\in\{0,0.2,0.5\}$, distractors $\in\{\texttt{easy},\texttt{hard\_no\_overlap}\}$ \\
+Augmentation (C3 v2, ``C3'') & $k\in\{2,2,3,3,5,10,20\}$, $p_{\text{absent}}\in\{0,0.2,0.5\}$, distractors $\in\{\texttt{confusion},\texttt{hard\_no\_overlap}\}$ \\
+Maximum options at training & 15 (so $k=20$ is truncated to 15) \\
+Unexpressed requests kept & at most 2 per expressed request and example (\texttt{unexpressed\_ratio}) \\
+Objective & log score (cross-entropy over the options of each question) \\
+Epochs & 3 \\
+Batch & 32 questions, no gradient accumulation \\
+Optimiser & AdamW; learning rate $2\times10^{-5}$ (encoder), $10^{-4}$ (head); weight decay 0.01 \\
+Schedule & linear warm-up over 5\% of steps, cosine decay \\
+Other & gradient clipping 1.0; bf16 autocast over fp32 weights; gradient checkpointing (encoder and head) \\
+Checkpoint selection & slot F1 on all requests of the first 300 development examples (\texttt{select\_on: f1}) \\
+Temperatures saved & neutral ($T=1$); calibration fitted afterwards on development data \\
+Seeds & 13--15 (C2), 13--17 (C3) \\
+Main configuration & monolingual (one model per dataset and language) \\
+Bilingual training (analysis) & concatenation of EN and FR items; selection on the English development set, oracle candidates \\
+\midrule
+\multicolumn{2}{@{}l}{\emph{Sequence tagger (C0, \texttt{configs/train/c0.yaml})}} \\
+Encoder & \texttt{microsoft/mdeberta-v3-base}, revision \texttt{a048466}, weights from \texttt{refs/pr/5} (stored in fp16, loaded in fp32; bf16 autocast) \\
+Labels & BIO over the slots seen with a span in training; label of a word on its first sub-word; words as in the candidate generators \\
+Training & 10 epochs, batch 32, AdamW, learning rate $3\times10^{-5}$, weight decay 0.01, linear warm-up over 10\% of steps then linear decay, gradient clipping 1.0, maximum length 256 sub-words \\
+Checkpoint selection & span F1 (exact slot and boundaries) on the whole development set \\
+Inference & best-scoring span per slot (mean probability of its labels), normalised like the gold values; seeds 13--15 \\
+\midrule
+\multicolumn{2}{@{}l}{\emph{Evaluation}} \\
+Requests & all slots allowed by the gold intent (Multi3WOZ: gold domain); Multi3WOZ: history and state before the turn \\
+Laya state & last message ($\le$1,000 chars), intent, filled slots, last 4 turns ($\le$1,500 chars) \\
+Laya batch & 128 states; option order shuffled with the run seed \\
+Maximum options & 15 (oracle grid), 20 (sweeps and real candidates); options $\le$200 characters \\
+Real candidates & lexicon, GLiNER (threshold 0.3), ontology (similarity $\ge$0.85), history; union $\le$20, shuffled \\
+LLM judges & vLLM 0.30.0, text only, context 4,096 tokens, 1 generated token, temperature 0, top-20 log-probabilities, reasoning off, batch 256, up to 25 options (oracle) or 20 (real) \\
+Calibration & temperature (bounded search on $\log T$, $T\in[0.05,20]$) and isotonic regression; ECE with 15 bins \\
+Decision & target risks 2\% and 5\% (also 0.5\% and 1\% reported); two-fold cluster split of the development set \\
+Bootstrap & 1,000 cluster resamples, percentile 95\% intervals, fixed seed \\
+Permutation tests & 10,000 cluster-wise permutations, two-sided, Holm correction per family \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\Cref{tab:trainsizes} gives the amount of training data. Every training turn yields one question per slot of its intent; all questions whose slot is expressed are kept, and at most two questions with an unexpressed slot per expressed one, drawn at random (\texttt{unexpressed\_ratio} = 2), because unexpressed slots are by far the most frequent. C2 and C3 use the same questions (C3 only changes the candidate lists), for three epochs; the checkpoint is selected on the first 300 development examples. The tagger C0 is trained on the same turns, with one BIO label per word, for ten epochs, and selected on the whole development set.
+
+\begin{table}[pos=h]
+\centering
+\small
+\caption{Training data per dataset and language (main, monolingual configuration). Turns: training examples; questions: requests used to fine-tune Laya (C2 and C3); spans and labels: gold spans and BIO label set of the tagger C0; dev: development examples used for checkpoint selection.}
+\label{tab:trainsizes}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llrrrrrrrr@{}}
+\toprule
+ & & & \multicolumn{4}{c}{Laya (C2, C3)} & \multicolumn{3}{c}{Tagger (C0)} \\
+\cmidrule(lr){4-7}\cmidrule(l){8-10}
+Dataset & Lang. & Turns & Expressed & Unexpressed kept & Questions & Dev & Spans & Labels & Dev \\
+\midrule
+MultiATIS++ & EN & 4,478 & 14,336 & 28,671 & 43,007 & 300 & 14,878 & 159 & 500 \\
+            & FR & 4,465 & 14,270 & 28,539 & 42,809 & 300 & 14,807 & 159 & 500 \\
+MTOP        & EN & 15,667 & 25,916 & 42,893 & 68,809 & 300 & 26,797 & 149 & 2,235 \\
+            & FR & 11,814 & 18,420 & 30,536 & 48,956 & 300 & 19,016 & 147 & 1,577 \\
+Multi3WOZ   & EN & 49,395 & 58,944 & 129,574 & 188,518 & 300 & 45,832 & 61 & 6,267 \\
+            & FR & 49,394 & 58,943 & 129,572 & 188,515 & 300 & 45,614 & 59 & 6,267 \\
+\bottomrule
+\end{tabular}
+\end{table}

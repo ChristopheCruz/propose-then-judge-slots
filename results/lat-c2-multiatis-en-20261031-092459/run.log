@@ -1,0 +1,10 @@
+2026-10-31 09:24:59 INFO config configs/conditions/c2_laya_ft.yaml -> results/lat-c2-multiatis-en-20261031-092459 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c2/multiatis-en-s13 judge.batch_size=1 data.limit=100
+2026-10-31 09:25:00 INFO 100 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 09:25:00 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 09:25:00 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 09:25:17 INFO 1000 requêtes jugées, 21/100 exemples terminés
+2026-10-31 09:25:25 INFO 2000 requêtes jugées, 42/100 exemples terminés
+2026-10-31 09:25:35 INFO 3000 requêtes jugées, 58/100 exemples terminés
+2026-10-31 09:25:43 INFO 4000 requêtes jugées, 72/100 exemples terminés
+2026-10-31 09:25:52 INFO 5000 requêtes jugées, 86/100 exemples terminés
+2026-10-31 09:26:00 INFO complete : 100 exemples, F1 slots = 0.9723, rappel candidats = 1.0000, p95 = 8.0712 ms

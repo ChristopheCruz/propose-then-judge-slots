@@ -1,0 +1,21 @@
+2026-10-26 17:36:38 INFO config configs/conditions/c4_llm_juge_reels.yaml -> results/c4-dev-reels-dev-mtop-en-s13-20261026-173637 data.dataset=mtop data.lang=en seed=13 data.split=dev judge.params.model=Qwen/Qwen3-32B judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=1
+2026-10-26 17:36:39 INFO 2235 exemples, 113 intentions, 75 slots dans l'ontologie
+2026-10-26 17:36:39 INFO générateurs ajustés sur 15667 exemples d'entraînement
+2026-10-26 17:36:39 INFO juge LLMJudge, générateurs ['LexiconGenerator', 'GlinerGenerator', 'OntologyGenerator', 'HistoryGenerator']
+2026-10-26 17:36:42 INFO Loading the following GLiNER type: <class 'gliner.model.UniEncoderSpanGLiNER'>...
+2026-10-26 17:37:32 INFO 1024 requêtes jugées, 143/2235 exemples terminés
+2026-10-26 17:37:38 INFO 2048 requêtes jugées, 285/2235 exemples terminés
+2026-10-26 17:37:45 INFO 3072 requêtes jugées, 443/2235 exemples terminés
+2026-10-26 17:37:52 INFO 4096 requêtes jugées, 591/2235 exemples terminés
+2026-10-26 17:37:59 INFO 5120 requêtes jugées, 753/2235 exemples terminés
+2026-10-26 17:38:06 INFO 6144 requêtes jugées, 906/2235 exemples terminés
+2026-10-26 17:38:13 INFO 7168 requêtes jugées, 1066/2235 exemples terminés
+2026-10-26 17:38:19 INFO 8192 requêtes jugées, 1211/2235 exemples terminés
+2026-10-26 17:38:26 INFO 9216 requêtes jugées, 1371/2235 exemples terminés
+2026-10-26 17:38:33 INFO 10240 requêtes jugées, 1531/2235 exemples terminés
+2026-10-26 17:38:38 INFO 11008 requêtes jugées, 1648/2235 exemples terminés
+2026-10-26 17:38:44 INFO 12032 requêtes jugées, 1794/2235 exemples terminés
+2026-10-26 17:38:51 INFO 13056 requêtes jugées, 1938/2235 exemples terminés
+2026-10-26 17:38:57 INFO 14080 requêtes jugées, 2091/2235 exemples terminés
+2026-10-26 17:39:03 INFO 15096 requêtes jugées, 2235/2235 exemples terminés
+2026-10-26 17:39:13 INFO complete : 2235 exemples, F1 slots = 0.5434, rappel candidats = 0.7661, p95 = 7.0903 ms

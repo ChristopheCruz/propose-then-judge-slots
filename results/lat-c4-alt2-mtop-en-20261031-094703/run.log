@@ -1,0 +1,6 @@
+2026-10-31 09:47:03 INFO config configs/conditions/c4_llm_juge.yaml -> results/lat-c4-alt2-mtop-en-20261031-094703 data.dataset=mtop data.lang=en seed=13 data.split=dev judge.params.model=google/gemma-4-31B-it judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=1 judge.batch_size=1 data.limit=100
+2026-10-31 09:47:04 INFO 100 exemples, 113 intentions, 75 slots dans l'ontologie
+2026-10-31 09:47:04 INFO générateurs ajustés sur 15667 exemples d'entraînement
+2026-10-31 09:47:04 INFO juge LLMJudge, générateurs ['OracleGenerator']
+2026-10-31 09:47:09 INFO vLLM google/gemma-4-31B-it : llm_kwargs={'tensor_parallel_size': 1, 'max_model_len': 4096, 'language_model_only': True} chat_template_kwargs={'enable_thinking': False}
+2026-10-31 09:49:10 INFO complete : 100 exemples, F1 slots = 0.7482, rappel candidats = 1.0000, p95 = 25.8515 ms

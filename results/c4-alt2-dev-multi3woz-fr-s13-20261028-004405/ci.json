@@ -1,0 +1,55 @@
+{
+  "method": "bootstrap percentile 95 %, grappes = dialogues (Multi3WOZ) ou énoncés",
+  "seed": 0,
+  "metrics": {
+    "slot_f1": {
+      "value": 0.7713847589839322,
+      "lo": 0.7616620533696249,
+      "hi": 0.7807238407096116,
+      "n_boot": 1000,
+      "n_clusters": 860
+    },
+    "slot_precision": {
+      "value": 0.7781813290287867,
+      "lo": 0.7680372154043101,
+      "hi": 0.7877080523846914,
+      "n_boot": 1000,
+      "n_clusters": 860
+    },
+    "slot_recall": {
+      "value": 0.7647058823529411,
+      "lo": 0.753441227901842,
+      "hi": 0.7756331667713959,
+      "n_boot": 1000,
+      "n_clusters": 860
+    },
+    "frame_accuracy": {
+      "value": 0.658847933620552,
+      "lo": 0.6458028207679901,
+      "hi": 0.6712578095659486,
+      "n_boot": 1000,
+      "n_clusters": 860
+    },
+    "choice_accuracy_given_present": {
+      "value": 0.7647058823529411,
+      "lo": 0.753441227901842,
+      "hi": 0.7756331667713959,
+      "n_boot": 1000,
+      "n_clusters": 860
+    },
+    "false_positive_rate": {
+      "value": 0.016166922248686745,
+      "lo": 0.014999008870605651,
+      "hi": 0.017249624110391715,
+      "n_boot": 1000,
+      "n_clusters": 860
+    },
+    "absent_abstention_rate": {
+      "value": null,
+      "lo": null,
+      "hi": null,
+      "n_boot": 1000,
+      "n_clusters": 860
+    }
+  }
+}

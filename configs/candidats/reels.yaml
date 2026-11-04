@@ -1,0 +1,17 @@
+# Candidats réels : sortie des générateurs, pour mesurer de bout en bout.
+# Union dédoublonnée par valeur, dans l'ordre des générateurs, puis ordre mélangé (graine du run).
+# Retirer un générateur = surcharger la liste complète, ou écrire un fichier fils.
+candidates:
+  generators:
+    # TaggerGenerator (spans d'un tagger BIO) : vague 2, à ajouter ici quand il existera.
+    - class: laya_slots.candidates.lexicon.LexiconGenerator        # valeurs vues au train
+      params: {}
+    - class: laya_slots.candidates.gliner.GlinerGenerator          # GLiNER zero-shot
+      params: {model_name: urchade/gliner_multi-v2.1, threshold: 0.3, device: cuda}
+    - class: laya_slots.candidates.ontology.OntologyGenerator      # valeurs fermées retrouvées dans l'énoncé
+      params: {threshold: 0.85}
+    - class: laya_slots.candidates.history.HistoryGenerator        # valeurs de l'historique (Multi3WOZ)
+      params: {}
+  fit: true                     # tagger et index d'ontologie ajustés sur le train
+  shuffle: true                 # l'ordre ne doit pas trahir le générateur d'origine
+  max_candidates: 20

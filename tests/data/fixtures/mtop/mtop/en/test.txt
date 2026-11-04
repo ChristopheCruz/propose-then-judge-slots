@@ -1,0 +1,1 @@
+301	IN:GET_WEATHER	6:11:SL:WEATHER_ATTRIBUTE	is it sunny	weather	en_XX	[IN:GET_WEATHER [SL:WEATHER_ATTRIBUTE sunny ] ]	{"tokens": ["is", "it", "sunny"], "tokenSpans": []}

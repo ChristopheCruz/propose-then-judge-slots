@@ -1,0 +1,77 @@
+%% ===========================================================================
+\section{Prompt of the LLM judge and questions asked to Laya}
+\label{app:prompts}
+%% ===========================================================================
+%% Copied verbatim from laya_slots/judges/llm_judge.py (PROMPT_VERSION = "slot-judge-v1")
+%% and laya_slots/judges/laya_judge.py. Do not edit by hand: re-copy if the code changes.
+
+\subsection{LLM judge (prompt \texttt{slot-judge-v1})}
+
+\paragraph{System message}
+\begin{verbatim}
+You are a slot-filling judge for a task-oriented dialogue system. You answer
+with a single capital letter and nothing else.
+\end{verbatim}
+
+\paragraph{User message} Fields in braces are filled per request; \texttt{\{options\}} lists the candidates as ``\texttt{A. value}'', ``\texttt{B. value}''\ldots, followed by the ``not specified'' option. Empty fields are rendered as \texttt{unknown} (intent), \texttt{none} (filled slots) and \texttt{(none)} (history).
+\begin{verbatim}
+Task: choose the value that the user's last message gives for the slot below.
+Pick the candidate that the user expresses or clearly refers to in the last
+message (the history and the slots already filled are context only). If the
+last message gives no value for this slot, or none of the candidates is right,
+pick the "not specified" option.
+The conversation may be in a language other than English; candidates are
+written as they appear.
+
+Slot: {slot}
+Slot description: {description}
+Current intent: {intent}
+Slots already filled: {filled}
+Conversation history:
+{history}
+
+User's last message ({lang}): {utterance}
+
+Candidates:
+{options}
+
+Answer with the letter of one candidate only.
+\end{verbatim}
+(Line breaks inside paragraphs are added here for the page width; in the code each paragraph is one line.)
+
+\paragraph{``Not specified'' option}
+\begin{verbatim}
+not specified (the last message gives no value for this slot)
+\end{verbatim}
+
+\paragraph{Few-shot format} (not used in the reported runs) Each shot is the same user message followed by an assistant turn containing the letter; in plain-completion mode the answer is rendered as \texttt{Answer: \{letter\}}.
+
+\paragraph{Reading the answer} One token is generated at temperature 0; the top-20 log-probabilities of the first token are read; the probability masses of the tokens that reduce to an option letter (after removing the SentencePiece and byte-level space markers and trailing ``\texttt{.}'', ``\texttt{)}'', ``\texttt{:}'') are summed and renormalised over the offered letters. Reasoning is disabled with \texttt{enable\_thinking: false} for the Qwen3.8 and Gemma~4 chat templates.
+
+\subsection{Laya questions}
+
+\paragraph{Single mode (main condition)} Question of type \texttt{choice}; options are ``\texttt{A: <candidate>}'', ``\texttt{B: <candidate>}''\ldots, then the ``not specified'' option.
+\begin{verbatim}
+Which value does the user's last message give for the slot "{slot}"
+({description})?
+\end{verbatim}
+``Not specified'' option:
+\begin{verbatim}
+not specified: the last message gives no value for this slot
+\end{verbatim}
+
+\paragraph{Two-step mode (implemented, not evaluated in this study)} First question (``is the slot expressed?''), of type \texttt{noul} (true/false) or, as a fallback against the bias of that question type, \texttt{choice} with neutral keys A/B:
+\begin{verbatim}
+Does the user's last message give a value for the slot "{slot}"
+({description})?
+  A / true:  yes, the last message gives a value for this slot
+  B / false: no, the last message gives no value for this slot
+\end{verbatim}
+Second question, over the candidates only (no ``not specified'' option), in the same forward pass:
+\begin{verbatim}
+The user's last message gives a value for the slot "{slot}" ({description}).
+Which one?
+\end{verbatim}
+The final distribution is $p(c_i)=P(\text{expressed})\cdot p(c_i\mid\text{expressed})$ and $p(\none)=1-P(\text{expressed})$; below a threshold on $P(\text{expressed})$ (0.5 by default, to be tuned on development data) the judge answers ``not specified''.
+
+\paragraph{State} A dictionary with the fields \texttt{last\_user\_message}, \texttt{intent}, \texttt{slots\_already\_filled} (JSON, multi-turn only) and \texttt{history} (``\texttt{speaker: text}'' lines), in this order.

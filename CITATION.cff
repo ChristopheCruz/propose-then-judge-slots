@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "Propose, then judge: code and results"
+authors:
+  - family-names: Cruz
+    given-names: Christophe
+    orcid: "https://orcid.org/0000-0002-5611-9479"
+    affiliation: "Laboratoire Interdisciplinaire Carnot de Bourgogne (ICB), UMR 6303 CNRS, Université Bourgogne Europe"
+  - family-names: Ghanem
+    given-names: Hussam
+    orcid: "https://orcid.org/0009-0002-2652-5748"
+    affiliation: "Laboratoire Interdisciplinaire Carnot de Bourgogne (ICB), UMR 6303 CNRS, Université Bourgogne Europe"
+  - family-names: Cherifi
+    given-names: Hocine
+    orcid: "https://orcid.org/0000-0001-9124-4921"
+    affiliation: "Laboratoire Interdisciplinaire Carnot de Bourgogne (ICB), UMR 6303 CNRS, Université Bourgogne Europe"
+license: MIT
+repository-code: "https://github.com/ChristopheCruz/propose-then-judge-slots"
+date-released: 2026-10-31
+preferred-citation:
+  type: article
+  title: "Propose, then judge: a small calibrated decision model versus large language model judges for multilingual slot filling"
+  authors:
+    - family-names: Cruz
+      given-names: Christophe
+      orcid: "https://orcid.org/0000-0002-5611-9479"
+    - family-names: Ghanem
+      given-names: Hussam
+      orcid: "https://orcid.org/0009-0002-2652-5748"
+    - family-names: Cherifi
+      given-names: Hocine
+      orcid: "https://orcid.org/0000-0001-9124-4921"
+  journal: "HAL preprint"
+  url: "https://hal.science/hal-05850913"
+  year: 2026
+  notes: "HAL identifier hal-05850913"

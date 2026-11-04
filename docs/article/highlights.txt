@@ -1,0 +1,5 @@
+A small fine-tuned judge beats 27B-180B LLM judges at choosing slot values
+LLM judges fail mainly by answering when the user expressed no value
+The small judge's confidences rank its errors far better: lower AURC
+A plain BIO tagger beats the pipeline when slot values are literal spans
+List augmentation helps only when it mimics real confusions between slots

@@ -1,0 +1,21 @@
+2026-10-28 07:03:40 INFO config configs/conditions/c4_llm_juge.yaml -> results/c4ref-dev-mtop-en-s13-20261028-070340 data.dataset=mtop data.lang=en seed=13 data.split=dev judge.params.model=Qwen/Qwen3.8-Flash-Next-FP8 judge.params.backend_kwargs.llm_kwargs.tensor_parallel_size=2
+2026-10-28 07:03:41 INFO 2235 exemples, 113 intentions, 75 slots dans l'ontologie
+2026-10-28 07:03:42 INFO générateurs ajustés sur 15667 exemples d'entraînement
+2026-10-28 07:03:42 INFO juge LLMJudge, générateurs ['OracleGenerator']
+2026-10-28 07:03:46 INFO vLLM Qwen/Qwen3.8-Flash-Next-FP8 : llm_kwargs={'tensor_parallel_size': 2, 'max_model_len': 4096, 'language_model_only': True} chat_template_kwargs={'enable_thinking': False}
+2026-10-28 07:05:39 INFO 1024 requêtes jugées, 143/2235 exemples terminés
+2026-10-28 07:05:48 INFO 2048 requêtes jugées, 285/2235 exemples terminés
+2026-10-28 07:05:57 INFO 3072 requêtes jugées, 443/2235 exemples terminés
+2026-10-28 07:06:06 INFO 4096 requêtes jugées, 591/2235 exemples terminés
+2026-10-28 07:06:15 INFO 5120 requêtes jugées, 753/2235 exemples terminés
+2026-10-28 07:06:24 INFO 6144 requêtes jugées, 906/2235 exemples terminés
+2026-10-28 07:06:33 INFO 7168 requêtes jugées, 1066/2235 exemples terminés
+2026-10-28 07:06:41 INFO 8192 requêtes jugées, 1211/2235 exemples terminés
+2026-10-28 07:06:50 INFO 9216 requêtes jugées, 1371/2235 exemples terminés
+2026-10-28 07:06:59 INFO 10240 requêtes jugées, 1531/2235 exemples terminés
+2026-10-28 07:07:06 INFO 11008 requêtes jugées, 1648/2235 exemples terminés
+2026-10-28 07:07:14 INFO 12032 requêtes jugées, 1794/2235 exemples terminés
+2026-10-28 07:07:23 INFO 13056 requêtes jugées, 1938/2235 exemples terminés
+2026-10-28 07:07:32 INFO 14080 requêtes jugées, 2091/2235 exemples terminés
+2026-10-28 07:07:41 INFO 15096 requêtes jugées, 2235/2235 exemples terminés
+2026-10-28 07:07:51 INFO complete : 2235 exemples, F1 slots = 0.7091, rappel candidats = 1.0000, p95 = 8.1280 ms

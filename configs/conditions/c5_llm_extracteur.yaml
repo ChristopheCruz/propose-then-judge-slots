@@ -1,0 +1,20 @@
+# C5 — LLM extracteur génératif (sortie JSON) : alternative sans candidats.
+# Exprimé dans le pipeline comme un générateur qui propose au plus une valeur par slot
+# (extraite d'un seul appel par exemple, mis en cache), suivi du juge « meilleur score » comme C0.
+# Seule la variante sans oracle a un sens.
+inherit: [../_base.yaml]
+name: C5-llm-extracteur
+condition: C5
+
+candidates:
+  generators:
+    - class: laya_slots.candidates.llm_extractor.LLMExtractorGenerator
+      params:
+        model: ???                  # même modèle que C4
+        revision: null
+        few_shot: 0
+  fit: false
+
+judge:
+  class: laya_slots.judges.baselines.GeneratorScoreJudge
+  params: {min_score: null}

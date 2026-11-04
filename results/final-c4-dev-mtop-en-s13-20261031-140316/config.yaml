@@ -1,0 +1,49 @@
+name: C4-llm-juge
+condition: C4
+seed: 13
+data:
+  dataset: mtop
+  lang: en
+  split: test
+  root: data/processed
+  path: null
+  ontology: null
+  train_split: train
+  train_path: null
+  loader: null
+  limit: null
+requests:
+  slots: intent
+  intent: gold
+  filled: none
+  strip_gold: true
+candidates:
+  generators:
+  - class: laya_slots.candidates.oracle.OracleGenerator
+    params:
+      k: 5
+      p_absent: 0.0
+      distractors: hard_no_overlap
+      seed: 13
+  fit: true
+  shuffle: false
+  max_candidates: null
+judge:
+  class: laya_slots.judges.llm_judge.LLMJudge
+  params:
+    backend: vllm
+    model: Qwen/Qwen3.8-27B
+    few_shot: null
+    candidate_order: shuffle
+    backend_kwargs:
+      top_k_logprobs: 20
+      chat_template_kwargs: auto
+      llm_kwargs:
+        tensor_parallel_size: 1
+        max_model_len: 4096
+        language_model_only: true
+  batch_size: 256
+intent_predictor: null
+output:
+  save_probs: true
+  log_every: 1000

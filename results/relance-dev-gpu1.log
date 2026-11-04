@@ -1,0 +1,1657 @@
+==== 2026-10-31 07:22:14 relance sur le dev, parties 3, carte 1
+  checkpoint d'avant le gel déplacé : checkpoints/c3/multiatis-en-s13 -> checkpoints/_ancien-pre-gel/c3/
+== 07:22:14 entraînement checkpoints/c3/multiatis-en-s13
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 uv run --no-sync python -m experiments.train --config configs/train/c3.yaml \
+  --output checkpoints/c3/multiatis-en-s13 data.dataset=multiatis data.lang=en seed=13 data.split=dev train.langs=en 
+2026-10-31 07:23:40 INFO effectifs : {"train": {"examples": 4478, "requests_expressed": 14336, "requests_unexpressed": 256251, "requests_unexpressed_kept": 28671, "items": 43007, "items_choice": 43007}, "dev": {"examples": 300, "requests_expressed": 1070, "requests_unexpressed": 19078, "requests_unexpressed_kept": 19078, "items": 20148, "items_choice": 20148}}
+2026-10-31 07:23:56 INFO encodage : 43007 items d'entraînement, 20148 de dev (12 s)
+2026-10-31 07:24:05 INFO dev avant entraînement : all perte 3.259 exact. 0.156 (n=20148), choice perte 3.259 exact. 0.156 (n=20148), expressed perte 3.025 exact. 0.223 (n=1070), unexpressed perte 3.272 exact. 0.152 (n=19078), F1 slots 0.0265
+2026-10-31 07:24:16 INFO époque 1, pas 100/4032 : perte 0.8734, lr 1.00e-05
+2026-10-31 07:24:24 INFO époque 1, pas 200/4032 : perte 0.5821, lr 2.00e-05
+2026-10-31 07:24:30 INFO époque 1, pas 300/4032 : perte 0.4505, lr 2.00e-05
+2026-10-31 07:24:37 INFO époque 1, pas 400/4032 : perte 0.3696, lr 1.99e-05
+2026-10-31 07:24:42 INFO époque 1, pas 500/4032 : perte 0.3235, lr 1.97e-05
+2026-10-31 07:24:48 INFO époque 1, pas 600/4032 : perte 0.2879, lr 1.95e-05
+2026-10-31 07:24:54 INFO époque 1, pas 700/4032 : perte 0.2647, lr 1.92e-05
+2026-10-31 07:25:00 INFO époque 1, pas 800/4032 : perte 0.2416, lr 1.88e-05
+2026-10-31 07:25:06 INFO époque 1, pas 900/4032 : perte 0.2246, lr 1.84e-05
+2026-10-31 07:25:12 INFO époque 1, pas 1000/4032 : perte 0.2117, lr 1.79e-05
+2026-10-31 07:25:18 INFO époque 1, pas 1100/4032 : perte 0.1992, lr 1.74e-05
+2026-10-31 07:25:24 INFO époque 1, pas 1200/4032 : perte 0.1879, lr 1.68e-05
+2026-10-31 07:25:30 INFO époque 1, pas 1300/4032 : perte 0.1780, lr 1.62e-05
+2026-10-31 07:25:39 INFO époque 1 : perte train 0.1749, dev all perte 0.042 exact. 0.986 (n=20148), choice perte 0.042 exact. 0.986 (n=20148), expressed perte 0.106 exact. 0.966 (n=1070), unexpressed perte 0.038 exact. 0.988 (n=19078), F1 slots 0.8770 (94 s)
+2026-10-31 07:25:40 INFO checkpoint enregistré (meilleure perte dev f1 = 0.1230) : checkpoints/c3/multiatis-en-s13
+2026-10-31 07:25:44 INFO époque 2, pas 1400/4032 : perte 0.0346, lr 1.55e-05
+2026-10-31 07:25:49 INFO époque 2, pas 1500/4032 : perte 0.0341, lr 1.48e-05
+2026-10-31 07:25:56 INFO époque 2, pas 1600/4032 : perte 0.0368, lr 1.41e-05
+2026-10-31 07:26:01 INFO époque 2, pas 1700/4032 : perte 0.0386, lr 1.33e-05
+2026-10-31 07:26:07 INFO époque 2, pas 1800/4032 : perte 0.0391, lr 1.26e-05
+2026-10-31 07:26:14 INFO époque 2, pas 1900/4032 : perte 0.0392, lr 1.18e-05
+2026-10-31 07:26:20 INFO époque 2, pas 2000/4032 : perte 0.0397, lr 1.10e-05
+2026-10-31 07:26:26 INFO époque 2, pas 2100/4032 : perte 0.0378, lr 1.01e-05
+2026-10-31 07:26:32 INFO époque 2, pas 2200/4032 : perte 0.0367, lr 9.32e-06
+2026-10-31 07:26:37 INFO époque 2, pas 2300/4032 : perte 0.0357, lr 8.50e-06
+2026-10-31 07:26:43 INFO époque 2, pas 2400/4032 : perte 0.0345, lr 7.70e-06
+2026-10-31 07:26:49 INFO époque 2, pas 2500/4032 : perte 0.0338, lr 6.91e-06
+2026-10-31 07:26:55 INFO époque 2, pas 2600/4032 : perte 0.0330, lr 6.14e-06
+2026-10-31 07:27:05 INFO époque 2 : perte train 0.0323, dev all perte 0.024 exact. 0.994 (n=20148), choice perte 0.024 exact. 0.994 (n=20148), expressed perte 0.119 exact. 0.972 (n=1070), unexpressed perte 0.019 exact. 0.996 (n=19078), F1 slots 0.9429 (85 s)
+2026-10-31 07:27:09 INFO checkpoint enregistré (meilleure perte dev f1 = 0.0571) : checkpoints/c3/multiatis-en-s13
+2026-10-31 07:27:10 INFO époque 3, pas 2700/4032 : perte 0.0092, lr 5.40e-06
+2026-10-31 07:27:16 INFO époque 3, pas 2800/4032 : perte 0.0076, lr 4.68e-06
+2026-10-31 07:27:22 INFO époque 3, pas 2900/4032 : perte 0.0081, lr 4.01e-06
+2026-10-31 07:27:28 INFO époque 3, pas 3000/4032 : perte 0.0074, lr 3.37e-06
+2026-10-31 07:27:35 INFO époque 3, pas 3100/4032 : perte 0.0079, lr 2.78e-06
+2026-10-31 07:27:41 INFO époque 3, pas 3200/4032 : perte 0.0067, lr 2.24e-06
+2026-10-31 07:27:47 INFO époque 3, pas 3300/4032 : perte 0.0062, lr 1.75e-06
+2026-10-31 07:27:53 INFO époque 3, pas 3400/4032 : perte 0.0063, lr 1.31e-06
+2026-10-31 07:27:59 INFO époque 3, pas 3500/4032 : perte 0.0069, lr 9.37e-07
+2026-10-31 07:28:06 INFO époque 3, pas 3600/4032 : perte 0.0067, lr 6.21e-07
+2026-10-31 07:28:12 INFO époque 3, pas 3700/4032 : perte 0.0068, lr 3.68e-07
+2026-10-31 07:28:18 INFO époque 3, pas 3800/4032 : perte 0.0065, lr 1.80e-07
+2026-10-31 07:28:23 INFO époque 3, pas 3900/4032 : perte 0.0063, lr 5.85e-08
+2026-10-31 07:28:29 INFO époque 3, pas 4000/4032 : perte 0.0066, lr 3.44e-09
+2026-10-31 07:28:37 INFO époque 3 : perte train 0.0070, dev all perte 0.040 exact. 0.993 (n=20148), choice perte 0.040 exact. 0.993 (n=20148), expressed perte 0.129 exact. 0.981 (n=1070), unexpressed perte 0.035 exact. 0.994 (n=19078), F1 slots 0.9325 (88 s)
+2026-10-31 07:28:37 INFO terminé : meilleure valeur de sélection dev (f1, à minimiser) 0.0571 -> checkpoints/c3/multiatis-en-s13
+== 07:28:38 c3-dev-multiatis-en-s13-k2-p0.0
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s13-k2-p0.0-20261031-072838 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 07:28:39 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s13-k2-p0.0-20261031-072838 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 07:28:39 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:28:40 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:28:40 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:28:48 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:28:50 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:28:52 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:28:54 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:28:55 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:28:57 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:28:59 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:29:00 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:29:02 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:29:03 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:29:05 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:29:07 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:29:08 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:29:10 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:29:11 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:29:12 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:29:14 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:29:15 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:29:17 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:29:19 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:29:20 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:29:21 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:29:22 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:29:24 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:29:25 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:29:27 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:29:30 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:29:32 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:29:33 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:29:34 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:29:35 INFO complete : 500 exemples, F1 slots = 0.9313, rappel candidats = 1.0000, p95 = 2.1454 ms
+== 07:29:37 c3-dev-multiatis-en-s13-k2-p0.2
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s13-k2-p0.2-20261031-072937 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 07:29:37 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s13-k2-p0.2-20261031-072937 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 07:29:38 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:29:38 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:29:38 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:29:46 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:29:48 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:29:50 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:29:52 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:29:53 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:29:55 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:29:57 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:29:58 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:30:00 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:30:01 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:30:03 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:30:04 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:30:05 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:30:07 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:30:08 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:30:10 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:30:11 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:30:13 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:30:14 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:30:16 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:30:17 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:30:18 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:30:20 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:30:21 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:30:22 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:30:24 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:30:27 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:30:29 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:30:30 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:30:31 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:30:32 INFO complete : 500 exemples, F1 slots = 0.8209, rappel candidats = 0.8015, p95 = 2.0803 ms
+== 07:30:33 c3-dev-multiatis-en-s13-k2-p0.5
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s13-k2-p0.5-20261031-073033 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 07:30:33 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s13-k2-p0.5-20261031-073033 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 07:30:34 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:30:34 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:30:34 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:30:42 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:30:44 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:30:46 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:30:48 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:30:50 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:30:51 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:30:53 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:30:55 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:30:56 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:30:58 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:30:59 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:31:01 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:31:02 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:31:04 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:31:05 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:31:06 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:31:08 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:31:09 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:31:11 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:31:12 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:31:14 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:31:15 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:31:16 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:31:18 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:31:19 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:31:21 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:31:23 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:31:26 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:31:27 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:31:28 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:31:29 INFO complete : 500 exemples, F1 slots = 0.6180, rappel candidats = 0.5150, p95 = 2.1353 ms
+== 07:31:30 c3-dev-multiatis-en-s13-k5-p0.0
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s13-k5-p0.0-20261031-073130 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 07:31:30 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s13-k5-p0.0-20261031-073130 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 07:31:31 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:31:31 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:31:31 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:31:39 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:31:42 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:31:44 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:31:46 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:31:48 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:31:49 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:31:51 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:31:53 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:31:54 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:31:56 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:31:58 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:32:00 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:32:01 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:32:03 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:32:04 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:32:06 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:32:07 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:32:09 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:32:10 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:32:12 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:32:13 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:32:15 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:32:16 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:32:18 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:32:20 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:32:22 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:32:24 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:32:26 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:32:28 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:32:29 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:32:30 INFO complete : 500 exemples, F1 slots = 0.9156, rappel candidats = 1.0000, p95 = 2.2213 ms
+== 07:32:31 c3-dev-multiatis-en-s13-k5-p0.2
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s13-k5-p0.2-20261031-073231 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 07:32:31 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s13-k5-p0.2-20261031-073231 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 07:32:32 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:32:32 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:32:32 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:32:40 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:32:42 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:32:44 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:32:46 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:32:48 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:32:50 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:32:52 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:32:53 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:32:55 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:32:57 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:32:59 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:33:01 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:33:02 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:33:04 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:33:05 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:33:07 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:33:08 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:33:10 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:33:11 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:33:13 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:33:15 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:33:16 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:33:18 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:33:19 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:33:21 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:33:23 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:33:25 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:33:27 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:33:29 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:33:31 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:33:31 INFO complete : 500 exemples, F1 slots = 0.8038, rappel candidats = 0.8015, p95 = 2.1541 ms
+== 07:33:32 c3-dev-multiatis-en-s13-k5-p0.5
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s13-k5-p0.5-20261031-073332 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 07:33:32 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s13-k5-p0.5-20261031-073332 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 07:33:33 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:33:33 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:33:33 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:33:42 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:33:44 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:33:46 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:33:48 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:33:50 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:33:51 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:33:53 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:33:55 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:33:57 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:33:58 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:34:00 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:34:02 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:34:04 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:34:05 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:34:07 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:34:08 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:34:10 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:34:11 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:34:13 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:34:14 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:34:16 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:34:17 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:34:19 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:34:21 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:34:23 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:34:25 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:34:27 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:34:29 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:34:31 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:34:33 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:34:33 INFO complete : 500 exemples, F1 slots = 0.6016, rappel candidats = 0.5150, p95 = 2.2482 ms
+== 07:34:35 c3-dev-multiatis-en-s13-k10-p0.0
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s13-k10-p0.0-20261031-073435 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 07:34:35 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s13-k10-p0.0-20261031-073435 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 07:34:36 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:34:36 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:34:36 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:34:45 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:34:47 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:34:50 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:34:52 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:34:54 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:34:55 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:34:57 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:34:59 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:35:01 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:35:03 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:35:04 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:35:06 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:35:08 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:35:10 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:35:12 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:35:13 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:35:15 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:35:17 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:35:19 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:35:21 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:35:23 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:35:25 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:35:27 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:35:28 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:35:30 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:35:32 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:35:34 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:35:37 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:35:39 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:35:41 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:35:41 INFO complete : 500 exemples, F1 slots = 0.9217, rappel candidats = 1.0000, p95 = 2.2445 ms
+== 07:35:42 c3-dev-multiatis-en-s13-k10-p0.2
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s13-k10-p0.2-20261031-073542 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 07:35:43 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s13-k10-p0.2-20261031-073542 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 07:35:44 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:35:44 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:35:44 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:35:53 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:35:55 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:35:58 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:36:00 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:36:02 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:36:03 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:36:05 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:36:07 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:36:09 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:36:11 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:36:13 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:36:15 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:36:16 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:36:18 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:36:20 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:36:21 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:36:23 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:36:25 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:36:27 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:36:28 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:36:30 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:36:32 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:36:33 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:36:35 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:36:37 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:36:39 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:36:41 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:36:44 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:36:46 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:36:47 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:36:48 INFO complete : 500 exemples, F1 slots = 0.8110, rappel candidats = 0.8015, p95 = 2.1794 ms
+== 07:36:49 c3-dev-multiatis-en-s13-k10-p0.5
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s13-k10-p0.5-20261031-073649 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 07:36:49 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s13-k10-p0.5-20261031-073649 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 07:36:50 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:36:50 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:36:50 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:36:59 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:37:01 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:37:03 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:37:05 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:37:07 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:37:09 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:37:11 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:37:13 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:37:15 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:37:17 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:37:18 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:37:20 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:37:22 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:37:24 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:37:25 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:37:27 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:37:29 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:37:31 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:37:32 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:37:34 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:37:36 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:37:37 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:37:39 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:37:41 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:37:43 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:37:44 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:37:47 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:37:50 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:37:51 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:37:53 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:37:54 INFO complete : 500 exemples, F1 slots = 0.6088, rappel candidats = 0.5150, p95 = 2.1896 ms
+== 07:37:55 c3-dev-multiatis-en-s13-k20-p0.0
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s13-k20-p0.0-20261031-073755 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 07:37:55 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s13-k20-p0.0-20261031-073755 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 07:37:56 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:37:56 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:37:56 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:38:05 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:38:08 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:38:10 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:38:12 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:38:15 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:38:17 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:38:19 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:38:21 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:38:23 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:38:25 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:38:27 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:38:29 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:38:31 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:38:33 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:38:35 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:38:37 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:38:39 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:38:41 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:38:43 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:38:45 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:38:47 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:38:49 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:38:51 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:38:53 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:38:56 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:38:58 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:39:00 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:39:03 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:39:05 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:39:07 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:39:08 INFO complete : 500 exemples, F1 slots = 0.9223, rappel candidats = 1.0000, p95 = 2.4099 ms
+== 07:39:09 c3-dev-multiatis-en-s13-k20-p0.2
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s13-k20-p0.2-20261031-073909 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 07:39:10 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s13-k20-p0.2-20261031-073909 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 07:39:11 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:39:11 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:39:11 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:39:21 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:39:23 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:39:26 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:39:28 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:39:31 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:39:32 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:39:35 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:39:37 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:39:39 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:39:41 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:39:43 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:39:45 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:39:47 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:39:49 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:39:52 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:39:53 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:39:56 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:39:58 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:40:00 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:40:02 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:40:04 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:40:06 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:40:08 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:40:10 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:40:12 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:40:15 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:40:17 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:40:20 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:40:23 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:40:25 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:40:26 INFO complete : 500 exemples, F1 slots = 0.8149, rappel candidats = 0.8015, p95 = 2.6337 ms
+== 07:40:27 c3-dev-multiatis-en-s13-k20-p0.5
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s13-k20-p0.5-20261031-074027 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 07:40:27 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s13-k20-p0.5-20261031-074027 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 07:40:28 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:40:29 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:40:29 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:41:21 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:41:27 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:41:29 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:41:32 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:41:34 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:41:36 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:41:38 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:41:40 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:41:43 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:41:45 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:41:47 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:41:49 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:41:51 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:41:53 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:41:55 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:41:57 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:41:59 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:42:01 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:42:03 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:42:05 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:42:07 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:42:09 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:42:11 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:42:13 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:42:15 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:42:17 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:42:20 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:42:23 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:42:25 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:42:27 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:42:28 INFO complete : 500 exemples, F1 slots = 0.6107, rappel candidats = 0.5150, p95 = 2.6733 ms
+== 07:42:29 c3-reels-dev-multiatis-en-s13
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug_reels.yaml \
+  --output results/c3-reels-dev-multiatis-en-s13-20261031-074229 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13 
+2026-10-31 07:42:29 INFO config configs/conditions/c3_laya_ft_aug_reels.yaml -> results/c3-reels-dev-multiatis-en-s13-20261031-074229 data.dataset=multiatis data.lang=en seed=13 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s13
+2026-10-31 07:42:30 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:42:31 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:42:31 INFO juge LayaJudge, générateurs ['LexiconGenerator', 'GlinerGenerator', 'OntologyGenerator', 'HistoryGenerator']
+/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py:190: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+2026-10-31 07:42:33 INFO Loading the following GLiNER type: <class 'gliner.model.UniEncoderSpanGLiNER'>...
+[transformers] The tokenizer you are loading from 'microsoft/mdeberta-v3-base' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+2026-10-31 07:42:44 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:42:47 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:42:50 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:42:52 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:42:54 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:42:56 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:42:59 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:43:01 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:43:03 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:43:04 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:43:06 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:43:08 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:43:10 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:43:11 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:43:13 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:43:14 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:43:16 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:43:18 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:43:20 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:43:21 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:43:23 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:43:24 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:43:26 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:43:28 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:43:30 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:43:31 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:43:34 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:43:37 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:43:38 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:43:40 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:43:41 INFO complete : 500 exemples, F1 slots = 0.8347, rappel candidats = 0.9780, p95 = 6.3773 ms
+  checkpoint d'avant le gel déplacé : checkpoints/c3/multiatis-en-s14 -> checkpoints/_ancien-pre-gel/c3/
+== 07:43:42 entraînement checkpoints/c3/multiatis-en-s14
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 uv run --no-sync python -m experiments.train --config configs/train/c3.yaml \
+  --output checkpoints/c3/multiatis-en-s14 data.dataset=multiatis data.lang=en seed=14 data.split=dev train.langs=en 
+2026-10-31 07:45:09 INFO effectifs : {"train": {"examples": 4478, "requests_expressed": 14336, "requests_unexpressed": 256251, "requests_unexpressed_kept": 28671, "items": 43007, "items_choice": 43007}, "dev": {"examples": 300, "requests_expressed": 1070, "requests_unexpressed": 19078, "requests_unexpressed_kept": 19078, "items": 20148, "items_choice": 20148}}
+2026-10-31 07:45:27 INFO encodage : 43007 items d'entraînement, 20148 de dev (12 s)
+2026-10-31 07:45:36 INFO dev avant entraînement : all perte 3.246 exact. 0.156 (n=20148), choice perte 3.246 exact. 0.156 (n=20148), expressed perte 3.264 exact. 0.186 (n=1070), unexpressed perte 3.245 exact. 0.155 (n=19078), F1 slots 0.0221
+2026-10-31 07:45:47 INFO époque 1, pas 100/4032 : perte 0.8451, lr 1.00e-05
+2026-10-31 07:45:56 INFO époque 1, pas 200/4032 : perte 0.5840, lr 2.00e-05
+2026-10-31 07:46:03 INFO époque 1, pas 300/4032 : perte 0.4527, lr 2.00e-05
+2026-10-31 07:46:09 INFO époque 1, pas 400/4032 : perte 0.3749, lr 1.99e-05
+2026-10-31 07:46:15 INFO époque 1, pas 500/4032 : perte 0.3249, lr 1.97e-05
+2026-10-31 07:46:22 INFO époque 1, pas 600/4032 : perte 0.2883, lr 1.95e-05
+2026-10-31 07:46:28 INFO époque 1, pas 700/4032 : perte 0.2597, lr 1.92e-05
+2026-10-31 07:46:35 INFO époque 1, pas 800/4032 : perte 0.2388, lr 1.88e-05
+2026-10-31 07:46:40 INFO époque 1, pas 900/4032 : perte 0.2230, lr 1.84e-05
+2026-10-31 07:46:46 INFO époque 1, pas 1000/4032 : perte 0.2087, lr 1.79e-05
+2026-10-31 07:46:52 INFO époque 1, pas 1100/4032 : perte 0.1967, lr 1.74e-05
+2026-10-31 07:46:57 INFO époque 1, pas 1200/4032 : perte 0.1860, lr 1.68e-05
+2026-10-31 07:47:04 INFO époque 1, pas 1300/4032 : perte 0.1768, lr 1.62e-05
+2026-10-31 07:47:12 INFO époque 1 : perte train 0.1735, dev all perte 0.030 exact. 0.990 (n=20148), choice perte 0.030 exact. 0.990 (n=20148), expressed perte 0.132 exact. 0.960 (n=1070), unexpressed perte 0.025 exact. 0.992 (n=19078), F1 slots 0.9072 (96 s)
+2026-10-31 07:47:14 INFO checkpoint enregistré (meilleure perte dev f1 = 0.0928) : checkpoints/c3/multiatis-en-s14
+2026-10-31 07:47:18 INFO époque 2, pas 1400/4032 : perte 0.0391, lr 1.55e-05
+2026-10-31 07:47:24 INFO époque 2, pas 1500/4032 : perte 0.0426, lr 1.48e-05
+2026-10-31 07:47:30 INFO époque 2, pas 1600/4032 : perte 0.0420, lr 1.41e-05
+2026-10-31 07:47:36 INFO époque 2, pas 1700/4032 : perte 0.0431, lr 1.33e-05
+2026-10-31 07:47:42 INFO époque 2, pas 1800/4032 : perte 0.0423, lr 1.26e-05
+2026-10-31 07:47:47 INFO époque 2, pas 1900/4032 : perte 0.0410, lr 1.18e-05
+2026-10-31 07:47:54 INFO époque 2, pas 2000/4032 : perte 0.0398, lr 1.10e-05
+2026-10-31 07:48:00 INFO époque 2, pas 2100/4032 : perte 0.0386, lr 1.01e-05
+2026-10-31 07:48:05 INFO époque 2, pas 2200/4032 : perte 0.0375, lr 9.32e-06
+2026-10-31 07:48:12 INFO époque 2, pas 2300/4032 : perte 0.0384, lr 8.50e-06
+2026-10-31 07:48:18 INFO époque 2, pas 2400/4032 : perte 0.0372, lr 7.70e-06
+2026-10-31 07:48:24 INFO époque 2, pas 2500/4032 : perte 0.0362, lr 6.91e-06
+2026-10-31 07:48:31 INFO époque 2, pas 2600/4032 : perte 0.0358, lr 6.14e-06
+2026-10-31 07:48:42 INFO époque 2 : perte train 0.0346, dev all perte 0.019 exact. 0.995 (n=20148), choice perte 0.019 exact. 0.995 (n=20148), expressed perte 0.101 exact. 0.976 (n=1070), unexpressed perte 0.015 exact. 0.996 (n=19078), F1 slots 0.9491 (88 s)
+2026-10-31 07:48:46 INFO checkpoint enregistré (meilleure perte dev f1 = 0.0509) : checkpoints/c3/multiatis-en-s14
+2026-10-31 07:48:47 INFO époque 3, pas 2700/4032 : perte 0.0094, lr 5.40e-06
+2026-10-31 07:48:54 INFO époque 3, pas 2800/4032 : perte 0.0139, lr 4.68e-06
+2026-10-31 07:49:00 INFO époque 3, pas 2900/4032 : perte 0.0100, lr 4.01e-06
+2026-10-31 07:49:06 INFO époque 3, pas 3000/4032 : perte 0.0088, lr 3.37e-06
+2026-10-31 07:49:12 INFO époque 3, pas 3100/4032 : perte 0.0081, lr 2.78e-06
+2026-10-31 07:49:18 INFO époque 3, pas 3200/4032 : perte 0.0079, lr 2.24e-06
+2026-10-31 07:49:24 INFO époque 3, pas 3300/4032 : perte 0.0080, lr 1.75e-06
+2026-10-31 07:49:30 INFO époque 3, pas 3400/4032 : perte 0.0079, lr 1.31e-06
+2026-10-31 07:49:36 INFO époque 3, pas 3500/4032 : perte 0.0076, lr 9.37e-07
+2026-10-31 07:49:42 INFO époque 3, pas 3600/4032 : perte 0.0072, lr 6.21e-07
+2026-10-31 07:49:49 INFO époque 3, pas 3700/4032 : perte 0.0073, lr 3.68e-07
+2026-10-31 07:49:55 INFO époque 3, pas 3800/4032 : perte 0.0069, lr 1.80e-07
+2026-10-31 07:50:01 INFO époque 3, pas 3900/4032 : perte 0.0066, lr 5.85e-08
+2026-10-31 07:50:07 INFO époque 3, pas 4000/4032 : perte 0.0067, lr 3.44e-09
+2026-10-31 07:50:15 INFO époque 3 : perte train 0.0065, dev all perte 0.023 exact. 0.996 (n=20148), choice perte 0.023 exact. 0.996 (n=20148), expressed perte 0.122 exact. 0.979 (n=1070), unexpressed perte 0.018 exact. 0.996 (n=19078), F1 slots 0.9545 (88 s)
+2026-10-31 07:50:19 INFO checkpoint enregistré (meilleure perte dev f1 = 0.0455) : checkpoints/c3/multiatis-en-s14
+2026-10-31 07:50:20 INFO terminé : meilleure valeur de sélection dev (f1, à minimiser) 0.0455 -> checkpoints/c3/multiatis-en-s14
+== 07:50:21 c3-dev-multiatis-en-s14-k2-p0.0
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s14-k2-p0.0-20261031-075021 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 07:50:22 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s14-k2-p0.0-20261031-075021 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 07:50:24 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:50:24 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:50:24 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:50:37 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:50:39 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:50:42 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:50:44 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:50:46 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:50:47 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:50:49 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:50:50 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:50:52 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:50:54 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:50:55 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:50:57 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:50:58 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:51:00 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:51:01 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:51:03 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:51:04 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:51:06 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:51:07 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:51:09 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:51:10 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:51:12 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:51:13 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:51:15 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:51:16 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:51:18 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:51:20 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:51:22 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:51:24 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:51:25 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:51:26 INFO complete : 500 exemples, F1 slots = 0.9391, rappel candidats = 1.0000, p95 = 2.1460 ms
+== 07:51:28 c3-dev-multiatis-en-s14-k2-p0.2
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s14-k2-p0.2-20261031-075128 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 07:51:28 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s14-k2-p0.2-20261031-075128 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 07:51:29 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:51:29 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:51:29 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:51:38 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:51:40 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:51:42 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:51:44 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:51:46 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:51:47 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:51:49 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:51:51 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:51:52 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:51:54 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:51:55 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:51:57 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:51:58 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:52:00 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:52:02 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:52:03 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:52:05 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:52:06 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:52:08 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:52:09 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:52:11 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:52:12 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:52:14 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:52:15 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:52:17 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:52:19 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:52:21 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:52:23 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:52:24 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:52:26 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:52:27 INFO complete : 500 exemples, F1 slots = 0.8306, rappel candidats = 0.8045, p95 = 2.0905 ms
+== 07:52:28 c3-dev-multiatis-en-s14-k2-p0.5
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s14-k2-p0.5-20261031-075228 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 07:52:28 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s14-k2-p0.5-20261031-075228 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 07:52:29 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:52:29 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:52:29 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:52:37 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:52:39 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:52:41 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:52:43 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:52:45 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:52:47 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:52:48 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:52:50 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:52:52 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:52:53 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:52:55 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:52:56 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:52:58 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:53:00 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:53:01 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:53:02 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:53:04 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:53:05 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:53:07 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:53:08 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:53:10 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:53:11 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:53:13 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:53:14 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:53:16 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:53:18 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:53:20 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:53:22 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:53:23 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:53:25 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:53:26 INFO complete : 500 exemples, F1 slots = 0.6110, rappel candidats = 0.5021, p95 = 2.1313 ms
+== 07:53:27 c3-dev-multiatis-en-s14-k5-p0.0
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s14-k5-p0.0-20261031-075327 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 07:53:27 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s14-k5-p0.0-20261031-075327 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 07:53:28 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:53:28 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:53:28 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:53:37 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:53:40 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:53:42 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:53:44 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:53:46 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:53:47 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:53:49 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:53:51 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:53:53 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:53:55 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:53:56 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:53:58 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:54:00 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:54:01 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:54:03 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:54:04 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:54:05 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:54:07 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:54:08 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:54:10 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:54:11 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:54:13 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:54:15 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:54:16 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:54:18 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:54:20 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:54:22 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:54:24 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:54:26 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:54:27 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:54:28 INFO complete : 500 exemples, F1 slots = 0.9362, rappel candidats = 1.0000, p95 = 2.0832 ms
+== 07:54:29 c3-dev-multiatis-en-s14-k5-p0.2
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s14-k5-p0.2-20261031-075429 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 07:54:29 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s14-k5-p0.2-20261031-075429 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 07:54:30 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:54:30 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:54:30 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:54:39 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:54:41 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:54:43 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:54:45 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:54:47 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:54:48 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:54:50 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:54:52 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:54:54 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:54:56 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:54:57 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:54:59 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:55:01 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:55:02 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:55:04 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:55:05 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:55:07 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:55:09 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:55:10 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:55:12 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:55:14 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:55:16 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:55:17 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:55:19 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:55:21 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:55:23 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:55:26 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:55:28 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:55:30 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:55:31 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:55:32 INFO complete : 500 exemples, F1 slots = 0.8286, rappel candidats = 0.8045, p95 = 2.1399 ms
+== 07:55:33 c3-dev-multiatis-en-s14-k5-p0.5
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s14-k5-p0.5-20261031-075533 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 07:55:33 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s14-k5-p0.5-20261031-075533 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 07:55:34 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:55:34 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:55:34 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:55:43 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:55:45 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:55:48 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:55:49 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:55:51 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:55:53 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:55:55 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:55:57 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:55:59 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:56:00 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:56:02 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:56:04 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:56:05 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:56:07 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:56:08 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:56:09 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:56:11 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:56:13 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:56:14 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:56:16 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:56:17 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:56:18 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:56:20 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:56:22 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:56:23 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:56:25 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:56:28 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:56:30 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:56:31 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:56:33 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:56:33 INFO complete : 500 exemples, F1 slots = 0.6119, rappel candidats = 0.5021, p95 = 2.2269 ms
+== 07:56:35 c3-dev-multiatis-en-s14-k10-p0.0
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s14-k10-p0.0-20261031-075635 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 07:56:35 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s14-k10-p0.0-20261031-075635 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 07:56:36 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:56:36 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:56:36 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:56:44 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:56:47 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:56:49 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:56:51 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:56:53 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:56:55 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:56:57 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:56:59 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:57:01 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:57:03 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:57:05 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:57:07 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:57:08 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:57:10 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:57:12 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:57:13 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:57:15 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:57:17 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:57:19 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:57:21 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:57:22 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:57:24 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:57:26 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:57:28 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:57:29 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:57:31 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:57:34 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:57:36 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:57:39 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:57:40 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:57:41 INFO complete : 500 exemples, F1 slots = 0.9305, rappel candidats = 1.0000, p95 = 2.4335 ms
+== 07:57:42 c3-dev-multiatis-en-s14-k10-p0.2
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s14-k10-p0.2-20261031-075742 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 07:57:43 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s14-k10-p0.2-20261031-075742 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 07:57:44 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:57:44 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:57:44 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:57:52 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:57:55 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:57:57 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:57:59 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:58:01 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:58:03 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:58:05 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:58:07 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:58:09 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:58:11 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:58:12 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:58:14 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:58:16 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:58:18 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:58:20 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:58:21 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:58:23 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:58:25 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:58:27 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:58:29 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:58:30 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:58:32 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:58:33 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:58:35 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:58:37 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:58:39 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:58:42 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:58:44 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:58:46 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 07:58:48 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 07:58:49 INFO complete : 500 exemples, F1 slots = 0.8229, rappel candidats = 0.8045, p95 = 2.4522 ms
+== 07:58:50 c3-dev-multiatis-en-s14-k10-p0.5
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s14-k10-p0.5-20261031-075850 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 07:58:50 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s14-k10-p0.5-20261031-075850 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 07:58:51 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 07:58:51 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 07:58:51 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 07:58:59 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 07:59:01 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 07:59:04 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 07:59:06 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 07:59:08 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 07:59:10 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 07:59:12 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 07:59:14 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 07:59:16 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 07:59:18 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 07:59:19 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 07:59:22 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 07:59:24 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 07:59:26 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 07:59:28 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 07:59:30 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 07:59:32 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 07:59:34 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 07:59:36 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 07:59:39 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 07:59:40 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 07:59:42 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 07:59:44 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 07:59:46 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 07:59:48 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 07:59:50 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 07:59:53 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 07:59:56 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 07:59:58 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:00:01 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:00:01 INFO complete : 500 exemples, F1 slots = 0.6066, rappel candidats = 0.5021, p95 = 2.5220 ms
+== 08:00:03 c3-dev-multiatis-en-s14-k20-p0.0
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s14-k20-p0.0-20261031-080003 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 08:00:03 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s14-k20-p0.0-20261031-080003 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 08:00:04 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:00:04 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:00:04 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 08:00:14 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:00:17 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:00:20 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:00:22 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:00:25 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:00:27 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:00:30 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:00:33 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:00:35 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:00:37 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:00:40 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:00:42 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:00:44 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:00:46 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:00:48 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:00:50 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:00:53 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:00:55 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:00:58 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:01:00 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:01:03 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:01:05 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:01:07 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:01:10 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:01:12 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:01:15 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:01:18 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:01:21 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:01:24 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:01:26 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:01:27 INFO complete : 500 exemples, F1 slots = 0.9267, rappel candidats = 1.0000, p95 = 3.0840 ms
+== 08:01:28 c3-dev-multiatis-en-s14-k20-p0.2
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s14-k20-p0.2-20261031-080128 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 08:01:29 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s14-k20-p0.2-20261031-080128 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 08:01:29 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:01:29 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:01:29 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 08:01:39 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:01:42 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:01:45 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:01:47 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:01:50 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:01:52 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:01:55 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:01:57 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:02:00 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:02:02 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:02:05 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:02:07 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:02:09 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:02:11 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:02:13 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:02:15 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:02:17 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:02:19 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:02:22 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:02:24 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:02:27 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:02:29 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:02:32 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:02:34 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:02:37 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:02:39 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:02:43 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:02:46 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:02:49 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:02:51 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:02:52 INFO complete : 500 exemples, F1 slots = 0.8192, rappel candidats = 0.8045, p95 = 3.2215 ms
+== 08:02:53 c3-dev-multiatis-en-s14-k20-p0.5
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s14-k20-p0.5-20261031-080253 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 08:02:53 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s14-k20-p0.5-20261031-080253 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 08:02:54 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:02:54 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:02:54 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 08:03:03 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:03:06 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:03:09 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:03:11 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:03:14 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:03:16 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:03:19 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:03:21 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:03:24 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:03:27 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:03:29 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:03:31 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:03:34 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:03:36 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:03:38 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:03:40 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:03:42 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:03:44 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:03:46 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:03:49 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:03:51 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:03:53 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:03:55 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:03:58 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:04:00 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:04:03 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:04:06 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:04:09 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:04:12 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:04:15 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:04:15 INFO complete : 500 exemples, F1 slots = 0.6037, rappel candidats = 0.5021, p95 = 3.0462 ms
+== 08:04:16 c3-reels-dev-multiatis-en-s14
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug_reels.yaml \
+  --output results/c3-reels-dev-multiatis-en-s14-20261031-080416 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14 
+2026-10-31 08:04:17 INFO config configs/conditions/c3_laya_ft_aug_reels.yaml -> results/c3-reels-dev-multiatis-en-s14-20261031-080416 data.dataset=multiatis data.lang=en seed=14 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s14
+2026-10-31 08:04:17 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:04:18 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:04:18 INFO juge LayaJudge, générateurs ['LexiconGenerator', 'GlinerGenerator', 'OntologyGenerator', 'HistoryGenerator']
+/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py:190: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+2026-10-31 08:04:20 INFO Loading the following GLiNER type: <class 'gliner.model.UniEncoderSpanGLiNER'>...
+[transformers] The tokenizer you are loading from 'microsoft/mdeberta-v3-base' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+2026-10-31 08:04:31 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:04:36 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:04:39 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:04:42 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:04:46 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:04:47 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:04:51 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:04:55 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:04:58 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:05:00 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:05:02 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:05:05 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:05:08 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:05:09 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:05:11 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:05:12 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:05:14 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:05:16 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:05:18 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:05:20 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:05:22 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:05:23 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:05:25 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:05:27 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:05:31 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:05:34 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:05:39 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:05:43 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:05:46 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:05:48 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:05:48 INFO complete : 500 exemples, F1 slots = 0.8222, rappel candidats = 0.9780, p95 = 6.8951 ms
+  checkpoint d'avant le gel déplacé : checkpoints/c3/multiatis-en-s15 -> checkpoints/_ancien-pre-gel/c3/
+== 08:05:50 entraînement checkpoints/c3/multiatis-en-s15
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 uv run --no-sync python -m experiments.train --config configs/train/c3.yaml \
+  --output checkpoints/c3/multiatis-en-s15 data.dataset=multiatis data.lang=en seed=15 data.split=dev train.langs=en 
+2026-10-31 08:07:15 INFO effectifs : {"train": {"examples": 4478, "requests_expressed": 14336, "requests_unexpressed": 256251, "requests_unexpressed_kept": 28671, "items": 43007, "items_choice": 43007}, "dev": {"examples": 300, "requests_expressed": 1070, "requests_unexpressed": 19078, "requests_unexpressed_kept": 19078, "items": 20148, "items_choice": 20148}}
+2026-10-31 08:07:32 INFO encodage : 43007 items d'entraînement, 20148 de dev (12 s)
+2026-10-31 08:07:44 INFO dev avant entraînement : all perte 3.241 exact. 0.162 (n=20148), choice perte 3.241 exact. 0.162 (n=20148), expressed perte 3.151 exact. 0.191 (n=1070), unexpressed perte 3.246 exact. 0.160 (n=19078), F1 slots 0.0228
+2026-10-31 08:08:00 INFO époque 1, pas 100/4032 : perte 0.8706, lr 1.00e-05
+2026-10-31 08:08:08 INFO époque 1, pas 200/4032 : perte 0.5920, lr 2.00e-05
+2026-10-31 08:08:16 INFO époque 1, pas 300/4032 : perte 0.4553, lr 2.00e-05
+2026-10-31 08:08:24 INFO époque 1, pas 400/4032 : perte 0.3794, lr 1.99e-05
+2026-10-31 08:08:35 INFO époque 1, pas 500/4032 : perte 0.3275, lr 1.97e-05
+2026-10-31 08:08:46 INFO époque 1, pas 600/4032 : perte 0.2938, lr 1.95e-05
+2026-10-31 08:08:57 INFO époque 1, pas 700/4032 : perte 0.2662, lr 1.92e-05
+2026-10-31 08:09:08 INFO époque 1, pas 800/4032 : perte 0.2446, lr 1.88e-05
+2026-10-31 08:09:17 INFO époque 1, pas 900/4032 : perte 0.2254, lr 1.84e-05
+2026-10-31 08:09:28 INFO époque 1, pas 1000/4032 : perte 0.2111, lr 1.79e-05
+2026-10-31 08:09:37 INFO époque 1, pas 1100/4032 : perte 0.1990, lr 1.74e-05
+2026-10-31 08:09:47 INFO époque 1, pas 1200/4032 : perte 0.1874, lr 1.68e-05
+2026-10-31 08:09:58 INFO époque 1, pas 1300/4032 : perte 0.1776, lr 1.62e-05
+2026-10-31 08:10:13 INFO époque 1 : perte train 0.1738, dev all perte 0.026 exact. 0.993 (n=20148), choice perte 0.026 exact. 0.993 (n=20148), expressed perte 0.183 exact. 0.954 (n=1070), unexpressed perte 0.017 exact. 0.995 (n=19078), F1 slots 0.9257 (149 s)
+2026-10-31 08:10:15 INFO checkpoint enregistré (meilleure perte dev f1 = 0.0743) : checkpoints/c3/multiatis-en-s15
+2026-10-31 08:10:21 INFO époque 2, pas 1400/4032 : perte 0.0410, lr 1.55e-05
+2026-10-31 08:10:30 INFO époque 2, pas 1500/4032 : perte 0.0380, lr 1.48e-05
+2026-10-31 08:10:41 INFO époque 2, pas 1600/4032 : perte 0.0363, lr 1.41e-05
+2026-10-31 08:10:50 INFO époque 2, pas 1700/4032 : perte 0.0352, lr 1.33e-05
+2026-10-31 08:10:59 INFO époque 2, pas 1800/4032 : perte 0.0342, lr 1.26e-05
+2026-10-31 08:11:09 INFO époque 2, pas 1900/4032 : perte 0.0332, lr 1.18e-05
+2026-10-31 08:11:19 INFO époque 2, pas 2000/4032 : perte 0.0334, lr 1.10e-05
+2026-10-31 08:11:30 INFO époque 2, pas 2100/4032 : perte 0.0339, lr 1.01e-05
+2026-10-31 08:11:40 INFO époque 2, pas 2200/4032 : perte 0.0336, lr 9.32e-06
+2026-10-31 08:11:50 INFO époque 2, pas 2300/4032 : perte 0.0340, lr 8.50e-06
+2026-10-31 08:12:01 INFO époque 2, pas 2400/4032 : perte 0.0331, lr 7.70e-06
+2026-10-31 08:12:12 INFO époque 2, pas 2500/4032 : perte 0.0326, lr 6.91e-06
+2026-10-31 08:12:22 INFO époque 2, pas 2600/4032 : perte 0.0316, lr 6.14e-06
+2026-10-31 08:12:37 INFO époque 2 : perte train 0.0308, dev all perte 0.019 exact. 0.995 (n=20148), choice perte 0.019 exact. 0.995 (n=20148), expressed perte 0.095 exact. 0.979 (n=1070), unexpressed perte 0.014 exact. 0.996 (n=19078), F1 slots 0.9540 (142 s)
+2026-10-31 08:12:41 INFO checkpoint enregistré (meilleure perte dev f1 = 0.0460) : checkpoints/c3/multiatis-en-s15
+2026-10-31 08:12:42 INFO époque 3, pas 2700/4032 : perte 0.0362, lr 5.40e-06
+2026-10-31 08:12:51 INFO époque 3, pas 2800/4032 : perte 0.0079, lr 4.68e-06
+2026-10-31 08:12:59 INFO époque 3, pas 2900/4032 : perte 0.0059, lr 4.01e-06
+2026-10-31 08:13:06 INFO époque 3, pas 3000/4032 : perte 0.0060, lr 3.37e-06
+2026-10-31 08:13:16 INFO époque 3, pas 3100/4032 : perte 0.0060, lr 2.78e-06
+2026-10-31 08:13:27 INFO époque 3, pas 3200/4032 : perte 0.0054, lr 2.24e-06
+2026-10-31 08:13:38 INFO époque 3, pas 3300/4032 : perte 0.0059, lr 1.75e-06
+2026-10-31 08:13:48 INFO époque 3, pas 3400/4032 : perte 0.0066, lr 1.31e-06
+2026-10-31 08:13:57 INFO époque 3, pas 3500/4032 : perte 0.0067, lr 9.37e-07
+2026-10-31 08:14:07 INFO époque 3, pas 3600/4032 : perte 0.0067, lr 6.21e-07
+2026-10-31 08:14:18 INFO époque 3, pas 3700/4032 : perte 0.0063, lr 3.68e-07
+2026-10-31 08:14:26 INFO époque 3, pas 3800/4032 : perte 0.0060, lr 1.80e-07
+2026-10-31 08:14:37 INFO époque 3, pas 3900/4032 : perte 0.0061, lr 5.85e-08
+2026-10-31 08:14:46 INFO époque 3, pas 4000/4032 : perte 0.0061, lr 3.44e-09
+2026-10-31 08:15:03 INFO époque 3 : perte train 0.0061, dev all perte 0.022 exact. 0.996 (n=20148), choice perte 0.022 exact. 0.996 (n=20148), expressed perte 0.105 exact. 0.982 (n=1070), unexpressed perte 0.017 exact. 0.997 (n=19078), F1 slots 0.9576 (142 s)
+2026-10-31 08:15:07 INFO checkpoint enregistré (meilleure perte dev f1 = 0.0424) : checkpoints/c3/multiatis-en-s15
+2026-10-31 08:15:07 INFO terminé : meilleure valeur de sélection dev (f1, à minimiser) 0.0424 -> checkpoints/c3/multiatis-en-s15
+== 08:15:08 c3-dev-multiatis-en-s15-k2-p0.0
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s15-k2-p0.0-20261031-081508 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 08:15:08 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s15-k2-p0.0-20261031-081508 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 08:15:09 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:15:09 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:15:09 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 08:15:18 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:15:20 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:15:22 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:15:24 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:15:26 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:15:28 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:15:30 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:15:32 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:15:33 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:15:35 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:15:37 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:15:39 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:15:40 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:15:42 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:15:44 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:15:46 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:15:47 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:15:49 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:15:50 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:15:52 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:15:54 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:15:55 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:15:57 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:15:59 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:16:01 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:16:03 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:16:05 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:16:08 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:16:09 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:16:10 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:16:11 INFO complete : 500 exemples, F1 slots = 0.9385, rappel candidats = 1.0000, p95 = 2.4916 ms
+== 08:16:12 c3-dev-multiatis-en-s15-k2-p0.2
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s15-k2-p0.2-20261031-081612 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 08:16:13 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s15-k2-p0.2-20261031-081612 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 08:16:13 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:16:13 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:16:13 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 08:16:22 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:16:24 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:16:27 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:16:29 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:16:31 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:16:33 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:16:35 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:16:37 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:16:39 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:16:41 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:16:42 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:16:44 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:16:45 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:16:47 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:16:49 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:16:50 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:16:52 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:16:54 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:16:55 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:16:57 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:16:59 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:17:00 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:17:02 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:17:03 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:17:05 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:17:07 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:17:09 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:17:11 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:17:13 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:17:15 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:17:16 INFO complete : 500 exemples, F1 slots = 0.8254, rappel candidats = 0.7947, p95 = 2.3477 ms
+== 08:17:17 c3-dev-multiatis-en-s15-k2-p0.5
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s15-k2-p0.5-20261031-081717 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 08:17:17 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s15-k2-p0.5-20261031-081717 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=2 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 08:17:18 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:17:18 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:17:18 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 08:17:27 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:17:29 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:17:31 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:17:33 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:17:35 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:17:37 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:17:39 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:17:41 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:17:43 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:17:45 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:17:46 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:17:48 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:17:50 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:17:52 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:17:54 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:17:55 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:17:57 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:17:59 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:18:01 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:18:03 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:18:04 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:18:06 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:18:07 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:18:09 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:18:11 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:18:13 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:18:16 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:18:19 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:18:20 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:18:22 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:18:22 INFO complete : 500 exemples, F1 slots = 0.6117, rappel candidats = 0.5015, p95 = 2.5404 ms
+== 08:18:24 c3-dev-multiatis-en-s15-k5-p0.0
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s15-k5-p0.0-20261031-081824 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 08:18:24 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s15-k5-p0.0-20261031-081824 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 08:18:25 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:18:25 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:18:25 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 08:18:34 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:18:36 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:18:39 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:18:41 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:18:42 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:18:44 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:18:47 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:18:48 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:18:51 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:18:52 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:18:55 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:18:57 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:18:59 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:19:00 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:19:02 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:19:04 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:19:06 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:19:08 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:19:10 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:19:11 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:19:13 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:19:15 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:19:17 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:19:19 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:19:21 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:19:23 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:19:26 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:19:29 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:19:31 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:19:32 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:19:33 INFO complete : 500 exemples, F1 slots = 0.9325, rappel candidats = 1.0000, p95 = 2.7126 ms
+== 08:19:35 c3-dev-multiatis-en-s15-k5-p0.2
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s15-k5-p0.2-20261031-081935 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 08:19:35 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s15-k5-p0.2-20261031-081935 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 08:19:35 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:19:36 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:19:36 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 08:19:44 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:19:47 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:19:49 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:19:51 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:19:54 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:19:55 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:19:58 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:19:59 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:20:01 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:20:03 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:20:06 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:20:08 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:20:10 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:20:12 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:20:14 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:20:15 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:20:17 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:20:18 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:20:20 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:20:21 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:20:23 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:20:25 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:20:26 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:20:28 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:20:30 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:20:32 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:20:34 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:20:37 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:20:38 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:20:40 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:20:40 INFO complete : 500 exemples, F1 slots = 0.8186, rappel candidats = 0.7947, p95 = 2.4600 ms
+== 08:20:42 c3-dev-multiatis-en-s15-k5-p0.5
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s15-k5-p0.5-20261031-082042 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 08:20:42 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s15-k5-p0.5-20261031-082042 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=5 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 08:20:43 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:20:43 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:20:43 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 08:20:52 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:20:55 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:20:57 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:20:59 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:21:02 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:21:03 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:21:06 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:21:08 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:21:10 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:21:11 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:21:13 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:21:15 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:21:17 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:21:19 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:21:21 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:21:23 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:21:25 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:21:26 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:21:28 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:21:30 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:21:32 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:21:33 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:21:36 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:21:37 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:21:39 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:21:42 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:21:44 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:21:47 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:21:48 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:21:50 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:21:51 INFO complete : 500 exemples, F1 slots = 0.6063, rappel candidats = 0.5015, p95 = 2.5740 ms
+== 08:21:53 c3-dev-multiatis-en-s15-k10-p0.0
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s15-k10-p0.0-20261031-082153 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 08:21:53 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s15-k10-p0.0-20261031-082153 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 08:21:54 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:21:54 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:21:54 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 08:22:02 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:22:05 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:22:08 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:22:11 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:22:13 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:22:14 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:22:17 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:22:20 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:22:22 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:22:24 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:22:26 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:22:28 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:22:30 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:22:32 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:22:34 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:22:36 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:22:38 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:22:41 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:22:43 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:22:45 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:22:47 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:22:49 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:22:51 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:22:53 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:22:55 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:22:58 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:23:01 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:23:04 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:23:07 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:23:09 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:23:10 INFO complete : 500 exemples, F1 slots = 0.9293, rappel candidats = 1.0000, p95 = 2.8815 ms
+== 08:23:11 c3-dev-multiatis-en-s15-k10-p0.2
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s15-k10-p0.2-20261031-082311 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 08:23:11 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s15-k10-p0.2-20261031-082311 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 08:23:12 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:23:12 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:23:12 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 08:23:22 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:23:24 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:23:27 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:23:29 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:23:31 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:23:33 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:23:35 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:23:37 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:23:40 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:23:42 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:23:44 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:23:46 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:23:48 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:23:50 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:23:52 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:23:54 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:23:56 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:23:59 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:24:01 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:24:03 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:24:05 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:24:06 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:24:08 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:24:10 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:24:12 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:24:15 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:24:18 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:24:21 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:24:23 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:24:25 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:24:26 INFO complete : 500 exemples, F1 slots = 0.8137, rappel candidats = 0.7947, p95 = 2.7124 ms
+== 08:24:27 c3-dev-multiatis-en-s15-k10-p0.5
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s15-k10-p0.5-20261031-082427 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 08:24:27 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s15-k10-p0.5-20261031-082427 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=10 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 08:24:28 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:24:28 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:24:28 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 08:24:37 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:24:40 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:24:42 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:24:45 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:24:47 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:24:49 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:24:51 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:24:54 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:24:56 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:24:58 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:25:00 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:25:03 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:25:05 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:25:07 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:25:09 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:25:11 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:25:13 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:25:16 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:25:18 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:25:20 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:25:22 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:25:24 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:25:26 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:25:28 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:25:30 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:25:32 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:25:35 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:25:38 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:25:40 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:25:43 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:25:43 INFO complete : 500 exemples, F1 slots = 0.6035, rappel candidats = 0.5015, p95 = 2.5559 ms
+== 08:25:45 c3-dev-multiatis-en-s15-k20-p0.0
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s15-k20-p0.0-20261031-082545 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 08:25:45 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s15-k20-p0.0-20261031-082545 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.0 judge.params.max_options=20
+2026-10-31 08:25:46 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:25:46 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:25:46 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 08:25:55 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:25:58 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:26:01 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:26:04 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:26:07 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:26:09 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:26:11 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:26:14 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:26:16 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:26:18 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:26:21 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:26:23 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:26:25 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:26:28 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:26:30 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:26:31 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:26:34 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:26:37 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:26:39 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:26:42 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:26:45 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:26:47 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:26:50 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:26:53 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:26:55 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:26:58 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:27:01 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:27:05 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:27:08 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:27:11 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:27:12 INFO complete : 500 exemples, F1 slots = 0.9274, rappel candidats = 1.0000, p95 = 2.9999 ms
+== 08:27:13 c3-dev-multiatis-en-s15-k20-p0.2
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s15-k20-p0.2-20261031-082713 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 08:27:13 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s15-k20-p0.2-20261031-082713 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.2 judge.params.max_options=20
+2026-10-31 08:27:14 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:27:14 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:27:14 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 08:27:23 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:27:26 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:27:29 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:27:32 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:27:35 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:27:37 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:27:40 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:27:43 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:27:45 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:27:48 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:27:50 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:27:53 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:27:55 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:27:58 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:28:00 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:28:03 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:28:05 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:28:08 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:28:10 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:28:13 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:28:15 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:28:18 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:28:21 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:28:23 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:28:25 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:28:28 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:28:31 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:28:35 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:28:38 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:28:40 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:28:41 INFO complete : 500 exemples, F1 slots = 0.8125, rappel candidats = 0.7947, p95 = 3.0165 ms
+== 08:28:43 c3-dev-multiatis-en-s15-k20-p0.5
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug.yaml \
+  --output results/c3-dev-multiatis-en-s15-k20-p0.5-20261031-082843 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 08:28:43 INFO config configs/conditions/c3_laya_ft_aug.yaml -> results/c3-dev-multiatis-en-s15-k20-p0.5-20261031-082843 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 candidates.generators.0.params.k=20 candidates.generators.0.params.p_absent=0.5 judge.params.max_options=20
+2026-10-31 08:28:43 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:28:44 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:28:44 INFO juge LayaJudge, générateurs ['OracleGenerator']
+2026-10-31 08:28:53 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:28:56 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:28:59 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:29:02 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:29:05 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:29:07 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:29:09 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:29:11 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:29:14 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:29:16 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:29:18 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:29:21 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:29:23 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:29:25 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:29:27 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:29:29 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:29:31 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:29:34 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:29:36 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:29:38 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:29:40 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:29:43 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:29:46 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:29:48 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:29:51 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:29:54 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:29:57 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:30:01 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:30:04 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:30:07 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:30:08 INFO complete : 500 exemples, F1 slots = 0.6015, rappel candidats = 0.5015, p95 = 3.1105 ms
+== 08:30:09 c3-reels-dev-multiatis-en-s15
+CUDA_VISIBLE_DEVICES=1 HF_HUB_OFFLINE=1 VLLM_WORKER_MULTIPROC_METHOD=spawn VLLM_USE_FLASHINFER_SAMPLER=0 uv run --no-sync python -m experiments.run --config configs/conditions/c3_laya_ft_aug_reels.yaml \
+  --output results/c3-reels-dev-multiatis-en-s15-20261031-083009 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15 
+2026-10-31 08:30:10 INFO config configs/conditions/c3_laya_ft_aug_reels.yaml -> results/c3-reels-dev-multiatis-en-s15-20261031-083009 data.dataset=multiatis data.lang=en seed=15 data.split=dev judge.finetuned=checkpoints/c3/multiatis-en-s15
+2026-10-31 08:30:10 INFO 500 exemples, 18 intentions, 83 slots dans l'ontologie
+2026-10-31 08:30:11 INFO générateurs ajustés sur 4478 exemples d'entraînement
+2026-10-31 08:30:11 INFO juge LayaJudge, générateurs ['LexiconGenerator', 'GlinerGenerator', 'OntologyGenerator', 'HistoryGenerator']
+/home/ubuntu/Workspace/laya-vs-llm-4slots/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py:190: UserWarning: The `resume_download` argument is deprecated and ignored in `snapshot_download`. Downloads always resume whenever possible.
+  warnings.warn(
+2026-10-31 08:30:13 INFO Loading the following GLiNER type: <class 'gliner.model.UniEncoderSpanGLiNER'>...
+[transformers] The tokenizer you are loading from 'microsoft/mdeberta-v3-base' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+2026-10-31 08:30:26 INFO 1024 requêtes jugées, 21/500 exemples terminés
+2026-10-31 08:30:31 INFO 2048 requêtes jugées, 43/500 exemples terminés
+2026-10-31 08:30:36 INFO 3072 requêtes jugées, 59/500 exemples terminés
+2026-10-31 08:30:40 INFO 4096 requêtes jugées, 73/500 exemples terminés
+2026-10-31 08:30:45 INFO 5120 requêtes jugées, 88/500 exemples terminés
+2026-10-31 08:30:48 INFO 6016 requêtes jugées, 100/500 exemples terminés
+2026-10-31 08:30:53 INFO 7040 requêtes jugées, 115/500 exemples terminés
+2026-10-31 08:30:57 INFO 8064 requêtes jugées, 129/500 exemples terminés
+2026-10-31 08:31:01 INFO 9088 requêtes jugées, 144/500 exemples terminés
+2026-10-31 08:31:04 INFO 10112 requêtes jugées, 158/500 exemples terminés
+2026-10-31 08:31:08 INFO 11008 requêtes jugées, 171/500 exemples terminés
+2026-10-31 08:31:12 INFO 12032 requêtes jugées, 185/500 exemples terminés
+2026-10-31 08:31:15 INFO 13056 requêtes jugées, 200/500 exemples terminés
+2026-10-31 08:31:19 INFO 14080 requêtes jugées, 214/500 exemples terminés
+2026-10-31 08:31:22 INFO 15104 requêtes jugées, 228/500 exemples terminés
+2026-10-31 08:31:24 INFO 16000 requêtes jugées, 241/500 exemples terminés
+2026-10-31 08:31:25 INFO 17024 requêtes jugées, 256/500 exemples terminés
+2026-10-31 08:31:29 INFO 18048 requêtes jugées, 270/500 exemples terminés
+2026-10-31 08:31:32 INFO 19072 requêtes jugées, 284/500 exemples terminés
+2026-10-31 08:31:36 INFO 20096 requêtes jugées, 299/500 exemples terminés
+2026-10-31 08:31:40 INFO 21120 requêtes jugées, 313/500 exemples terminés
+2026-10-31 08:31:43 INFO 22016 requêtes jugées, 326/500 exemples terminés
+2026-10-31 08:31:47 INFO 23040 requêtes jugées, 340/500 exemples terminés
+2026-10-31 08:31:51 INFO 24064 requêtes jugées, 355/500 exemples terminés
+2026-10-31 08:31:54 INFO 25088 requêtes jugées, 369/500 exemples terminés
+2026-10-31 08:31:58 INFO 26112 requêtes jugées, 387/500 exemples terminés
+2026-10-31 08:32:06 INFO 27008 requêtes jugées, 429/500 exemples terminés
+2026-10-31 08:32:12 INFO 28032 requêtes jugées, 462/500 exemples terminés
+2026-10-31 08:32:16 INFO 29056 requêtes jugées, 477/500 exemples terminés
+2026-10-31 08:32:18 INFO 30080 requêtes jugées, 491/500 exemples terminés
+2026-10-31 08:32:19 INFO complete : 500 exemples, F1 slots = 0.8552, rappel candidats = 0.9780, p95 = 7.9807 ms
+==== 2026-10-31 08:32:21 fin

@@ -1,0 +1,13 @@
+2026-10-31 08:26:11 INFO config configs/conditions/c0_tagger.yaml -> results/c0-dev-mtop-fr-s14-20261031-082610 data.dataset=mtop data.lang=fr seed=14 data.split=dev candidates.generators.0.params.checkpoint=checkpoints/tagger/mtop-fr-s14
+2026-10-31 08:26:11 INFO 1577 exemples, 110 intentions, 73 slots dans l'ontologie
+2026-10-31 08:26:11 INFO juge GeneratorScoreJudge, générateurs ['TaggerGenerator']
+2026-10-31 08:26:17 INFO 1024 requêtes jugées, 164/1577 exemples terminés
+2026-10-31 08:26:18 INFO 2048 requêtes jugées, 358/1577 exemples terminés
+2026-10-31 08:26:20 INFO 3008 requêtes jugées, 540/1577 exemples terminés
+2026-10-31 08:26:20 INFO 4032 requêtes jugées, 654/1577 exemples terminés
+2026-10-31 08:26:22 INFO 5056 requêtes jugées, 793/1577 exemples terminés
+2026-10-31 08:26:23 INFO 6016 requêtes jugées, 955/1577 exemples terminés
+2026-10-31 08:26:24 INFO 7040 requêtes jugées, 1123/1577 exemples terminés
+2026-10-31 08:26:25 INFO 8000 requêtes jugées, 1284/1577 exemples terminés
+2026-10-31 08:26:27 INFO 9024 requêtes jugées, 1458/1577 exemples terminés
+2026-10-31 08:26:28 INFO complete : 1577 exemples, F1 slots = 0.8309, rappel candidats = 0.8403, p95 = 0.0012 ms

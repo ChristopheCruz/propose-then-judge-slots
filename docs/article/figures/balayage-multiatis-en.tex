@@ -1,0 +1,20 @@
+\begin{tikzpicture}
+\begin{axis}[xlabel={Number of candidates $k$},ylabel={Slot F1},xmode=log,log basis x=2,xtick={2,5,10,20},xticklabels={2,5,10,20},legend pos=outer north east,title={multiatis EN: robustness to list size and missing gold},width=9cm,height=6cm]
+\addplot+[blue,mark=*,error bars/.cd,y dir=both,y explicit] table[x=k,y=f1,y error=sd]{balayage-multiatis-en-C1-p0.dat};
+\addlegendentry{Laya zero-shot, $p_{absent}=0$}
+\addplot+[blue,mark=*,dashed,error bars/.cd,y dir=both,y explicit] table[x=k,y=f1,y error=sd]{balayage-multiatis-en-C1-p50.dat};
+\addlegendentry{Laya zero-shot, $p_{absent}=0.5$}
+\addplot+[red,mark=square*,error bars/.cd,y dir=both,y explicit] table[x=k,y=f1,y error=sd]{balayage-multiatis-en-C2-p0.dat};
+\addlegendentry{Laya fine-tuned (C2), $p_{absent}=0$}
+\addplot+[red,mark=square*,dashed,error bars/.cd,y dir=both,y explicit] table[x=k,y=f1,y error=sd]{balayage-multiatis-en-C2-p50.dat};
+\addlegendentry{Laya fine-tuned (C2), $p_{absent}=0.5$}
+\addplot+[black,mark=triangle*,error bars/.cd,y dir=both,y explicit] table[x=k,y=f1,y error=sd]{balayage-multiatis-en-C3-p0.dat};
+\addlegendentry{Laya FT + aug. v1, $p_{absent}=0$}
+\addplot+[black,mark=triangle*,dashed,error bars/.cd,y dir=both,y explicit] table[x=k,y=f1,y error=sd]{balayage-multiatis-en-C3-p50.dat};
+\addlegendentry{Laya FT + aug. v1, $p_{absent}=0.5$}
+\addplot+[orange,mark=diamond*,error bars/.cd,y dir=both,y explicit] table[x=k,y=f1,y error=sd]{balayage-multiatis-en-C3v2-p0.dat};
+\addlegendentry{Laya FT + augmentation (C3), $p_{absent}=0$}
+\addplot+[orange,mark=diamond*,dashed,error bars/.cd,y dir=both,y explicit] table[x=k,y=f1,y error=sd]{balayage-multiatis-en-C3v2-p50.dat};
+\addlegendentry{Laya FT + augmentation (C3), $p_{absent}=0.5$}
+\end{axis}
+\end{tikzpicture}
